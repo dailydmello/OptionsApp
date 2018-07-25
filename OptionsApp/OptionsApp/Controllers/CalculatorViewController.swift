@@ -12,7 +12,7 @@ import UIKit
 class CalculatorViewController: UIViewController{
     
     
-    @IBOutlet weak var symbolTextField: UITextField!
+    @IBOutlet weak var symbolTextField: SymbolTextField!
     @IBOutlet weak var currentPriceLabel: UILabel!
     
     @IBOutlet weak var getPriceButton: UIButton!
@@ -23,10 +23,18 @@ class CalculatorViewController: UIViewController{
     @IBOutlet weak var expiryDateTextField: UITextField!
     @IBOutlet weak var costLabel: UILabel!
     
+    @IBOutlet weak var calculateCostButton: UIButton!
+    
     @IBOutlet weak var graphButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        symbolTextField.calculateButtonAction = {
+            // 2
+            print("enter button tapped")
+        }
+
     }
     
     @IBAction func getPriceButtonTapped(_ sender: UIButton) {
@@ -36,6 +44,10 @@ class CalculatorViewController: UIViewController{
     @IBAction func strategySelected(_ sender: UISegmentedControl) {
     }
     
+    
+    @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
+        print("calculate cost button tapped")
+    }
     @IBAction func graphButtonTapped(_ sender: Any) {
         print("graph button tapped")
     }

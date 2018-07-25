@@ -17,6 +17,7 @@
 		DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C621079F6B0057D466 /* ListCalcTableViewController.swift */; };
 		DDB581CA2107B29B0057D466 /* ListCalcTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C92107B29B0057D466 /* ListCalcTableViewCell.swift */; };
 		DDB581CC2107DE930057D466 /* UIColor+TC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581CB2107DE930057D466 /* UIColor+TC.swift */; };
+		DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581CF21083DE00057D466 /* SymbolTextField.swift */; };
 		F75ECA978A56C5AED0851106 /* Pods_OptionsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307F94F97CB8C02A393E0695 /* Pods_OptionsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		DDB581C621079F6B0057D466 /* ListCalcTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCalcTableViewController.swift; sourceTree = "<group>"; };
 		DDB581C92107B29B0057D466 /* ListCalcTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCalcTableViewCell.swift; sourceTree = "<group>"; };
 		DDB581CB2107DE930057D466 /* UIColor+TC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+TC.swift"; sourceTree = "<group>"; };
+		DDB581CF21083DE00057D466 /* SymbolTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB581CB2107DE930057D466 /* UIColor+TC.swift */,
+				DDB581CF21083DE00057D466 /* SymbolTextField.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				DDB581C321079CD10057D466 /* CalculatorViewController.swift in Sources */,
 				DDB581A9210793780057D466 /* AppDelegate.swift in Sources */,
 				DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */,
+				DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
