@@ -74,7 +74,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMx-e2-l06" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1202" y="133"/>
+            <point key="canvasLocation" x="1340" y="133"/>
         </scene>
         <!--Calculator View Controller-->
         <scene sceneID="GAq-bD-9Xs">
@@ -173,6 +173,9 @@
                                                             <segment title="Long Call"/>
                                                             <segment title="Long Put"/>
                                                         </segments>
+                                                        <connections>
+                                                            <action selector="strategySelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="sCp-hb-95o"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                 </subviews>
                                                 <color key="tintColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -240,7 +243,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D03-va-dQc">
                                                 <rect key="frame" x="0.0" y="197" width="301" height="20.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strategy Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-h3-YWp">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-h3-YWp">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -281,12 +284,18 @@
                                 <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" name="tcCharcoal"/>
                                 <state key="normal" title="Graph"/>
+                                <connections>
+                                    <action selector="graphButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="lBa-mZ-Vmu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-tm-nMo">
                                 <rect key="frame" x="15" y="232" width="345" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" name="tcCharcoal"/>
                                 <state key="normal" title="Get Price"/>
+                                <connections>
+                                    <action selector="getPriceButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="Lj1-wm-p5i"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="tcOffWhite"/>
@@ -307,10 +316,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSE-1M-lIo"/>
                     </view>
+                    <connections>
+                        <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
+                        <outlet property="currentPriceLabel" destination="71t-G3-JAf" id="ch2-6G-lwB"/>
+                        <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
+                        <outlet property="getPriceButton" destination="Cnn-tm-nMo" id="Lap-K9-mY2"/>
+                        <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
+                        <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
+                        <outlet property="optionStrategySegmentedControl" destination="18z-KB-iIM" id="Fbk-hO-SHW"/>
+                        <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
+                        <outlet property="symbolTextField" destination="w80-gJ-Kdk" id="kMS-ri-cQ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr9-XC-Jm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2193" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HSy-dr-fG3">
