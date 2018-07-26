@@ -14,7 +14,7 @@ struct TimeSeriesIntraday{
     var _low: String?
     var _close: String?
     var _volume: String?
-    var _timeFrame: Date
+    var _timeStamp: Date
     
     var open: String {
         guard let openPrice = _open else {
@@ -41,7 +41,7 @@ struct TimeSeriesIntraday{
     }
     
     var close: String {
-        guard let closePrice = _open else {
+        guard let closePrice = _close else {
             print("ERROR in close price")
             return ""
         }
@@ -57,7 +57,7 @@ struct TimeSeriesIntraday{
     }
     
     var timeFrame: Date{
-        return _timeFrame
+        return _timeStamp
     }
     
     init(dict: [String: Any], timeStamp: Date){
@@ -66,11 +66,11 @@ struct TimeSeriesIntraday{
         self._low = dict["3. low"] as? String
         self._close = dict["4. close"] as? String
         self._volume = dict["5. volume"] as? String
-        self._timeFrame = timeStamp
+        self._timeStamp = timeStamp
     }
     
     static func sortSeriesByTime(array:[TimeSeriesIntraday])->[TimeSeriesIntraday]{
-        return array.sorted(by: { $0.timeFrame < $1.timeFrame})
+        return array.sorted(by: { $0.timeFrame < $1.timeFrame}) //redo to understand
     
     }
     
