@@ -157,32 +157,37 @@
                                 <rect key="frame" x="15" y="286" width="345" height="303"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O34-eO-Gjj">
-                                        <rect key="frame" x="22" y="15" width="301" height="217.5"/>
+                                        <rect key="frame" x="22" y="15" width="301" height="219.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sW-v0-FjW">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sW-v0-FjW">
                                                 <rect key="frame" x="0.0" y="0.0" width="301" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-iZ-6Sl">
-                                                <rect key="frame" x="0.0" y="39" width="301" height="28"/>
+                                                <rect key="frame" x="0.0" y="39" width="301" height="30"/>
                                                 <subviews>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="18z-KB-iIM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="301" height="29"/>
-                                                        <segments>
-                                                            <segment title="Long Call"/>
-                                                            <segment title="Long Put"/>
-                                                        </segments>
-                                                        <connections>
-                                                            <action selector="strategySelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="sCp-hb-95o"/>
-                                                        </connections>
-                                                    </segmentedControl>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of 1 Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U11-R4-gqp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCB-He-d0A" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="201" y="0.0" width="100" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="JFm-xE-mYt"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="tintColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9h-6C-zh6">
-                                                <rect key="frame" x="0.0" y="77" width="301" height="30"/>
+                                                <rect key="frame" x="0.0" y="79" width="301" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strike Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-d8-xal">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
@@ -202,7 +207,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67C-9B-cgF">
-                                                <rect key="frame" x="0.0" y="117" width="301" height="30"/>
+                                                <rect key="frame" x="0.0" y="119" width="301" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contracts:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa1-nZ-ZW6">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
@@ -222,7 +227,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmH-SR-ebt">
-                                                <rect key="frame" x="0.0" y="157" width="301" height="30"/>
+                                                <rect key="frame" x="0.0" y="159" width="301" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKa-Hz-b62">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
@@ -242,7 +247,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D03-va-dQc">
-                                                <rect key="frame" x="0.0" y="197" width="301" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="199" width="301" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-h3-YWp">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
@@ -329,13 +334,13 @@
                     </view>
                     <connections>
                         <outlet property="calculateCostButton" destination="zr4-bC-BNF" id="ZZT-re-bqH"/>
+                        <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
                         <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
                         <outlet property="currentPriceLabel" destination="71t-G3-JAf" id="ch2-6G-lwB"/>
                         <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
                         <outlet property="getPriceButton" destination="Cnn-tm-nMo" id="Lap-K9-mY2"/>
                         <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
                         <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
-                        <outlet property="optionStrategySegmentedControl" destination="18z-KB-iIM" id="Fbk-hO-SHW"/>
                         <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
                         <outlet property="symbolTextField" destination="w80-gJ-Kdk" id="kMS-ri-cQ2"/>
                     </connections>
