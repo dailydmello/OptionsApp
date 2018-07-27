@@ -28,9 +28,6 @@ class CalculatorViewController: UIViewController{
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
     
-//    var numofContracts: Float = 2
-//    var callPrice: Float = 2
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
