@@ -11,6 +11,10 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+protocol ClassCalculatorViewControllerDelegate: class {
+    func graphValues(numOfOptions: Float, callPrice: Float, underlyingPrice: Float, strikePrice: Float) -> Float
+}
+
 class CalculatorViewController: UIViewController{
     
     
@@ -28,28 +32,51 @@ class CalculatorViewController: UIViewController{
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
     
+    weak var delegate: ClassCalculatorViewControllerDelegate?
+    var numOfOptions: Float?
+    var callPrice: Float?
+    var underlyingPrice: Float?
+    var strikePrice: Float?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
         symbolTextField.calculateButtonAction = {
             self.getSymbolCurrentPrice()
         }
-        
+        guard let numberText = currentPriceLabel.text,
+            let underlyingPrice = Float(numberText) else {
+                return
+            }
+        //print(under)
         callPriceTextField.calculateButtonAction = {
             if self.callPriceTextField.isFirstResponder {
                 self.callPriceTextField.resignFirstResponder()
             }
         }
+        if let number = callPriceTextField.text{
+            callPrice = Float(number)
+        }else{return}
+        //////////////////////////////////////
         strikePriceTextField.calculateButtonAction = {
             if self.strikePriceTextField.isFirstResponder {
                 self.strikePriceTextField.resignFirstResponder()
             }
         }
+        if let number = strikePriceTextField.text{
+            strikePrice = Float(number)
+        }else{return}
+        //////////////////////////////////////////
         numofContractsTextField.calculateButtonAction = {
             if self.numofContractsTextField.isFirstResponder {
                 self.numofContractsTextField.resignFirstResponder()
             }
         }
+        if let number = numofContractsTextField.text{
+            numOfOptions = Float(number)
+        }else{return}
+        //////////////////////////////////////
         expiryDateTextField.calculateButtonAction = {
             if self.expiryDateTextField.isFirstResponder {
                 self.expiryDateTextField.resignFirstResponder()
@@ -67,20 +94,33 @@ class CalculatorViewController: UIViewController{
     @IBAction func graphButtonTapped(_ sender: Any) {
         print("graph button tapped")
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 1
+        guard let identifier = segue.identifier else { return }
+        
+        // 2
+        if identifier == "displayGraph" {
+            print("Transitioning to the Graph View Controller")
+            print(numOfOptions!)
+            
+            delegate?.graphValues(numOfOptions: numOfOptions!, callPrice: callPrice!, underlyingPrice: underlyingPrice!, strikePrice: strikePrice!)
+            
+           
+        }
+    }
+
 }
 
 extension CalculatorViewController{
+    
     func calculateCallTotalCost(){
-        //let numOfContracts: String
-        //let callPrice: Float
-        
         guard let callPrice = self.callPriceTextField.text
             else {return}
         guard let numOfContracts = self.numofContractsTextField.text
         else{return}
         let totalnumOfCallOptions = Float(numOfContracts)! * 100
-        let totalCallCost = Float(callPrice)! * totalnumOfCallOptions
-        self.costLabel.text = String(totalCallCost)
+        let entryCost = Float(callPrice)! * totalnumOfCallOptions
+        self.costLabel.text = String(entryCost)
     }
     
     func getSymbolCurrentPrice(){

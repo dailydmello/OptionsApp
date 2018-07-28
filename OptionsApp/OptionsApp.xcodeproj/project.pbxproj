@@ -86,7 +86,6 @@
 				DDB581C82107B2670057D466 /* Views */,
 				DDB581BD21079B320057D466 /* Models */,
 				DDB581BE21079B440057D466 /* Controllers */,
-				DDB581BF21079B580057D466 /* Helpers */,
 				DDB581C021079B5E0057D466 /* Supporting Files */,
 				DDB581C121079B870057D466 /* Services */,
 				DDB581AC210793780057D466 /* Main.storyboard */,
@@ -143,6 +142,7 @@
 		DDB581C82107B2670057D466 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDB581BF21079B580057D466 /* Helpers */,
 				DDB581C92107B29B0057D466 /* ListCalcTableViewCell.swift */,
 			);
 			path = Views;
