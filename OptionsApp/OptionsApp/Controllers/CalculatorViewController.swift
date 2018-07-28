@@ -13,7 +13,6 @@ import SwiftyJSON
 
 class CalculatorViewController: UIViewController{
     
-    
     @IBOutlet weak var symbolTextField: SymbolTextField!
     @IBOutlet weak var currentPriceLabel: UILabel!
     
@@ -33,6 +32,7 @@ class CalculatorViewController: UIViewController{
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
         symbolTextField.calculateButtonAction = {
             self.getSymbolCurrentPrice()
+            
         }
         
         callPriceTextField.calculateButtonAction = {
@@ -71,9 +71,6 @@ class CalculatorViewController: UIViewController{
 
 extension CalculatorViewController{
     func calculateCallTotalCost(){
-        //let numOfContracts: String
-        //let callPrice: Float
-        
         guard let callPrice = self.callPriceTextField.text
             else {return}
         guard let numOfContracts = self.numofContractsTextField.text
@@ -85,7 +82,6 @@ extension CalculatorViewController{
     
     func getSymbolCurrentPrice(){
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
-        symbolTextField.calculateButtonAction = {
             guard let symbolText = self.symbolTextField.text
                 else {return}
             if self.symbolTextField.isFirstResponder {
@@ -124,7 +120,6 @@ extension CalculatorViewController{
                     print ("API request did not succeed")
                     print(error)
                 }
-            }
         }
     }
         
