@@ -302,6 +302,7 @@
                                 <state key="normal" title="Graph"/>
                                 <connections>
                                     <action selector="graphButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="lBa-mZ-Vmu"/>
+                                    <segue destination="Mh9-Vo-2NA" kind="show" identifier="displayGraph" id="HIK-Rg-0T1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-tm-nMo">
@@ -349,10 +350,24 @@
             </objects>
             <point key="canvasLocation" x="2193" y="133"/>
         </scene>
+        <!--Profit Graph View Controller-->
+        <scene sceneID="iFr-i5-jH1">
+            <objects>
+                <viewController id="Mh9-Vo-2NA" customClass="ProfitGraphViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jox-HR-sN4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VvL-7m-4er"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUT-l0-ETt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3041" y="133"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HSy-dr-fG3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HQf-po-KxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dgf-nF-65w" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GB9-Mr-O1h">
@@ -364,6 +379,7 @@
                         <segue destination="4BE-nU-uyy" kind="relationship" relationship="rootViewController" id="T9b-hW-uwj"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HQf-po-KxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="485.60000000000002" y="132.68365817091455"/>
         </scene>
@@ -371,9 +387,6 @@
     <resources>
         <namedColor name="tcCharcoal">
             <color red="0.28999999170000001" green="0.28999999170000001" blue="0.28999999170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="tcCharcoal">
-            <color red="0.28999999165534973" green="0.28999999165534973" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tcOffWhite">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

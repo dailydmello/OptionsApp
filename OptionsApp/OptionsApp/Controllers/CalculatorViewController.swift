@@ -11,7 +11,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CalculatorViewController: UIViewController{
+protocol CalculatorViewControllerDelegate {
+    
+    func passData() -> [Float]
+}
+
+class CalculatorViewController: UIViewController, CalculatorViewControllerDelegate{
     
     @IBOutlet weak var symbolTextField: SymbolTextField!
     @IBOutlet weak var currentPriceLabel: UILabel!
@@ -27,28 +32,55 @@ class CalculatorViewController: UIViewController{
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
     
+    var tempArr = [Float]()
+    var underlyingPrice: Float = 0
+    var priceOfCall: Float = 0
+    var strikePrice: Float = 0
+    var numOfOptions: Float = 0
+    
+    func passData()-> [Float]{
+        tempArr.append(self.underlyingPrice)
+        tempArr.append(self.priceOfCall)
+        tempArr.append(self.strikePrice)
+        tempArr.append(self.numOfOptions)
+        return tempArr
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
         symbolTextField.calculateButtonAction = {
-            self.getSymbolCurrentPrice()
-            
+            self.getSymbolCurrentPrice(){ stockPrice in
+                
+                self.underlyingPrice = stockPrice
+                //print(self.underlyingPrice)
+            }
         }
         
         callPriceTextField.calculateButtonAction = {
             if self.callPriceTextField.isFirstResponder {
                 self.callPriceTextField.resignFirstResponder()
             }
+            if let callPriceText = self.callPriceTextField.text, let callPriceFloat = Float(callPriceText){
+                self.priceOfCall = callPriceFloat
+            }
+            print(self.priceOfCall)
         }
+        
         strikePriceTextField.calculateButtonAction = {
             if self.strikePriceTextField.isFirstResponder {
                 self.strikePriceTextField.resignFirstResponder()
             }
+            if let strikePriceText = self.strikePriceTextField.text, let strikePriceFloat = Float(strikePriceText){
+                self.strikePrice = strikePriceFloat
+            }
+            
         }
         numofContractsTextField.calculateButtonAction = {
             if self.numofContractsTextField.isFirstResponder {
                 self.numofContractsTextField.resignFirstResponder()
             }
+            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsFloat = Float(numOfContractsText) {self.numOfOptions = numOfContractsFloat * 100}
         }
         expiryDateTextField.calculateButtonAction = {
             if self.expiryDateTextField.isFirstResponder {
@@ -65,7 +97,20 @@ class CalculatorViewController: UIViewController{
         calculateCallTotalCost()
     }
     @IBAction func graphButtonTapped(_ sender: Any) {
-        print("graph button tapped")
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 1
+        guard let identifier = segue.identifier else { return }
+        
+        // 2
+        if identifier == "displayGraph" {
+            //if destination is profitgraph, cast profit as profitgrapgviewcontroller
+            if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
+                profitGraphViewController.delegate = self
+            }
+        }
     }
 }
 
@@ -80,7 +125,8 @@ extension CalculatorViewController{
         self.costLabel.text = String(totalCallCost)
     }
     
-    func getSymbolCurrentPrice(){
+    func getSymbolCurrentPrice(completion: @escaping (_: Float) -> ()){
+        
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
             guard let symbolText = self.symbolTextField.text
                 else {return}
@@ -116,6 +162,7 @@ extension CalculatorViewController{
                         else {return}
                     let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
                     self.currentPriceLabel.text = String(stockPriceRounded)
+                    completion(stockPriceRounded)
                 case .failure(let error):
                     print ("API request did not succeed")
                     print(error)
