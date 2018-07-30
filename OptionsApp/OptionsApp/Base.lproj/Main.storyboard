@@ -60,7 +60,7 @@
                                 <connections>
                                     <outlet property="strategyLastModificationStamp" destination="fzP-tG-63d" id="HPr-VF-6kP"/>
                                     <outlet property="strategyTitleLabel" destination="b3B-MS-qPk" id="Xcz-rk-8WK"/>
-                                    <segue destination="DOM-Vy-0dR" kind="show" id="AQS-a4-qGa"/>
+                                    <segue destination="DOM-Vy-0dR" kind="show" identifier="displayCalculation" id="AQS-a4-qGa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,14 +70,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Past Calculations" id="I5g-BQ-Blb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tN-EX-YQs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tN-EX-YQs">
+                            <connections>
+                                <segue destination="DOM-Vy-0dR" kind="show" identifier="addCalculation" id="8Qk-bx-uat"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMx-e2-l06" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1340" y="133"/>
         </scene>
-        <!--Calculator View Controller-->
+        <!--Calculator-->
         <scene sceneID="GAq-bD-9Xs">
             <objects>
                 <viewController id="DOM-Vy-0dR" customClass="CalculatorViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -333,20 +337,33 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSE-1M-lIo"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Calculator" id="GdP-ie-mIh">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fMY-d4-G2V">
+                            <connections>
+                                <segue destination="YeQ-wm-Hs1" kind="unwind" identifier="cancel" unwindAction="unwindWithSegue:" id="hqI-up-pzC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9Kk-75-rBu">
+                            <connections>
+                                <segue destination="YeQ-wm-Hs1" kind="unwind" identifier="save" unwindAction="unwindWithSegue:" id="MRE-7D-qar"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calculateCostButton" destination="zr4-bC-BNF" id="ZZT-re-bqH"/>
                         <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
                         <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
-                        <outlet property="currentPriceLabel" destination="71t-G3-JAf" id="ch2-6G-lwB"/>
                         <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
                         <outlet property="getPriceButton" destination="Cnn-tm-nMo" id="Lap-K9-mY2"/>
                         <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
                         <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
                         <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
-                        <outlet property="symbolTextField" destination="w80-gJ-Kdk" id="kMS-ri-cQ2"/>
+                        <outlet property="underlyingPriceLabel" destination="71t-G3-JAf" id="htq-h6-Yh7"/>
+                        <outlet property="underlyingTickerTextField" destination="w80-gJ-Kdk" id="7yl-4I-h57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr9-XC-Jm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YeQ-wm-Hs1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2193" y="133"/>
         </scene>
@@ -407,4 +424,7 @@
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Qk-bx-uat"/>
+    </inferredMetricsTieBreakers>
 </document>
