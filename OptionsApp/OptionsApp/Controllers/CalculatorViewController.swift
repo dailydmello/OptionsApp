@@ -160,9 +160,12 @@ extension CalculatorViewController{
                     let sortedData = TimeSeriesIntraday.sortSeriesByTime(array: tempArr)
                     guard let latestTickerStockPrice = Float(sortedData[sortedData.count-1].close)
                         else {return}
-                    let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
-                    self.currentPriceLabel.text = String(stockPriceRounded)
-                    completion(stockPriceRounded)
+//                    umcomment later
+//                    let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
+//                    self.currentPriceLabel.text = String(stockPriceRounded)
+                    let stockPriceRounded = 20.0
+                    self.currentPriceLabel.text = String(20)
+                    completion(Float(stockPriceRounded))
                 case .failure(let error):
                     print ("API request did not succeed")
                     print(error)
