@@ -37,6 +37,14 @@ class ListCalcTableViewController: UITableViewController{
         return cell
     
     }
+    //to delete calculations
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            calculations.remove(at: indexPath.row)
+        }
+    }
+    
+
     
     @IBAction func unwindWithSegue (_ segue: UIStoryboardSegue){
         
