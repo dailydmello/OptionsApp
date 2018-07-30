@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Calculation" representedClassName=".Calculation" syncable="YES" codeGenerationType="class">
+        <attribute name="callPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modificationTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="numOfContracts" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="optionExpiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="strategyTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="strikePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="underlyingPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="underlyingTicker" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="165"/>
+    </elements>
 </model>

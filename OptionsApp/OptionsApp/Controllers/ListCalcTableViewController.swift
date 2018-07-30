@@ -32,7 +32,7 @@ class ListCalcTableViewController: UITableViewController{
        //retrieve the correct note based on he index path row and set the note cell's labels with the corresponding data
         let calculation = calculations[indexPath.row]
         cell.strategyTitleLabel.text = calculation.strategyTitle
-        cell.strategyLastModificationStamp.text = calculation.modificationTime.convertToString()
+        cell.strategyLastModificationStamp.text = calculation.modificationTime?.convertToString() ?? "unknown"
         
         return cell
     

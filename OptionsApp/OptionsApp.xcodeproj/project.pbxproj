@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD61B860210F8D1A00DCEE31 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B85F210F8D1A00DCEE31 /* Calculation.swift */; };
 		DD61B866210F9E1B00DCEE31 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */; };
+		DD61B868210FD5F100DCEE31 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */; };
 		DDB581A9210793780057D466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581A8210793780057D466 /* AppDelegate.swift */; };
 		DDB581AE210793780057D466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB581AC210793780057D466 /* Main.storyboard */; };
 		DDB581B1210793780057D466 /* OptionsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDB581AF210793780057D466 /* OptionsApp.xcdatamodeld */; };
@@ -28,8 +28,8 @@
 		00FBE103257CFF744BD1407C /* Pods-OptionsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptionsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OptionsApp/Pods-OptionsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		070A875029D8C416DBBC9795 /* Pods-OptionsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptionsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-OptionsApp/Pods-OptionsApp.release.xcconfig"; sourceTree = "<group>"; };
 		307F94F97CB8C02A393E0695 /* Pods_OptionsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OptionsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD61B85F210F8D1A00DCEE31 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
+		DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = OptionsApp/Extensions/CoreDataHelper.swift; sourceTree = SOURCE_ROOT; };
 		DDB581A5210793780057D466 /* OptionsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OptionsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB581A8210793780057D466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB581AD210793780057D466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				DDB581D12108FAC00057D466 /* TimeSeriesIntraday.swift */,
-				DD61B85F210F8D1A00DCEE31 /* Calculation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +133,7 @@
 		DDB581BF21079B580057D466 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -290,12 +290,12 @@
 				DDB581C521079CE90057D466 /* ProfitGraphViewController.swift in Sources */,
 				DDB581B1210793780057D466 /* OptionsApp.xcdatamodeld in Sources */,
 				DDB581CA2107B29B0057D466 /* ListCalcTableViewCell.swift in Sources */,
-				DD61B860210F8D1A00DCEE31 /* Calculation.swift in Sources */,
 				DDB581CC2107DE930057D466 /* UIColor+TC.swift in Sources */,
 				DDB581C321079CD10057D466 /* CalculatorViewController.swift in Sources */,
 				DDB581A9210793780057D466 /* AppDelegate.swift in Sources */,
 				DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */,
 				DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */,
+				DD61B868210FD5F100DCEE31 /* CoreDataHelper.swift in Sources */,
 				DDB581D22108FAC00057D466 /* TimeSeriesIntraday.swift in Sources */,
 				DD61B866210F9E1B00DCEE31 /* Date+convertToString.swift in Sources */,
 			);
