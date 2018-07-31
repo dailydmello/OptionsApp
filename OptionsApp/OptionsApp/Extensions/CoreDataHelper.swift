@@ -22,6 +22,7 @@ struct CoreDataHelper {
         
         return context
     }()
+   
     //static method that creates a new  NSManagedObject subclass calculation instance
     static func newCalculation() -> Calculation {
         let calculation = NSEntityDescription.insertNewObject(forEntityName: "Calculation", into: context) as! Calculation
@@ -41,7 +42,7 @@ struct CoreDataHelper {
         saveCalculation()
     }
     
-    static func retrieveNotes() -> [Calculation]{
+    static func retrieveCalculation() -> [Calculation]{
         do{
             let fetchRequest = NSFetchRequest<Calculation>(entityName: "Calculation")
             let results = try context.fetch(fetchRequest)

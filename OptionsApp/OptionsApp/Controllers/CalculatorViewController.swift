@@ -124,9 +124,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if-let new clause to our guard statement to check that the destination view controller of our segue is of type ListNotesTableViewController. This allows us to safely type case our segue's destination view controller and access it for each case of our switch-statement.
+        //if-let new clause to our guard statement to check that the destination view controller of our segue is of type ListCalcTableViewController. This allows us to safely type case our segue's destination view controller and access it for each case of our switch-statement.
         guard let identifier = segue.identifier, let destination = segue.destination as? ListCalcTableViewController else {return}
-        
         
         switch identifier {
         case "displayGraph":
@@ -136,7 +135,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
  
         case "save" where calculation != nil: //when it is not a new
                 
-                //Set the new note's title and content to the corresponding text field and text view text values. If either value is nil, we provide an empty string as the default value using the nil coalescing operation (??)
+                //Set the new calculation's title and content to the corresponding text field and text view text values. If either value is nil, we provide an empty string as the default value using the nil coalescing operation (??)
                 calculation?.strategyTitle = "Long Call"
                 calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
                 calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
@@ -145,19 +144,21 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
                 calculation?.numOfContracts = numofContractsTextField.text ?? ""
                 calculation?.modificationTime = Date()
                 
-                //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListNotesTableViewController
-                destination.tableView.reloadData()
+                //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListCalculationsTableViewController
+                CoreDataHelper.saveCalculation()
             
-        case "save" where calculation == nil: //new note:
-            let calculation = Calculation()
+        case "save" where calculation == nil: //new calculation:
+            let calculation = CoreDataHelper.newCalculation()
             calculation.strategyTitle = "Long Call"
-            calculation.underlyingTicker = underlyingTickerTextField.text ?? ""
+            calculation.underlyingTicker = underlyingTickerTextField.text ?? "" //breaks here
             calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
             calculation.callPrice = callPriceTextField.text ?? ""
             calculation.strikePrice = strikePriceTextField.text ?? ""
             calculation.numOfContracts = numofContractsTextField.text ?? ""
             calculation.modificationTime = Date()
-            destination.calculations.append(calculation)
+            
+            CoreDataHelper.saveCalculation()
+
         case "cancel":
                 print("cancel button tapped")
                     
