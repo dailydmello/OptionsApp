@@ -9,8 +9,9 @@
         <attribute name="strikePrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underlyingPrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underlyingTicker" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

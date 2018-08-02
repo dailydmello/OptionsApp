@@ -9,13 +9,25 @@
 import Foundation
 import UIKit
 
-class ListCalcTableViewController: UITableViewController{
+protocol ListCalcTableViewControllerDelegate{
+    func getCalculationObject() -> Calculation
+}
+
+class ListCalcTableViewController: UITableViewController,ListCalcTableViewControllerDelegate{
     
     var calculations = [Calculation]() { //property observer
         didSet {
             tableView.reloadData()
         }
     }
+    
+    var calculation: Calculation?
+    
+    func getCalculationObject() -> Calculation {
+        return self.calculation!
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,8 +63,6 @@ class ListCalcTableViewController: UITableViewController{
         }
     }
     
-
-    
     @IBAction func unwindWithSegue (_ segue: UIStoryboardSegue){
        //eeach time the user taps the save or cancel bar button item in DisplayCalculationViewController, we update our calculations array in ListCalcTableViewController
         calculations = CoreDataHelper.retrieveCalculation()
@@ -67,14 +77,20 @@ class ListCalcTableViewController: UITableViewController{
             //get a reference path to calculation
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             //get the calculation at the path
-            let calculation = calculations[indexPath.row]
+            calculation = calculations[indexPath.row]
             //get a reference to calculation var in calculator VC
             let destination = segue.destination as! CalculatorViewController
             //set the calculation to selected calculation
             destination.calculation = calculation
-        
+            
+            if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
+                profitGraphViewController.listCalcDelegate? = self
+            }
         case "addCalculation":
             print("create calculation bar button tapped")
+            if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
+                profitGraphViewController.listCalcDelegate? = self
+            }
             
         default:
             print("Unexepected segue identifier")

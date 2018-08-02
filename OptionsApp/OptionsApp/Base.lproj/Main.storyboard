@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -158,10 +157,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGN-65-IaT">
-                                <rect key="frame" x="15" y="286" width="345" height="303"/>
+                                <rect key="frame" x="15" y="287" width="345" height="302"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O34-eO-Gjj">
-                                        <rect key="frame" x="22" y="15" width="301" height="219.5"/>
+                                        <rect key="frame" x="22" y="15" width="301" height="218.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sW-v0-FjW">
                                                 <rect key="frame" x="0.0" y="0.0" width="301" height="29"/>
@@ -169,17 +168,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-iZ-6Sl">
-                                                <rect key="frame" x="0.0" y="39" width="301" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-iZ-6Sl">
+                                                <rect key="frame" x="0.0" y="39" width="301" height="29"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of 1 Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U11-R4-gqp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Price of 1 Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U11-R4-gqp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCB-He-d0A" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="201" y="0.0" width="100" height="30"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCB-He-d0A" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="201" y="0.0" width="100" height="29"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="JFm-xE-mYt"/>
                                                         </constraints>
@@ -190,16 +189,16 @@
                                                 </subviews>
                                                 <color key="tintColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9h-6C-zh6">
-                                                <rect key="frame" x="0.0" y="79" width="301" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L9h-6C-zh6">
+                                                <rect key="frame" x="0.0" y="78" width="301" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strike Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-d8-xal">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Strike Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-d8-xal">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-iA-vyR" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-iA-vyR" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
                                                         <rect key="frame" x="201" y="0.0" width="100" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="wZc-dW-XnC"/>
@@ -210,16 +209,16 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67C-9B-cgF">
-                                                <rect key="frame" x="0.0" y="119" width="301" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67C-9B-cgF">
+                                                <rect key="frame" x="0.0" y="118" width="301" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contracts:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa1-nZ-ZW6">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Contracts:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa1-nZ-ZW6">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k9M-78-qNy" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k9M-78-qNy" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
                                                         <rect key="frame" x="201" y="0.0" width="100" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="R45-DI-YU9"/>
@@ -230,16 +229,16 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmH-SR-ebt">
-                                                <rect key="frame" x="0.0" y="159" width="301" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HmH-SR-ebt">
+                                                <rect key="frame" x="0.0" y="158" width="301" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKa-Hz-b62">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Expiry Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKa-Hz-b62">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J28-Vt-Bzl" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J28-Vt-Bzl" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
                                                         <rect key="frame" x="201" y="0.0" width="100" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="4vt-bh-3QR"/>
@@ -251,7 +250,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D03-va-dQc">
-                                                <rect key="frame" x="0.0" y="199" width="301" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="198" width="301" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-h3-YWp">
                                                         <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
@@ -282,7 +281,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zr4-bC-BNF">
-                                        <rect key="frame" x="122" y="265" width="100" height="30"/>
+                                        <rect key="frame" x="122" y="264" width="100" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Calculate Cost"/>
                                         <connections>
@@ -292,11 +291,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="centerX" secondItem="O34-eO-Gjj" secondAttribute="centerX" id="J24-g4-uZe"/>
+                                    <constraint firstAttribute="bottom" secondItem="zr4-bC-BNF" secondAttribute="bottom" constant="8" id="H10-J0-naP"/>
+                                    <constraint firstAttribute="trailing" secondItem="zr4-bC-BNF" secondAttribute="trailing" constant="123" id="Uzw-Nm-Yhp"/>
+                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="leading" secondItem="XGN-65-IaT" secondAttribute="leading" constant="122" id="aWu-0B-uI3"/>
                                     <constraint firstItem="O34-eO-Gjj" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="top" constant="15" id="gfW-5m-2AB"/>
+                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="top" secondItem="O34-eO-Gjj" secondAttribute="bottom" constant="30.5" id="mWg-St-X6H"/>
                                     <constraint firstAttribute="trailing" secondItem="O34-eO-Gjj" secondAttribute="trailing" constant="22" id="odK-KZ-Mnp"/>
                                     <constraint firstItem="O34-eO-Gjj" firstAttribute="leading" secondItem="XGN-65-IaT" secondAttribute="leading" constant="22" id="qax-xe-Adk"/>
-                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="bottom" secondItem="XGN-65-IaT" secondAttribute="bottomMargin" id="wpN-lE-e1M"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jy-f9-7jX">
@@ -306,34 +307,36 @@
                                 <state key="normal" title="Graph"/>
                                 <connections>
                                     <action selector="graphButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="lBa-mZ-Vmu"/>
-                                    <segue destination="Mh9-Vo-2NA" kind="show" identifier="displayGraph" id="HIK-Rg-0T1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-tm-nMo">
-                                <rect key="frame" x="15" y="232" width="345" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" name="tcCharcoal"/>
-                                <state key="normal" title="Get Price"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="szd-m3-rys">
+                                <rect key="frame" x="15" y="234" width="345" height="29"/>
+                                <segments>
+                                    <segment title="LongCall"/>
+                                    <segment title="LongPut"/>
+                                    <segment title="Naked Call"/>
+                                    <segment title="Naked Put"/>
+                                </segments>
                                 <connections>
-                                    <action selector="getPriceButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="Lj1-wm-p5i"/>
+                                    <action selector="strategyChanged:" destination="DOM-Vy-0dR" eventType="valueChanged" id="OFa-jV-RTa"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" name="tcOffWhite"/>
                         <constraints>
+                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="szd-m3-rys" secondAttribute="bottom" constant="25" id="1o0-bD-SM2"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="XGN-65-IaT" secondAttribute="trailing" constant="15" id="2cM-KB-kGO"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="7jy-f9-7jX" secondAttribute="trailing" constant="15" id="4XW-IV-sf9"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="mNn-N9-a9l" secondAttribute="trailing" constant="15" id="7xu-So-PBZ"/>
                             <constraint firstItem="mNn-N9-a9l" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="BFE-kf-Aps"/>
-                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="Cnn-tm-nMo" secondAttribute="bottom" constant="24" id="XGz-B7-Bw7"/>
+                            <constraint firstItem="szd-m3-rys" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="JeU-VC-5Rt"/>
                             <constraint firstItem="mNn-N9-a9l" firstAttribute="top" secondItem="fSE-1M-lIo" secondAttribute="top" constant="24" id="XvA-WD-zgS"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="Cnn-tm-nMo" secondAttribute="trailing" constant="15" id="ZDN-Ep-hPa"/>
                             <constraint firstItem="XGN-65-IaT" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="cPe-fl-YCV"/>
                             <constraint firstItem="7jy-f9-7jX" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="e6P-Ol-6li"/>
                             <constraint firstItem="7jy-f9-7jX" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="bottom" constant="24" id="f6F-P7-jH2"/>
-                            <constraint firstItem="Cnn-tm-nMo" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="24" id="rdm-Fm-Mfo"/>
+                            <constraint firstItem="szd-m3-rys" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="26" id="omr-vb-ZtE"/>
+                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="szd-m3-rys" secondAttribute="trailing" constant="15" id="qIF-RE-ZyL"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="bottom" secondItem="7jy-f9-7jX" secondAttribute="bottom" constant="24" id="tJQ-R0-qLW"/>
-                            <constraint firstItem="Cnn-tm-nMo" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="xPp-OC-k0F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSE-1M-lIo"/>
                     </view>
@@ -343,7 +346,7 @@
                                 <segue destination="YeQ-wm-Hs1" kind="unwind" identifier="cancel" unwindAction="unwindWithSegue:" id="hqI-up-pzC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="9Kk-75-rBu">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="9Kk-75-rBu">
                             <connections>
                                 <segue destination="YeQ-wm-Hs1" kind="unwind" identifier="save" unwindAction="unwindWithSegue:" id="MRE-7D-qar"/>
                             </connections>
@@ -354,20 +357,20 @@
                         <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
                         <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
                         <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
-                        <outlet property="getPriceButton" destination="Cnn-tm-nMo" id="Lap-K9-mY2"/>
                         <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
                         <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
                         <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
                         <outlet property="underlyingPriceLabel" destination="71t-G3-JAf" id="htq-h6-Yh7"/>
                         <outlet property="underlyingTickerTextField" destination="w80-gJ-Kdk" id="7yl-4I-h57"/>
+                        <segue destination="Mh9-Vo-2NA" kind="show" identifier="graph" id="4Qx-3e-lzg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr9-XC-Jm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YeQ-wm-Hs1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="133"/>
+            <point key="canvasLocation" x="2192.8000000000002" y="132.68365817091455"/>
         </scene>
-        <!--Profit Graph View Controller-->
+        <!--Graph-->
         <scene sceneID="iFr-i5-jH1">
             <objects>
                 <viewController id="Mh9-Vo-2NA" customClass="ProfitGraphViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -389,11 +392,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VvL-7m-4er"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Graph" id="USA-Jf-zqL">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="oL4-t6-ibF">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="Mh9-Vo-2NA" id="pCz-Ce-LIa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lineChartView" destination="sNB-PH-80R" id="kr2-d9-iiz"/>
+                        <segue destination="ucT-cF-fds" kind="unwind" identifier="back" unwindAction="unwindWithSegue:" id="deD-tJ-aEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUT-l0-ETt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ucT-cF-fds" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3041" y="133"/>
         </scene>
@@ -425,6 +437,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Qk-bx-uat"/>
+        <segue reference="AQS-a4-qGa"/>
     </inferredMetricsTieBreakers>
 </document>

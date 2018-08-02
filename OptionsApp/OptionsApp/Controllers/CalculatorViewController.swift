@@ -13,10 +13,12 @@ import SwiftyJSON
 
 protocol CalculatorViewControllerDelegate {
     
-    func passData() -> [Float]
+    func passData() -> ([Double],String)
 }
 
 class CalculatorViewController: UIViewController, CalculatorViewControllerDelegate{
+    
+    
     
 
     @IBOutlet weak var underlyingTickerTextField: SymbolTextField!
@@ -33,29 +35,54 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
     
-    var calculation: Calculation?
-    var tempArr = [Float]()
-    var underlyingPrice: Float = 0
-    var priceOfCall: Float = 0
-    var strikePrice: Float = 0
-    var numOfOptions: Float = 0
+    //var delegate: ProfitGraphViewControllerDelegate?
     
-    func passData()-> [Float]{
+    var calculation: Calculation?
+    var tempArr = [Double]()
+    var underlyingTicker: String = ""
+    var underlyingPrice: Double = 0
+    var priceOfCall: Double = 0
+    var strikePrice: Double = 0
+    var numOfOptions: Double = 0
+    
+    func passData()-> ([Double],String){
         tempArr.append(self.underlyingPrice)
         tempArr.append(self.priceOfCall)
         tempArr.append(self.strikePrice)
         tempArr.append(self.numOfOptions)
-        return tempArr
+        return (tempArr,self.underlyingTicker)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
+        //Check tomorrow
+//        if let delegate = delegate {
+//            print("Hello World")
+//            [underlyingPrice,priceOfCall,strikePrice,numOfOptions]
+//            let newData = delegate.passDataToCalculator()
+//            print(newData.1)
+//            underlyingTickerTextField.text = newData.1
+//            underlyingPriceLabel.text = String((100 * Double(newData.0[0])).rounded()/100)
+//            callPriceTextField.text = String(newData.0[1])
+//            strikePriceTextField.text = String(newData.0[2])
+//            numofContractsTextField.text = String(newData.0[3]/100)
+//        }
+        //underlyingTicker = newData.1
+
+        
+        
         underlyingTickerTextField.calculateButtonAction = {
             self.getSymbolCurrentPrice(){ stockPrice in
                 
                 self.underlyingPrice = stockPrice
-                //print(self.underlyingPrice)
+                
+                if let underlyingTickerText = self.underlyingTickerTextField.text{
+                    self.underlyingTicker = underlyingTickerText
+                }
+                
+                //print("yousuck")
+                print(self.underlyingPrice)
             }
         }
         
@@ -63,7 +90,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if self.callPriceTextField.isFirstResponder {
                 self.callPriceTextField.resignFirstResponder()
             }
-            if let callPriceText = self.callPriceTextField.text, let callPriceFloat = Float(callPriceText){
+            if let callPriceText = self.callPriceTextField.text, let callPriceFloat = Double(callPriceText){
                 self.priceOfCall = callPriceFloat
             }
             print(self.priceOfCall)
@@ -73,7 +100,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if self.strikePriceTextField.isFirstResponder {
                 self.strikePriceTextField.resignFirstResponder()
             }
-            if let strikePriceText = self.strikePriceTextField.text, let strikePriceFloat = Float(strikePriceText){
+            if let strikePriceText = self.strikePriceTextField.text, let strikePriceFloat = Double(strikePriceText){
                 self.strikePrice = strikePriceFloat
             }
             
@@ -82,7 +109,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if self.numofContractsTextField.isFirstResponder {
                 self.numofContractsTextField.resignFirstResponder()
             }
-            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsFloat = Float(numOfContractsText) {self.numOfOptions = numOfContractsFloat * 100}
+            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsFloat = Double(numOfContractsText) {self.numOfOptions = numOfContractsFloat * 100}
         }
         expiryDateTextField.calculateButtonAction = {
             if self.expiryDateTextField.isFirstResponder {
@@ -94,7 +121,11 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-
+//        underlyingTickerTextField.text = underlyingTicker
+//        underlyingPriceLabel.text = String((100 * underlyingPrice).rounded()/100)
+        
+       
+        
         if let calculation = calculation {
             underlyingTickerTextField.text = calculation.underlyingTicker
             underlyingPriceLabel.text = calculation.underlyingPrice
@@ -104,58 +135,76 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             expiryDateTextField.text = ""
         } else {
         underlyingTickerTextField.text = ""
-        callPriceTextField.text = ""
         underlyingPriceLabel.text = ""
+        callPriceTextField.text = ""
         strikePriceTextField.text = ""
         numofContractsTextField.text = ""
         expiryDateTextField.text = ""
+        //Before all text was set to ""
         }
-        
-    }
-    @IBAction func getPriceButtonTapped(_ sender: UIButton) {
-        print("get price button tapped")
     }
 
+    @IBAction func strategyChanged(_ sender: UISegmentedControl) {
+    }
     @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
         calculateCallTotalCost()
     }
     @IBAction func graphButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "graph", sender: nil)
+        self.updateCalculation()
+        CoreDataHelper.saveUniqueCalculation(calculation: calculation!)
+    }
+    
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+        if segue.identifier == "back"{
+            upDateView()
+        }
+    }
+    
+    func updateCalculation(){
+         calculation = CoreDataHelper.newCalculation()
+        calculation?.strategyTitle = "Long Call"
+        calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
+        calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
+        calculation?.callPrice = callPriceTextField.text ?? ""
+        calculation?.strikePrice = strikePriceTextField.text ?? ""
+        calculation?.numOfContracts = numofContractsTextField.text ?? ""
+        calculation?.modificationTime = Date()
+    }
+    
+    func upDateView(){
         
+         calculation = CoreDataHelper.retrieveLastCalculation()
+        
+        underlyingTickerTextField.text = calculation?.underlyingTicker
+        underlyingPriceLabel.text = calculation?.underlyingPrice
+        callPriceTextField.text = calculation?.callPrice
+        strikePriceTextField.text = calculation?.strikePrice
+        numofContractsTextField.text = calculation?.numOfContracts
+        expiryDateTextField.text = ""
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if-let new clause to our guard statement to check that the destination view controller of our segue is of type ListCalcTableViewController. This allows us to safely type case our segue's destination view controller and access it for each case of our switch-statement.
-        guard let identifier = segue.identifier, let destination = segue.destination as? ListCalcTableViewController else {return}
+        guard let identifier = segue.identifier else { return }
         
-        switch identifier {
-        case "displayGraph":
+        switch identifier { //here is the problem
+        case "graph":
             //if destination is profitgraph, cast profit as profitgrapgviewcontroller
             if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
                 profitGraphViewController.delegate = self}
  
         case "save" where calculation != nil: //when it is not a new
+                self.updateCalculation()
                 
-                //Set the new calculation's title and content to the corresponding text field and text view text values. If either value is nil, we provide an empty string as the default value using the nil coalescing operation (??)
-                calculation?.strategyTitle = "Long Call"
-                calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
-                calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
-                calculation?.callPrice = callPriceTextField.text ?? ""
-                calculation?.strikePrice = strikePriceTextField.text ?? ""
-                calculation?.numOfContracts = numofContractsTextField.text ?? ""
-                calculation?.modificationTime = Date()
                 
+                 CoreDataHelper.saveCalculation()
+            
                 //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListCalculationsTableViewController
-                CoreDataHelper.saveCalculation()
+            
             
         case "save" where calculation == nil: //new calculation:
-            let calculation = CoreDataHelper.newCalculation()
-            calculation.strategyTitle = "Long Call"
-            calculation.underlyingTicker = underlyingTickerTextField.text ?? "" //breaks here
-            calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
-            calculation.callPrice = callPriceTextField.text ?? ""
-            calculation.strikePrice = strikePriceTextField.text ?? ""
-            calculation.numOfContracts = numofContractsTextField.text ?? ""
-            calculation.modificationTime = Date()
+            
+             self.updateCalculation()
             
             CoreDataHelper.saveCalculation()
 
@@ -182,7 +231,7 @@ extension CalculatorViewController{
         self.costLabel.text = String(totalCallCost)
     }
     
-    func getSymbolCurrentPrice(completion: @escaping (_: Float) -> ()){
+    func getSymbolCurrentPrice(completion: @escaping (_: Double) -> ()){
         
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
             guard let symbolText = self.underlyingTickerTextField.text
@@ -215,14 +264,13 @@ extension CalculatorViewController{
                     }
                     //sort the array from oldest to newest data
                     let sortedData = TimeSeriesIntraday.sortSeriesByTime(array: tempArr)
-                    guard let latestTickerStockPrice = Float(sortedData[sortedData.count-1].close)
+                    guard let latestTickerStockPrice = Double(sortedData[sortedData.count-1].close)
                         else {return}
-//                    umcomment later
-//                    let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
-//                    self.currentPriceLabel.text = String(stockPriceRounded)
-                    let stockPriceRounded = 20.0
-                    self.underlyingPriceLabel.text = String(20)
-                    completion(Float(stockPriceRounded))
+                    let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
+                    self.underlyingPriceLabel.text = String(stockPriceRounded)
+//                    print(Float(stockPriceRounded))
+//                    print(Double(stockPriceRounded))
+                    completion(Double(stockPriceRounded))
                 case .failure(let error):
                     print ("API request did not succeed")
                     print(error)

@@ -10,18 +10,26 @@ import Foundation
 import UIKit
 import Charts
 
+//protocol ProfitGraphViewControllerDelegate{
+//    func passDataToCalculator() -> ([Double],String)
+//}
 
-class ProfitGraphViewController: UIViewController, ChartViewDelegate{
-    
-    var newData = [Float]()
-    var strikePrice: Int = 0
-    var underlyingPrice: Int = 0
-    var numOfOptions: Int = 0
-    var priceOfCall: Int = 0
+
+class ProfitGraphViewController: UIViewController,ChartViewDelegate{
+
+    //var newData = [Double]()
+    var strikePrice: Double = 0
+    var underlyingTicker: String = ""
+    var underlyingPrice: Double = 0
+    var numOfOptions: Double = 0
+    var priceOfCall: Double = 0
+    var tempArr = [Double]()
+    var calculation: Calculation?
     
     @IBOutlet weak var lineChartView: LineChartView!
     
     var delegate: CalculatorViewControllerDelegate?
+    var listCalcDelegate: ListCalcTableViewControllerDelegate?
     
     override func viewDidLoad() {
         
@@ -29,63 +37,96 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         
         if let delegate = delegate {
             //[underlyingPrice,priceOfCall,strikePrice,numOfOptions]
-            newData = delegate.passData()
-            underlyingPrice = Int(newData[0])
-            priceOfCall = Int(newData[1])
-            strikePrice = Int(newData[2])
-            numOfOptions = Int(newData[3])
+            let newData = delegate.passData()
+            print(newData)
+            underlyingTicker = newData.1
+            underlyingPrice = (100 * Double(newData.0[0])).rounded()/100
+            priceOfCall = newData.0[1]
+            strikePrice = newData.0[2]
+            numOfOptions = newData.0[3]
         }
-        print(newData)
-        print(underlyingPrice)
-        print(priceOfCall)
-        print(strikePrice)
-        print(numOfOptions)
+
        updateChartWithData()
+        
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+//    func passDataToCalculator()-> ([Double],String){
+//        tempArr.append(self.underlyingPrice)
+//        tempArr.append(self.priceOfCall)
+//        tempArr.append(self.strikePrice)
+//        tempArr.append(self.numOfOptions)
+//        return (tempArr,self.underlyingTicker)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "back":
+            print("back button tapped")
+//            //get a reference path to calculation
+//            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+//            //get the calculation at the path
+//            let calculation = calculations[indexPath.row]
+//            //get a reference to calculation var in calculator VC
+//            let destination = segue.destination as! CalculatorViewController
+//            //set the calculation to selected calculation
+//            destination.calculation = calculation
+//
+//
+//            if let calculatorViewController = segue.destination as? CalculatorViewController{
+//
+//                if let listCalcDelegate = listCalcDelegate{
+//                    let calculation = listCalcDelegate.getCalculationObject()
+//                    self.calculation = calculation
+//                }
+//                calculatorViewController.calculation = calculation
+          //  }
+            
+           
+//
+        default:
+            print("unexpected segue identifier")
+        }
+    }
     
     func updateChartWithData(){
     var chartDataEntries = [ChartDataEntry]()
-    var tempArr: [Int] = [0]
-    //var underlyingValues = [Int]()
-    var profits: [Int] = []
-//    underlyingPrice = 20
-//    priceOfCall = 1
-//    strikePrice = 20
-//    numOfOptions = 1000
+    var underlyingValuesArr = [Double]()
+    var tempArr: [Double] = [0]
+    var profits: [Double] = []
+    let underlyingMin = ((underlyingPrice - underlyingPrice * 0.10) * 100).rounded()/100
+    let underlyingMax = ((underlyingPrice + underlyingPrice * 0.10) * 100).rounded()/100
+//    print(underlyingMax)
+//    print(underlyingMin)
+
+        for i in stride(from: underlyingMin, through: underlyingMax, by: 0.2){
+            underlyingValuesArr.append(i)
+        }
+        
     // profit = numOfOptions * (Max[0,underlyingPrice - strikePrice] - priceOfCall)
-    //need array of underlying and strikeprice
-    let min = underlyingPrice - 5
-    let max = underlyingPrice + 5
-    let underlyingValues: [Int] = Array(min...max)
-    //print(underlyingValues)
     
-    for value in underlyingValues{
-        if value > strikePrice {
-        let diff = value - strikePrice
+    for underlying in underlyingValuesArr{
+        if underlying > strikePrice {
+        let diff = underlying - strikePrice
         tempArr.append(diff)
-        profits.append(-1 * numOfOptions * priceOfCall + numOfOptions * tempArr.max()!)
+            profits.append(-1 * numOfOptions * priceOfCall + numOfOptions * tempArr.max()!)
         }else{
         profits.append(-1 * numOfOptions * priceOfCall)
         }
-    //print(profits)
-        
-    //profit = -1 * numOfOptions * priceOfCall + numOfOptions * tempArr.max()!
-    //print("The profit is \(profit)")
-    //print(tempArr)
     }
-    print(underlyingValues)
-    print(profits)
-    
-    for i in 0..<underlyingValues.count {
-        let dataEntry = ChartDataEntry(x: Double(underlyingValues[i]), y: Double(profits[i]))
+    for i in 0..<underlyingValuesArr.count {
+        let dataEntry = ChartDataEntry(x: underlyingValuesArr[i], y: profits[i])
         chartDataEntries.append(dataEntry)
     }
     let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
     let linechartData = LineChartData(dataSet: set1)
     lineChartView.data = linechartData
-        
-
     }
 }
 

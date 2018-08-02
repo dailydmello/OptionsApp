@@ -36,6 +36,31 @@ struct CoreDataHelper {
             print("Could not save \(error.localizedDescription)")
         }
     }
+    static func saveUniqueCalculation(calculation: Calculation){
+        calculation.uuid = UUID().uuidString
+        UserDefaults.standard.set(calculation.uuid, forKey: "uuid")
+        
+        do{
+            try context.save()
+        } catch let error {
+            print("Could not save \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    static func retrieveLastCalculation() -> Calculation?{
+        if UserDefaults.standard.value(forKey: "uuid") == nil{
+            return nil
+        }
+        else{
+            let uuid =  UserDefaults.standard.value(forKey: "uuid") as! String
+            let allCal = retrieveCalculation()
+            
+            let currentCal = allCal.filter({$0.uuid == uuid})
+            return currentCal.first
+        }
+    }
     
     static func delete(calculation: Calculation){
         context.delete(calculation)
