@@ -89,12 +89,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
                 self.expiryDateTextField.resignFirstResponder()
             }
         }
-
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-
         if let calculation = calculation {
             underlyingTickerTextField.text = calculation.underlyingTicker
             underlyingPriceLabel.text = calculation.underlyingPrice
@@ -103,13 +98,17 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = ""
         } else {
-        underlyingTickerTextField.text = ""
-        callPriceTextField.text = ""
-        underlyingPriceLabel.text = ""
-        strikePriceTextField.text = ""
-        numofContractsTextField.text = ""
-        expiryDateTextField.text = ""
+            underlyingTickerTextField.text = ""
+            callPriceTextField.text = ""
+            underlyingPriceLabel.text = ""
+            strikePriceTextField.text = ""
+            numofContractsTextField.text = ""
+            expiryDateTextField.text = ""
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //why thooooo
         
     }
     @IBAction func getPriceButtonTapped(_ sender: UIButton) {
