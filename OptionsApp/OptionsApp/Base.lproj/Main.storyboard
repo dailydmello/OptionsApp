@@ -367,7 +367,7 @@
             </objects>
             <point key="canvasLocation" x="2193" y="133"/>
         </scene>
-        <!--Profit Graph View Controller-->
+        <!--Graph-->
         <scene sceneID="iFr-i5-jH1">
             <objects>
                 <viewController id="Mh9-Vo-2NA" customClass="ProfitGraphViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -389,11 +389,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VvL-7m-4er"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Graph" id="Mbf-tj-AE8">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Cyk-eH-s1P">
+                            <connections>
+                                <segue destination="ZIj-b3-7ZT" kind="unwind" identifier="back" unwindAction="unwindWithSegue:" id="GDJ-Ls-CqC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lineChartView" destination="sNB-PH-80R" id="kr2-d9-iiz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUT-l0-ETt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZIj-b3-7ZT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3041" y="133"/>
         </scene>

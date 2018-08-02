@@ -53,17 +53,16 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if self.callPriceTextField.isFirstResponder {
                 self.callPriceTextField.resignFirstResponder()
             }
-            if let callPriceText = self.callPriceTextField.text, let callPriceFloat = Double(callPriceText){
-                self.callPrice = callPriceFloat
+            if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
+                self.callPrice = callPriceDouble
             }
-            print(self.callPrice)
         }
         strikePriceTextField.calculateButtonAction = {
             if self.strikePriceTextField.isFirstResponder {
                 self.strikePriceTextField.resignFirstResponder()
             }
-            if let strikePriceText = self.strikePriceTextField.text, let strikePriceFloat = Double(strikePriceText){
-                self.strikePrice = strikePriceFloat
+            if let strikePriceText = self.strikePriceTextField.text, let strikePriceDouble = Double(strikePriceText){
+                self.strikePrice = strikePriceDouble
             }
             
         }
@@ -71,7 +70,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if self.numofContractsTextField.isFirstResponder {
                 self.numofContractsTextField.resignFirstResponder()
             }
-            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsFloat = Double(numOfContractsText) {self.numOfOptions = numOfContractsFloat * 100}
+            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
+            }
         }
         expiryDateTextField.calculateButtonAction = {
             if self.expiryDateTextField.isFirstResponder {
@@ -85,7 +85,6 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             strikePriceTextField.text = calculation.strikePrice
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = ""
-            
         } else {
             underlyingTickerTextField.text = ""
             callPriceTextField.text = ""
@@ -96,6 +95,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         }
     }
     func passData()-> ([Double],String){
+        tempArr.removeAll()
         tempArr.append(self.underlyingPrice)
         tempArr.append(self.callPrice)
         tempArr.append(self.strikePrice)
@@ -104,6 +104,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     @IBAction func getPriceButtonTapped(_ sender: UIButton) {
         print("get price button tapped")
@@ -113,6 +114,10 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     }
     @IBAction func graphButtonTapped(_ sender: Any) {
     }
+    @IBAction func unwindWithSegue (_ segue: UIStoryboardSegue){
+
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //if-let new clause to our guard statement to check that the destination view controller of our segue is of type ListCalcTableViewController. This allows us to safely type case our segue's destination view controller and access it for each case of our switch-statement.
         guard let identifier = segue.identifier else{return}
@@ -120,9 +125,14 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         switch identifier {
         case "displayGraph":
             print("graph button tapped")
+            // set variables to self
             //if destination is profitgraph, cast profit as profitgraphviewcontroller
+            setSelfValues()
+            
             if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
+                profitGraphViewController.delegate = nil
                 profitGraphViewController.delegate = self}
+            
             
         case "save" where calculation != nil: //when it is not a new
             
@@ -161,13 +171,27 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
 
 
 extension CalculatorViewController{
+    func setSelfValues(){
+        if let underlyingPriceText = underlyingPriceLabel.text, let underlyingPriceDouble = Double(underlyingPriceText){
+            self.underlyingPrice = underlyingPriceDouble
+        }
+        if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
+            self.callPrice = callPriceDouble
+        }
+        if let strikePriceText = self.strikePriceTextField.text, let strikePriceDouble = Double(strikePriceText){
+            self.strikePrice = strikePriceDouble
+        }
+        if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
+        }
+    }
+    
     func calculateCallTotalCost(){
         guard let callPrice = self.callPriceTextField.text
             else {return}
         guard let numOfContracts = self.numofContractsTextField.text
             else{return}
-        let totalnumOfCallOptions = Float(numOfContracts)! * 100
-        let totalCallCost = Float(callPrice)! * totalnumOfCallOptions
+        let totalnumOfCallOptions = Double(numOfContracts)! * 100
+        let totalCallCost = Double(callPrice)! * totalnumOfCallOptions
         self.costLabel.text = String(totalCallCost)
     }
     func getSymbolCurrentPrice(completion: @escaping (_: Double) -> ()){
@@ -184,7 +208,6 @@ extension CalculatorViewController{
             var tempArr = [TimeSeriesIntraday]()
             switch response.result {
             case .success:
-                print ("API request was a success")
                 //Get data ready to store in custom array of dictionaries
                 let result = response.result.value as! [String:Any]
                 guard let dict = result["Time Series (1min)"] as? [String: Any] else{
