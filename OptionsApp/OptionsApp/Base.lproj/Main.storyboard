@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -292,11 +291,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="centerX" secondItem="O34-eO-Gjj" secondAttribute="centerX" id="J24-g4-uZe"/>
+                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="leading" secondItem="XGN-65-IaT" secondAttribute="leading" constant="122" id="gLj-Ty-X9E"/>
                                     <constraint firstItem="O34-eO-Gjj" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="top" constant="15" id="gfW-5m-2AB"/>
+                                    <constraint firstAttribute="trailing" secondItem="zr4-bC-BNF" secondAttribute="trailing" constant="123" id="iDs-zU-xdr"/>
                                     <constraint firstAttribute="trailing" secondItem="O34-eO-Gjj" secondAttribute="trailing" constant="22" id="odK-KZ-Mnp"/>
                                     <constraint firstItem="O34-eO-Gjj" firstAttribute="leading" secondItem="XGN-65-IaT" secondAttribute="leading" constant="22" id="qax-xe-Adk"/>
-                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="bottom" secondItem="XGN-65-IaT" secondAttribute="bottomMargin" id="wpN-lE-e1M"/>
+                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="top" secondItem="O34-eO-Gjj" secondAttribute="bottom" constant="30.5" id="ulx-o1-Kz4"/>
+                                    <constraint firstAttribute="bottom" secondItem="zr4-bC-BNF" secondAttribute="bottom" constant="8" id="zGn-f6-2vG"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jy-f9-7jX">
@@ -309,31 +310,34 @@
                                     <segue destination="Mh9-Vo-2NA" kind="show" identifier="displayGraph" id="HIK-Rg-0T1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-tm-nMo">
-                                <rect key="frame" x="15" y="232" width="345" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" name="tcCharcoal"/>
-                                <state key="normal" title="Get Price"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="seM-57-qUZ">
+                                <rect key="frame" x="15" y="233" width="345" height="29"/>
+                                <segments>
+                                    <segment title="Long Call"/>
+                                    <segment title="Naked Call"/>
+                                    <segment title="Long Put"/>
+                                    <segment title="Naked Put"/>
+                                </segments>
                                 <connections>
-                                    <action selector="getPriceButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="Lj1-wm-p5i"/>
+                                    <action selector="strategySelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="prv-Rd-4qR"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" name="tcOffWhite"/>
                         <constraints>
+                            <constraint firstItem="seM-57-qUZ" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="25" id="1Qp-xq-uCr"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="XGN-65-IaT" secondAttribute="trailing" constant="15" id="2cM-KB-kGO"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="7jy-f9-7jX" secondAttribute="trailing" constant="15" id="4XW-IV-sf9"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="mNn-N9-a9l" secondAttribute="trailing" constant="15" id="7xu-So-PBZ"/>
                             <constraint firstItem="mNn-N9-a9l" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="BFE-kf-Aps"/>
-                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="Cnn-tm-nMo" secondAttribute="bottom" constant="24" id="XGz-B7-Bw7"/>
+                            <constraint firstItem="seM-57-qUZ" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="BTv-a9-EwG"/>
                             <constraint firstItem="mNn-N9-a9l" firstAttribute="top" secondItem="fSE-1M-lIo" secondAttribute="top" constant="24" id="XvA-WD-zgS"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="Cnn-tm-nMo" secondAttribute="trailing" constant="15" id="ZDN-Ep-hPa"/>
+                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="seM-57-qUZ" secondAttribute="bottom" constant="25" id="a04-Yv-6cw"/>
                             <constraint firstItem="XGN-65-IaT" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="cPe-fl-YCV"/>
                             <constraint firstItem="7jy-f9-7jX" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="e6P-Ol-6li"/>
                             <constraint firstItem="7jy-f9-7jX" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="bottom" constant="24" id="f6F-P7-jH2"/>
-                            <constraint firstItem="Cnn-tm-nMo" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="24" id="rdm-Fm-Mfo"/>
+                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="seM-57-qUZ" secondAttribute="trailing" constant="15" id="nFP-4D-X6K"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="bottom" secondItem="7jy-f9-7jX" secondAttribute="bottom" constant="24" id="tJQ-R0-qLW"/>
-                            <constraint firstItem="Cnn-tm-nMo" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="xPp-OC-k0F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSE-1M-lIo"/>
                     </view>
@@ -354,9 +358,9 @@
                         <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
                         <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
                         <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
-                        <outlet property="getPriceButton" destination="Cnn-tm-nMo" id="Lap-K9-mY2"/>
                         <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
                         <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
+                        <outlet property="strategySegmentedControl" destination="seM-57-qUZ" id="K9p-k3-pho"/>
                         <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
                         <outlet property="underlyingPriceLabel" destination="71t-G3-JAf" id="htq-h6-Yh7"/>
                         <outlet property="underlyingTickerTextField" destination="w80-gJ-Kdk" id="7yl-4I-h57"/>
@@ -365,7 +369,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr9-XC-Jm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YeQ-wm-Hs1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="133"/>
+            <point key="canvasLocation" x="2192.8000000000002" y="132.68365817091455"/>
         </scene>
         <!--Graph-->
         <scene sceneID="iFr-i5-jH1">

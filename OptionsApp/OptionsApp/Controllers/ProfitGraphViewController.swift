@@ -19,6 +19,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     var numOfOptions: Double = 0
     var callPrice: Double = 0
     var delegate: CalculatorViewControllerDelegate?
+    var strategy: Double = 3
     
     @IBOutlet weak var lineChartView: LineChartView!
     override func viewDidLoad() {
@@ -49,33 +50,198 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             print("unexpected segue")
         }
     }
+    func reverseStride(underlyingMax: Double, underlyingMin: Double) -> [Double]{
+        var tempArr = [Double]()
+        for i in stride(from: underlyingMax, through: underlyingMin, by: -1){
+            tempArr.append(i)
+        }
+        return tempArr
+    }
+    
+    func regularStride(underlyingMin: Double, underlyingMax: Double) -> [Double]{
+        var tempArr = [Double]()
+        for i in stride(from: underlyingMin, through: underlyingMax, by: 1){
+            tempArr.append(i)
+        }
+        return tempArr
+    }
+    
+    func flipArray(flipMe:[Double]) -> [Double]{
+        var reversedArr = [Double]()
+        for arrayIndex in stride(from: flipMe.count - 1, through: 0, by: -1) {
+            reversedArr.append(flipMe[arrayIndex])
+        }
+        return reversedArr
+    }
+    
     func updateChartWithData(){
         var chartDataEntries = [ChartDataEntry]()
         var underlyingValuesArr = [Double]()
         var tempArr: [Double] = [0]
         var profits: [Double] = []
-        let underlyingMin = ((underlyingPrice - underlyingPrice * 0.10) * 100).rounded()/100
-        let underlyingMax = ((underlyingPrice + underlyingPrice * 0.10) * 100).rounded()/100
-        for i in stride(from: underlyingMin, through: underlyingMax, by: 0.2){
-            underlyingValuesArr.append(i)
-        }
-        for underlying in underlyingValuesArr{
-            if underlying > strikePrice {
-                let diff = underlying - strikePrice
-                tempArr.append(diff)
-                profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
-            }else{
-                profits.append(-1 * numOfOptions * callPrice)
+        var graphProfits: [Double] = []
+        var graphUnderlyingVals: [Double] = []
+//        let underlyingMin = underlyingPrice - 5
+//        let underlyingMax = underlyingPrice + 5
+        let underlyingMin = ((underlyingPrice - underlyingPrice * 0.50) * 100).rounded()/100
+        let underlyingMax = ((underlyingPrice + underlyingPrice * 0.50) * 100).rounded()/100
+        
+        switch strategy{
+        case 0:
+            //Long Call Implementation
+            underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
+            for underlying in underlyingValuesArr{
+                if underlying > strikePrice {
+                    let diff = underlying - strikePrice
+                    tempArr.append(diff)
+                    profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
+                }else{
+                    profits.append(-1 * numOfOptions * callPrice)
+                }
             }
+            graphProfits = profits
+            graphUnderlyingVals = underlyingValuesArr
+        case 1:
+            //Naked Call Implementation
+            underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
+            for underlying in underlyingValuesArr{
+                if underlying > strikePrice {
+                    let diff = strikePrice - underlying
+                    tempArr.append(diff)
+                    profits.append(numOfOptions * callPrice + numOfOptions * tempArr.min()!)
+                }else{
+                    profits.append(numOfOptions * callPrice)
+                }
+            }
+            graphProfits = profits
+            graphUnderlyingVals = underlyingValuesArr
+        case 2:
+            //Long put implementation
+            underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
+            for underlying in underlyingValuesArr{
+                if underlying < strikePrice {
+                    let diff = strikePrice - underlying
+                    tempArr.append(diff)
+                    //print(tempArr)
+                    profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
+                }else{
+                    profits.append(-1 * numOfOptions * callPrice)
+                }
+            }
+            graphProfits = flipArray(flipMe: profits)
+            graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
+        case 3:
+            //Naked put implementation
+            underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
+            for underlying in underlyingValuesArr{
+                if underlying < strikePrice {
+                    let diff = strikePrice - underlying
+                    tempArr.append(diff)
+                    //print(tempArr)
+                    profits.append( numOfOptions * callPrice - numOfOptions * tempArr.max()!)
+                }else{
+                    profits.append( numOfOptions * callPrice)
+                }
+            }
+            graphProfits = flipArray(flipMe: profits)
+            graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
+        default:
+            print("Unidentified Case")
         }
-        for i in 0..<underlyingValuesArr.count {
-            let dataEntry = ChartDataEntry(x: underlyingValuesArr[i], y: profits[i])
+        
+        for i in 0..<graphProfits.count {
+            print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
+            let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
+            print(dataEntry)
             chartDataEntries.append(dataEntry)
         }
         let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
         let linechartData = LineChartData(dataSet: set1)
         lineChartView.data = linechartData
+        
+//        underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
+//        for i in stride(from: underlyingMin, through: underlyingMax, by: 1){
+//            underlyingValuesArr.append(i)
+//            print(underlyingValuesArr)
+//        }
+        //Long Call Implementation
+//        for underlying in underlyingValuesArr{
+//            if underlying > strikePrice {
+//                let diff = underlying - strikePrice
+//                tempArr.append(diff)
+//                profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
+//            }else{
+//                profits.append(-1 * numOfOptions * callPrice)
+//            }
+//        }
+        //Naked Call Implementation
+//        for underlying in underlyingValuesArr{
+//            if underlying > strikePrice {
+//                let diff = strikePrice - underlying
+//                tempArr.append(diff)
+//                profits.append(numOfOptions * callPrice + numOfOptions * tempArr.min()!)
+//            }else{
+//                profits.append(numOfOptions * callPrice)
+//            }
+//        }
+        //Long put implementation
+//        for underlying in underlyingValuesArr{
+//            if underlying < strikePrice {
+//                let diff = strikePrice - underlying
+//                tempArr.append(diff)
+//                //print(tempArr)
+//                profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
+//            }else{
+//                profits.append(-1 * numOfOptions * callPrice)
+//            }
+//        }
+        //Naked put implementation
+//        for underlying in underlyingValuesArr{
+//            if underlying < strikePrice {
+//                let diff = strikePrice - underlying
+//                tempArr.append(diff)
+//                //print(tempArr)
+//                profits.append( numOfOptions * callPrice - numOfOptions * tempArr.max()!)
+//            }else{
+//                profits.append( numOfOptions * callPrice)
+//            }
+//        }
+//
+//        graphProfits = flipArray(flipMe: profits)
+//        graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
+
+//        print(profits)
+//
+//        var reversedProfit = [Double]()
+//        var reversedUnderlying = [Double]()
+//
+//        for arrayIndex in stride(from: profits.count - 1, through: 0, by: -1) {
+//            reversedProfit.append(profits[arrayIndex])
+//        }
+//        for arrayIndex in stride(from: underlyingValuesArr.count - 1, through: 0, by: -1) {
+//            reversedUnderlying.append(underlyingValuesArr[arrayIndex])
+//        }
+        
+//        for i in 0..<graphProfits.count {
+//            print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
+//            let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
+//            print(dataEntry)
+//            chartDataEntries.append(dataEntry)
+//        }
+//        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
+//        let linechartData = LineChartData(dataSet: set1)
+//        lineChartView.data = linechartData
     }
+//        for i in 0..<underlyingValuesArr.count {
+//            print("underlying: \(underlyingValuesArr[i]) and profit \(profits[i])")
+//            let dataEntry = ChartDataEntry(x: underlyingValuesArr[i], y: profits[i])
+//            print(dataEntry)
+//            chartDataEntries.append(dataEntry)
+//        }
+//        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
+//        let linechartData = LineChartData(dataSet: set1)
+//        lineChartView.data = linechartData
+//    }
 }
 
 

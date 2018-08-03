@@ -32,6 +32,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
+    @IBOutlet weak var strategySegmentedControl: UISegmentedControl!
     
     var calculation: Calculation?
     var tempArr = [Double]()
@@ -40,6 +41,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     var callPrice: Double = 0
     var strikePrice: Double = 0
     var numOfOptions: Double = 0
+    var strategy: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +81,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             }
         }
         if let calculation = calculation {
+            strategySegmentedControl.selectedSegmentIndex = Int(calculation.strategy)
             underlyingTickerTextField.text = calculation.underlyingTicker
             underlyingPriceLabel.text = calculation.underlyingPrice
             callPriceTextField.text = calculation.callPrice
@@ -86,6 +89,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = ""
         } else {
+            strategySegmentedControl.selectedSegmentIndex = 0
             underlyingTickerTextField.text = ""
             callPriceTextField.text = ""
             underlyingPriceLabel.text = ""
@@ -106,9 +110,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         super.viewWillAppear(animated)
         
     }
-    @IBAction func getPriceButtonTapped(_ sender: UIButton) {
-        print("get price button tapped")
-    }
+
     @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
         calculateCallTotalCost()
     }
@@ -118,6 +120,26 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
 
     }
     
+    @IBAction func strategySelected(_ sender: UISegmentedControl) {
+        selectStrategy()
+        print(strategy)
+        
+    }
+    
+    func selectStrategy(){
+        switch strategySegmentedControl.selectedSegmentIndex {
+        case 0:
+            strategy = 0
+        case 1:
+            strategy = 1
+        case 2:
+            strategy = 2
+        case 3:
+            strategy = 3
+        default:
+            preconditionFailure("Unexpected index.")
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //if-let new clause to our guard statement to check that the destination view controller of our segue is of type ListCalcTableViewController. This allows us to safely type case our segue's destination view controller and access it for each case of our switch-statement.
         guard let identifier = segue.identifier else{return}
@@ -133,11 +155,13 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
                 profitGraphViewController.delegate = nil
                 profitGraphViewController.delegate = self}
             
-            
         case "save" where calculation != nil: //when it is not a new
             
             //Set the new calculation's title and content to the corresponding text field and text view text values. If either value is nil, we provide an empty string as the default value using the nil coalescing operation (??)
-            calculation?.strategyTitle = "Long Call"
+            if strategySegmentedControl.selectedSegmentIndex == Int((calculation?.strategy)!){
+                calculation?.strategy = Double(strategySegmentedControl.selectedSegmentIndex)
+            }else{calculation?.strategy = strategy}
+            
             calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
             calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
             calculation?.callPrice = callPriceTextField.text ?? ""
@@ -150,8 +174,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             
         case "save" where calculation == nil: //new calculation:
             let calculation = CoreDataHelper.newCalculation()
-            calculation.strategyTitle = "Long Call"
-            calculation.underlyingTicker = underlyingTickerTextField.text ?? "" //breaks here
+            calculation.strategy = strategy
+            calculation.underlyingTicker = underlyingTickerTextField.text ?? ""
             calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
             calculation.callPrice = callPriceTextField.text ?? ""
             calculation.strikePrice = strikePriceTextField.text ?? ""
@@ -229,6 +253,7 @@ extension CalculatorViewController{
                 guard let latestTickerStockPrice = Double(sortedData[sortedData.count-1].close)
                     else {return}
                 let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
+//                let stockPriceRounded = 20.0
                 self.underlyingPriceLabel.text = String(stockPriceRounded)
                 completion(Double(stockPriceRounded))
             case .failure(let error):
