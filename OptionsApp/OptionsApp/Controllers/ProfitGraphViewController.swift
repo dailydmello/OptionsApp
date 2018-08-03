@@ -19,7 +19,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     var numOfOptions: Double = 0
     var callPrice: Double = 0
     var delegate: CalculatorViewControllerDelegate?
-    var strategy: Double = 3
+    var strategy: Double = 0
     
     @IBOutlet weak var lineChartView: LineChartView!
     override func viewDidLoad() {
@@ -35,7 +35,9 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             callPrice = newData.0[1]
             strikePrice = newData.0[2]
             numOfOptions = newData.0[3]
+            strategy = newData.0[4]
         }
+        print(strategy)
        updateChartWithData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +47,6 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         switch identifier {
         case "back":
             print("back button tapped")
-            self.navigationController?.popViewController(animated: true)
         default:
             print("unexpected segue")
         }
@@ -88,6 +89,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         
         switch strategy{
         case 0:
+            print("Long Call graphed")
             //Long Call Implementation
             underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
             for underlying in underlyingValuesArr{
@@ -102,6 +104,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 1:
+            print("Naked Call graphed")
             //Naked Call Implementation
             underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
             for underlying in underlyingValuesArr{
@@ -116,6 +119,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 2:
+            print("Long put graphed")
             //Long put implementation
             underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
             for underlying in underlyingValuesArr{
@@ -131,6 +135,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         case 3:
+            print("Naked Put graphed")
             //Naked put implementation
             underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
             for underlying in underlyingValuesArr{
@@ -150,9 +155,9 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         }
         
         for i in 0..<graphProfits.count {
-            print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
+            //print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
             let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
-            print(dataEntry)
+            //print(dataEntry)
             chartDataEntries.append(dataEntry)
         }
         let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
@@ -232,16 +237,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
 //        let linechartData = LineChartData(dataSet: set1)
 //        lineChartView.data = linechartData
     }
-//        for i in 0..<underlyingValuesArr.count {
-//            print("underlying: \(underlyingValuesArr[i]) and profit \(profits[i])")
-//            let dataEntry = ChartDataEntry(x: underlyingValuesArr[i], y: profits[i])
-//            print(dataEntry)
-//            chartDataEntries.append(dataEntry)
-//        }
-//        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
-//        let linechartData = LineChartData(dataSet: set1)
-//        lineChartView.data = linechartData
-//    }
+
 }
 
 

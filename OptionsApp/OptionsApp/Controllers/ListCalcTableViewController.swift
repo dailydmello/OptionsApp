@@ -33,7 +33,19 @@ class ListCalcTableViewController: UITableViewController{
         
        //retrieve the correct calculation based on he index path row and set the calculation cell's labels with the corresponding data
         let calculation = calculations[indexPath.row]
-        cell.strategyTitleLabel.text = String(calculation.strategy)
+        switch calculation.strategy{
+        case 0:
+            cell.strategyTitleLabel.text = "Long Call"
+        case 1:
+            cell.strategyTitleLabel.text = "Naked Call"
+        case 2:
+            cell.strategyTitleLabel.text = "Long Put"
+        case 3:
+            cell.strategyTitleLabel.text = "Naked Put"
+        default:
+            print("unidentified strategy identifier")
+        }
+        //cell.strategyTitleLabel.text = String(calculation.strategy)
         cell.strategyLastModificationStamp.text = calculation.modificationTime?.convertToString() ?? "unknown"
         
         return cell

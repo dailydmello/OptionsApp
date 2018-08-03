@@ -104,6 +104,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         tempArr.append(self.callPrice)
         tempArr.append(self.strikePrice)
         tempArr.append(self.numOfOptions)
+        tempArr.append(self.strategy)
         return (tempArr,self.underlyingTicker)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -122,7 +123,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     
     @IBAction func strategySelected(_ sender: UISegmentedControl) {
         selectStrategy()
-        print(strategy)
+        //print(strategy)
         
     }
     
