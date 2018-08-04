@@ -16,10 +16,10 @@ protocol CalculatorViewControllerDelegate {
     func passData() -> ([Double],String)
 }
 
-class CalculatorViewController: UIViewController, CalculatorViewControllerDelegate{
+class CalculatorViewController: UIViewController, CalculatorViewControllerDelegate,UITextFieldDelegate{
     
     
-    @IBOutlet weak var underlyingTickerTextField: SymbolTextField!
+    @IBOutlet weak var underlyingTickerTextField: UITextField!
     
     @IBOutlet weak var underlyingPriceLabel: UILabel!
     @IBOutlet weak var getPriceButton: UIButton!
@@ -27,7 +27,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     @IBOutlet weak var callPriceTextField: SymbolTextField!
     @IBOutlet weak var strikePriceTextField: SymbolTextField!
     @IBOutlet weak var numofContractsTextField: SymbolTextField!
-    @IBOutlet weak var expiryDateTextField: SymbolTextField!
+    @IBOutlet weak var expiryDateTextField: UITextField!
     @IBOutlet weak var costLabel: UILabel!
     
     @IBOutlet weak var calculateCostButton: UIButton!
@@ -42,15 +42,13 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     var strikePrice: Double = 0
     var numOfOptions: Double = 0
     var strategy: Double = 0
+    var expiryDate: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
-        underlyingTickerTextField.calculateButtonAction = {
-            self.getSymbolCurrentPrice(){ stockPrice in
-                self.underlyingPrice = stockPrice
-            }
-        }
+        underlyingTickerTextField.delegate = self
+        expiryDateTextField.delegate = self
+        
         callPriceTextField.calculateButtonAction = {
             if self.callPriceTextField.isFirstResponder {
                 self.callPriceTextField.resignFirstResponder()
@@ -75,11 +73,11 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
             }
         }
-        expiryDateTextField.calculateButtonAction = {
-            if self.expiryDateTextField.isFirstResponder {
-                self.expiryDateTextField.resignFirstResponder()
-            }
-        }
+//        expiryDateTextField.calculateButtonAction = {
+//            if self.expiryDateTextField.isFirstResponder {
+//                self.expiryDateTextField.resignFirstResponder()
+//            }
+//        }
         if let calculation = calculation {
             strategySegmentedControl.selectedSegmentIndex = Int(calculation.strategy)
             underlyingTickerTextField.text = calculation.underlyingTicker
@@ -87,7 +85,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             callPriceTextField.text = calculation.callPrice
             strikePriceTextField.text = calculation.strikePrice
             numofContractsTextField.text = calculation.numOfContracts
-            expiryDateTextField.text = ""
+            expiryDateTextField.text = calculation.expiryDate
         } else {
             strategySegmentedControl.selectedSegmentIndex = 0
             underlyingTickerTextField.text = ""
@@ -111,7 +109,6 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         super.viewWillAppear(animated)
         
     }
-
     @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
         calculateCallTotalCost()
     }
@@ -126,7 +123,22 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         //print(strategy)
         
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        if underlyingTickerTextField.resignFirstResponder(){
+            self.getSymbolCurrentPrice(){ stockPrice in
+                self.underlyingPrice = stockPrice
+            }
+        }
+        if expiryDateTextField.resignFirstResponder(){
+            if self.expiryDateTextField.isFirstResponder {
+                self.expiryDateTextField.resignFirstResponder()
+            }
+            if let expiryDateText = self.numofContractsTextField.text{
+                self.expiryDate = expiryDateText
+            }
+        }
+        return true
+    }
     func selectStrategy(){
         switch strategySegmentedControl.selectedSegmentIndex {
         case 0:
@@ -168,6 +180,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation?.callPrice = callPriceTextField.text ?? ""
             calculation?.strikePrice = strikePriceTextField.text ?? ""
             calculation?.numOfContracts = numofContractsTextField.text ?? ""
+            calculation?.expiryDate = expiryDateTextField.text ?? ""
             calculation?.modificationTime = Date()
             
             //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListCalculationsTableViewController
@@ -181,6 +194,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation.callPrice = callPriceTextField.text ?? ""
             calculation.strikePrice = strikePriceTextField.text ?? ""
             calculation.numOfContracts = numofContractsTextField.text ?? ""
+            calculation.expiryDate = expiryDateTextField.text ?? ""
             calculation.modificationTime = Date()
             
             CoreDataHelper.saveCalculation()
@@ -270,3 +284,5 @@ extension CalculatorViewController{
         return dateAndTimeFormatted
     }
 }
+
+

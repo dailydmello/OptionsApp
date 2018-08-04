@@ -84,8 +84,8 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         var graphUnderlyingVals: [Double] = []
 //        let underlyingMin = underlyingPrice - 5
 //        let underlyingMax = underlyingPrice + 5
-        let underlyingMin = ((underlyingPrice - underlyingPrice * 0.50) * 100).rounded()/100
-        let underlyingMax = ((underlyingPrice + underlyingPrice * 0.50) * 100).rounded()/100
+        let underlyingMin = ((underlyingPrice - underlyingPrice * 0.20) * 100).rounded()/100
+        let underlyingMax = ((underlyingPrice + underlyingPrice * 0.20) * 100).rounded()/100
         
         switch strategy{
         case 0:
@@ -153,9 +153,8 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         default:
             print("Unidentified Case")
         }
-        
         for i in 0..<graphProfits.count {
-            //print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
+            print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
             let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
             //print(dataEntry)
             chartDataEntries.append(dataEntry)
@@ -163,81 +162,20 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
         let linechartData = LineChartData(dataSet: set1)
         lineChartView.data = linechartData
+        set1.circleRadius = 0
+        set1.lineWidth = 2.5
+        set1.fillAlpha = 0.8
+        set1.setColor(UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1))
+        set1.fillColor = UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1)
+        set1.drawFilledEnabled = true
+        set1.drawValuesEnabled = false
         
-//        underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
-//        for i in stride(from: underlyingMin, through: underlyingMax, by: 1){
-//            underlyingValuesArr.append(i)
-//            print(underlyingValuesArr)
-//        }
-        //Long Call Implementation
-//        for underlying in underlyingValuesArr{
-//            if underlying > strikePrice {
-//                let diff = underlying - strikePrice
-//                tempArr.append(diff)
-//                profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
-//            }else{
-//                profits.append(-1 * numOfOptions * callPrice)
-//            }
-//        }
-        //Naked Call Implementation
-//        for underlying in underlyingValuesArr{
-//            if underlying > strikePrice {
-//                let diff = strikePrice - underlying
-//                tempArr.append(diff)
-//                profits.append(numOfOptions * callPrice + numOfOptions * tempArr.min()!)
-//            }else{
-//                profits.append(numOfOptions * callPrice)
-//            }
-//        }
-        //Long put implementation
-//        for underlying in underlyingValuesArr{
-//            if underlying < strikePrice {
-//                let diff = strikePrice - underlying
-//                tempArr.append(diff)
-//                //print(tempArr)
-//                profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
-//            }else{
-//                profits.append(-1 * numOfOptions * callPrice)
-//            }
-//        }
-        //Naked put implementation
-//        for underlying in underlyingValuesArr{
-//            if underlying < strikePrice {
-//                let diff = strikePrice - underlying
-//                tempArr.append(diff)
-//                //print(tempArr)
-//                profits.append( numOfOptions * callPrice - numOfOptions * tempArr.max()!)
-//            }else{
-//                profits.append( numOfOptions * callPrice)
-//            }
-//        }
-//
-//        graphProfits = flipArray(flipMe: profits)
-//        graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
-
-//        print(profits)
-//
-//        var reversedProfit = [Double]()
-//        var reversedUnderlying = [Double]()
-//
-//        for arrayIndex in stride(from: profits.count - 1, through: 0, by: -1) {
-//            reversedProfit.append(profits[arrayIndex])
-//        }
-//        for arrayIndex in stride(from: underlyingValuesArr.count - 1, through: 0, by: -1) {
-//            reversedUnderlying.append(underlyingValuesArr[arrayIndex])
-//        }
-        
-//        for i in 0..<graphProfits.count {
-//            print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
-//            let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
-//            print(dataEntry)
-//            chartDataEntries.append(dataEntry)
-//        }
-//        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
-//        let linechartData = LineChartData(dataSet: set1)
-//        lineChartView.data = linechartData
+        lineChartView.leftAxis.enabled = true
+        lineChartView.leftAxis.drawGridLinesEnabled = true
+        lineChartView.rightAxis.enabled = false
+        lineChartView.xAxis.enabled = true
+        lineChartView.animate(yAxisDuration: 0.8)
     }
-
 }
 
 
