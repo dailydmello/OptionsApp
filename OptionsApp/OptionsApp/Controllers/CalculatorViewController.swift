@@ -24,16 +24,20 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     @IBOutlet weak var underlyingPriceLabel: UILabel!
     @IBOutlet weak var getPriceButton: UIButton!
     
+    @IBOutlet weak var StrategyTitleLabel: UILabel!
     @IBOutlet weak var callPriceTextField: SymbolTextField!
     @IBOutlet weak var strikePriceTextField: SymbolTextField!
     @IBOutlet weak var numofContractsTextField: SymbolTextField!
     @IBOutlet weak var expiryDateTextField: UITextField!
     @IBOutlet weak var costLabel: UILabel!
     
+    @IBOutlet weak var callAndPutLabel: UILabel!
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
     @IBOutlet weak var strategySegmentedControl: UISegmentedControl!
+    //buy or sell
     
+    @IBOutlet weak var buyOrSellSegmentedControl: UISegmentedControl!
     var calculation: Calculation?
     var tempArr = [Double]()
     var underlyingTicker: String = ""
@@ -43,6 +47,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     var numOfOptions: Double = 0
     var strategy: Double = 0
     var expiryDate: String = ""
+    var buyOrSellChoice: Double = 0
+    var callOrPutChoice: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,10 +124,32 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
 
     }
     
-    @IBAction func strategySelected(_ sender: UISegmentedControl) {
+    @IBAction func buyOrSellSelected(_ sender: UISegmentedControl) {
+        switch buyOrSellSegmentedControl.selectedSegmentIndex{
+        case 0:
+            //Buy
+            buyOrSellChoice = 0
+        case 1:
+            //Sell
+            buyOrSellChoice = 1
+        default:
+            print("unknown option identifier")
+        }
         selectStrategy()
-        //print(strategy)
-        
+    }
+    
+    @IBAction func strategySelected(_ sender: UISegmentedControl) {
+        switch strategySegmentedControl.selectedSegmentIndex {
+        case 0:
+            //Call
+            callOrPutChoice = 0
+        case 1:
+            //Put
+            callOrPutChoice = 1
+        default:
+            preconditionFailure("Unexpected index.")
+        }
+        selectStrategy()
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         if underlyingTickerTextField.resignFirstResponder(){
@@ -140,17 +168,26 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         return true
     }
     func selectStrategy(){
-        switch strategySegmentedControl.selectedSegmentIndex {
-        case 0:
+        if callOrPutChoice == 0 && buyOrSellChoice == 0{
+            //long call
             strategy = 0
-        case 1:
+            StrategyTitleLabel.text = "Long Call"
+            callAndPutLabel.text = "Price of 1 Call"
+        } else if callOrPutChoice == 0 && buyOrSellChoice == 1{
+            //naked call
             strategy = 1
-        case 2:
+            StrategyTitleLabel.text = "Naked Call"
+            callAndPutLabel.text = "Price of 1 Call"
+        } else if callOrPutChoice == 1 && buyOrSellChoice == 0{
+            //long put
             strategy = 2
-        case 3:
+            StrategyTitleLabel.text = "Long Put"
+            callAndPutLabel.text = "Price of 1 Put"
+        } else if callOrPutChoice == 1 && buyOrSellChoice == 1{
+            //naked put
             strategy = 3
-        default:
-            preconditionFailure("Unexpected index.")
+            StrategyTitleLabel.text = "Naked Put"
+            callAndPutLabel.text = "Price of 1 Put"
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

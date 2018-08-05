@@ -11,6 +11,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--About-->
+        <scene sceneID="Yti-ai-CQr">
+            <objects>
+                <viewController id="Pmj-MA-8pF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wP1-T3-gju">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello and welcome to Option Tutor, your guide towards learning basic option strategies and hedging yourself fro" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lJU-eV-Z1p">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="bottom" secondItem="q6C-fj-rch" secondAttribute="bottom" id="7KT-PU-sqq"/>
+                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="top" secondItem="q6C-fj-rch" secondAttribute="top" id="FAo-RR-OCg"/>
+                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="leading" secondItem="q6C-fj-rch" secondAttribute="leading" id="H36-4Z-Rb4"/>
+                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="trailing" secondItem="q6C-fj-rch" secondAttribute="trailing" id="OYZ-ro-wWz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q6C-fj-rch"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="TZS-m0-CjC">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="iVR-JI-Dxp"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxr-jB-h7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="-564.46776611694156"/>
+        </scene>
         <!--Past Calculations-->
         <scene sceneID="aYl-7G-AAf">
             <objects>
@@ -69,6 +101,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Past Calculations" id="I5g-BQ-Blb">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="SiX-qb-VRd">
+                            <connections>
+                                <segue destination="Pmj-MA-8pF" kind="show" id="GpQ-pT-4qY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tN-EX-YQs">
                             <connections>
                                 <segue destination="DOM-Vy-0dR" kind="show" identifier="addCalculation" id="8Qk-bx-uat"/>
@@ -310,34 +347,47 @@
                                     <segue destination="Mh9-Vo-2NA" kind="show" identifier="displayGraph" id="HIK-Rg-0T1"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="seM-57-qUZ">
-                                <rect key="frame" x="15" y="233" width="345" height="29"/>
-                                <segments>
-                                    <segment title="Long Call"/>
-                                    <segment title="Naked Call"/>
-                                    <segment title="Long Put"/>
-                                    <segment title="Naked Put"/>
-                                </segments>
-                                <connections>
-                                    <action selector="strategySelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="prv-Rd-4qR"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pl1-GJ-Lzu">
+                                <rect key="frame" x="15" y="219" width="345" height="56"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="seM-57-qUZ">
+                                        <rect key="frame" x="135" y="0.0" width="75" height="29"/>
+                                        <segments>
+                                            <segment title="Call"/>
+                                            <segment title="Put"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="strategySelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="prv-Rd-4qR"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uLq-3u-fEU">
+                                        <rect key="frame" x="135" y="28" width="75" height="29"/>
+                                        <segments>
+                                            <segment title="Buy"/>
+                                            <segment title="Sell"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="buyOrSellSelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="Fd9-TS-ONP"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="tcOffWhite"/>
                         <constraints>
-                            <constraint firstItem="seM-57-qUZ" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="25" id="1Qp-xq-uCr"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="XGN-65-IaT" secondAttribute="trailing" constant="15" id="2cM-KB-kGO"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="7jy-f9-7jX" secondAttribute="trailing" constant="15" id="4XW-IV-sf9"/>
+                            <constraint firstItem="Pl1-GJ-Lzu" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="11" id="6ux-rZ-MU5"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="mNn-N9-a9l" secondAttribute="trailing" constant="15" id="7xu-So-PBZ"/>
                             <constraint firstItem="mNn-N9-a9l" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="BFE-kf-Aps"/>
-                            <constraint firstItem="seM-57-qUZ" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="BTv-a9-EwG"/>
+                            <constraint firstItem="Pl1-GJ-Lzu" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="Sj5-PJ-dKn"/>
                             <constraint firstItem="mNn-N9-a9l" firstAttribute="top" secondItem="fSE-1M-lIo" secondAttribute="top" constant="24" id="XvA-WD-zgS"/>
-                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="seM-57-qUZ" secondAttribute="bottom" constant="25" id="a04-Yv-6cw"/>
+                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="Pl1-GJ-Lzu" secondAttribute="bottom" constant="11" id="aZd-vr-WDs"/>
                             <constraint firstItem="XGN-65-IaT" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="cPe-fl-YCV"/>
                             <constraint firstItem="7jy-f9-7jX" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="e6P-Ol-6li"/>
                             <constraint firstItem="7jy-f9-7jX" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="bottom" constant="24" id="f6F-P7-jH2"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="seM-57-qUZ" secondAttribute="trailing" constant="15" id="nFP-4D-X6K"/>
                             <constraint firstItem="fSE-1M-lIo" firstAttribute="bottom" secondItem="7jy-f9-7jX" secondAttribute="bottom" constant="24" id="tJQ-R0-qLW"/>
+                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="Pl1-GJ-Lzu" secondAttribute="trailing" constant="15" id="vCc-7K-TCi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSE-1M-lIo"/>
                     </view>
@@ -354,7 +404,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="StrategyTitleLabel" destination="7sW-v0-FjW" id="gB1-LO-pWO"/>
+                        <outlet property="buyOrSellSegmentedControl" destination="uLq-3u-fEU" id="Vbb-TO-tfn"/>
                         <outlet property="calculateCostButton" destination="zr4-bC-BNF" id="ZZT-re-bqH"/>
+                        <outlet property="callAndPutLabel" destination="U11-R4-gqp" id="QGA-28-rBX"/>
                         <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
                         <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
                         <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
@@ -399,6 +452,7 @@
                                 <segue destination="ZIj-b3-7ZT" kind="unwind" identifier="back" unwindAction="unwindWithSegue:" id="GDJ-Ls-CqC"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="nHa-Im-oel"/>
                     </navigationItem>
                     <connections>
                         <outlet property="lineChartView" destination="sNB-PH-80R" id="kr2-d9-iiz"/>
