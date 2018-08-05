@@ -10,11 +10,12 @@
         <attribute name="numOfContracts" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="optionExpiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="strategy" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="strategyTitleLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="strikePrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underlyingPrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underlyingTicker" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>

@@ -34,7 +34,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     @IBOutlet weak var callAndPutLabel: UILabel!
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
-    @IBOutlet weak var strategySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var callOrPutSegmentedControl: UISegmentedControl!
+    
     //buy or sell
     
     @IBOutlet weak var buyOrSellSegmentedControl: UISegmentedControl!
@@ -79,22 +80,28 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
             }
         }
-//        expiryDateTextField.calculateButtonAction = {
-//            if self.expiryDateTextField.isFirstResponder {
-//                self.expiryDateTextField.resignFirstResponder()
-//            }
-//        }
+
         if let calculation = calculation {
-            strategySegmentedControl.selectedSegmentIndex = Int(calculation.strategy)
             underlyingTickerTextField.text = calculation.underlyingTicker
             underlyingPriceLabel.text = calculation.underlyingPrice
+            callOrPutSegmentedControl.selectedSegmentIndex = Int(calculation.callOrPutChoice)
+            buyOrSellSegmentedControl.selectedSegmentIndex = Int(calculation.buyOrSellChoice)
+            buyOrSellChoice = calculation.buyOrSellChoice
+            callOrPutChoice = calculation.callOrPutChoice
+            strategy = calculation.strategy
+            StrategyTitleLabel.text = calculation.strategyTitleLabel
+            callAndPutLabel.text = calculation.callOrPutLabel
             callPriceTextField.text = calculation.callPrice
             strikePriceTextField.text = calculation.strikePrice
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = calculation.expiryDate
         } else {
-            strategySegmentedControl.selectedSegmentIndex = 0
+            callOrPutSegmentedControl.selectedSegmentIndex = 0
+            buyOrSellSegmentedControl.selectedSegmentIndex = 0
             underlyingTickerTextField.text = ""
+            strategy = 0
+            StrategyTitleLabel.text = "Long Call"
+            callAndPutLabel.text = "Price of 1 Call"
             callPriceTextField.text = ""
             underlyingPriceLabel.text = ""
             strikePriceTextField.text = ""
@@ -139,7 +146,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     }
     
     @IBAction func strategySelected(_ sender: UISegmentedControl) {
-        switch strategySegmentedControl.selectedSegmentIndex {
+        switch callOrPutSegmentedControl.selectedSegmentIndex {
         case 0:
             //Call
             callOrPutChoice = 0
@@ -208,12 +215,23 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         case "save" where calculation != nil: //when it is not a new
             
             //Set the new calculation's title and content to the corresponding text field and text view text values. If either value is nil, we provide an empty string as the default value using the nil coalescing operation (??)
-            if strategySegmentedControl.selectedSegmentIndex == Int((calculation?.strategy)!){
-                calculation?.strategy = Double(strategySegmentedControl.selectedSegmentIndex)
-            }else{calculation?.strategy = strategy}
+//            if strategySegmentedControl.selectedSegmentIndex == Int((calculation?.strategy)!){
+//                calculation?.strategy = Double(strategySegmentedControl.selectedSegmentIndex)
+//            }else{calculation?.strategy = strategy}
+           
+            if callOrPutSegmentedControl.selectedSegmentIndex == Int((calculation?.callOrPutChoice)!){
+                calculation?.callOrPutChoice = Double(callOrPutSegmentedControl.selectedSegmentIndex)
+            }else{calculation?.callOrPutChoice = callOrPutChoice}
             
+            if buyOrSellSegmentedControl.selectedSegmentIndex == Int((calculation?.buyOrSellChoice)!){
+                calculation?.buyOrSellChoice = Double(buyOrSellSegmentedControl.selectedSegmentIndex)
+            
+            }else{calculation?.buyOrSellChoice = buyOrSellChoice}
+            calculation?.strategy = strategy
             calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
             calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
+            calculation?.strategyTitleLabel = StrategyTitleLabel.text ?? ""
+            calculation?.callOrPutLabel = callAndPutLabel.text ?? ""
             calculation?.callPrice = callPriceTextField.text ?? ""
             calculation?.strikePrice = strikePriceTextField.text ?? ""
             calculation?.numOfContracts = numofContractsTextField.text ?? ""
@@ -225,9 +243,13 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             
         case "save" where calculation == nil: //new calculation:
             let calculation = CoreDataHelper.newCalculation()
+            calculation.callOrPutChoice = callOrPutChoice
+            calculation.buyOrSellChoice = buyOrSellChoice
             calculation.strategy = strategy
             calculation.underlyingTicker = underlyingTickerTextField.text ?? ""
             calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
+            calculation.strategyTitleLabel = StrategyTitleLabel.text ?? ""
+            calculation.callOrPutLabel = callAndPutLabel.text ?? ""
             calculation.callPrice = callPriceTextField.text ?? ""
             calculation.strikePrice = strikePriceTextField.text ?? ""
             calculation.numOfContracts = numofContractsTextField.text ?? ""

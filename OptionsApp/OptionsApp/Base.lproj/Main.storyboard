@@ -351,7 +351,7 @@
                                 <rect key="frame" x="15" y="219" width="345" height="56"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="seM-57-qUZ">
-                                        <rect key="frame" x="135" y="0.0" width="75" height="29"/>
+                                        <rect key="frame" x="135" y="-1" width="75" height="29"/>
                                         <segments>
                                             <segment title="Call"/>
                                             <segment title="Put"/>
@@ -408,12 +408,12 @@
                         <outlet property="buyOrSellSegmentedControl" destination="uLq-3u-fEU" id="Vbb-TO-tfn"/>
                         <outlet property="calculateCostButton" destination="zr4-bC-BNF" id="ZZT-re-bqH"/>
                         <outlet property="callAndPutLabel" destination="U11-R4-gqp" id="QGA-28-rBX"/>
+                        <outlet property="callOrPutSegmentedControl" destination="seM-57-qUZ" id="pDj-7a-ass"/>
                         <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
                         <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
                         <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
                         <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
                         <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
-                        <outlet property="strategySegmentedControl" destination="seM-57-qUZ" id="K9p-k3-pho"/>
                         <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
                         <outlet property="underlyingPriceLabel" destination="71t-G3-JAf" id="htq-h6-Yh7"/>
                         <outlet property="underlyingTickerTextField" destination="w80-gJ-Kdk" id="7yl-4I-h57"/>
@@ -452,7 +452,6 @@
                                 <segue destination="ZIj-b3-7ZT" kind="unwind" identifier="back" unwindAction="unwindWithSegue:" id="GDJ-Ls-CqC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="nHa-Im-oel"/>
                     </navigationItem>
                     <connections>
                         <outlet property="lineChartView" destination="sNB-PH-80R" id="kr2-d9-iiz"/>
