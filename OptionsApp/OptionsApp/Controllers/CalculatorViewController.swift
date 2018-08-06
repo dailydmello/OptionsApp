@@ -18,7 +18,6 @@ protocol CalculatorViewControllerDelegate {
 
 class CalculatorViewController: UIViewController, CalculatorViewControllerDelegate,UITextFieldDelegate{
     
-    
     @IBOutlet weak var underlyingTickerTextField: UITextField!
     
     @IBOutlet weak var underlyingPriceLabel: UILabel!
@@ -219,14 +218,16 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
 //                calculation?.strategy = Double(strategySegmentedControl.selectedSegmentIndex)
 //            }else{calculation?.strategy = strategy}
            
-            if callOrPutSegmentedControl.selectedSegmentIndex == Int((calculation?.callOrPutChoice)!){
-                calculation?.callOrPutChoice = Double(callOrPutSegmentedControl.selectedSegmentIndex)
-            }else{calculation?.callOrPutChoice = callOrPutChoice}
-            
-            if buyOrSellSegmentedControl.selectedSegmentIndex == Int((calculation?.buyOrSellChoice)!){
-                calculation?.buyOrSellChoice = Double(buyOrSellSegmentedControl.selectedSegmentIndex)
-            
-            }else{calculation?.buyOrSellChoice = buyOrSellChoice}
+//            if callOrPutSegmentedControl.selectedSegmentIndex == Int((calculation?.callOrPutChoice)!){
+//                calculation?.callOrPutChoice = Double(callOrPutSegmentedControl.selectedSegmentIndex)
+//            }else{calculation?.callOrPutChoice = callOrPutChoice}
+//
+//            if buyOrSellSegmentedControl.selectedSegmentIndex == Int((calculation?.buyOrSellChoice)!){
+//                calculation?.buyOrSellChoice = Double(buyOrSellSegmentedControl.selectedSegmentIndex)
+//
+//            }else{calculation?.buyOrSellChoice = buyOrSellChoice}
+            calculation?.callOrPutChoice = callOrPutChoice
+            calculation?.buyOrSellChoice = buyOrSellChoice
             calculation?.strategy = strategy
             calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
             calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
