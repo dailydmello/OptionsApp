@@ -11,37 +11,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--About-->
-        <scene sceneID="Yti-ai-CQr">
+        <!--View Controller-->
+        <scene sceneID="aXQ-LH-0R0">
             <objects>
-                <viewController id="Pmj-MA-8pF" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wP1-T3-gju">
+                <viewController id="aWP-46-cGf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tju-Kg-ulz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello and welcome to Option Tutor, your guide towards learning basic option strategies and hedging yourself fro" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lJU-eV-Z1p">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iNt-nR-4FY">
+                                <rect key="frame" x="15" y="79" width="345" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">About the app
+Hello and welcome to Option Tutor, your all in one guide to get you started with option trading. Option Tutor will teach you about the wonders of option trading by providing a workspace to evaluate different strategies and allow you to instantaneously simulate expected profits. Before you use the app, I strongly recommend getting some basic knowledge about option trading by reading the following links.  Basic Info: http://www.theoptionsguide.com/stock-option.aspx Long Call: http://www.theoptionsguide.com/long-call.aspx Naked Call: http://www.theoptionsguide.com/out-of-the-money-naked-calls.aspx Long Put: http://www.theoptionsguide.com/long-put.aspx Naked Put: http://www.theoptionsguide.com/uncovered-put-writing.aspx  Features -Add new calculations and save it for later -Graph profits based on entered underlying stock and option values  How to use the app - Before you use the app, I strongly recommend getting some basic knowledge about option trading at  - Past calculations screen, a user can create a new calculation or click on an exisiting calculation to transition to the calculator  About the developer Hi my name is Ethan and I am from Toronto, Canada. I recently graduated from McMaster University and decided to spend the summer travelling and making my first app(this one). Enjoy!</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="bottom" secondItem="q6C-fj-rch" secondAttribute="bottom" id="7KT-PU-sqq"/>
-                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="top" secondItem="q6C-fj-rch" secondAttribute="top" id="FAo-RR-OCg"/>
-                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="leading" secondItem="q6C-fj-rch" secondAttribute="leading" id="H36-4Z-Rb4"/>
-                            <constraint firstItem="lJU-eV-Z1p" firstAttribute="trailing" secondItem="q6C-fj-rch" secondAttribute="trailing" id="OYZ-ro-wWz"/>
+                            <constraint firstItem="iNt-nR-4FY" firstAttribute="leading" secondItem="Rax-E8-ofz" secondAttribute="leading" constant="15" id="8X1-zZ-RON"/>
+                            <constraint firstItem="Rax-E8-ofz" firstAttribute="trailing" secondItem="iNt-nR-4FY" secondAttribute="trailing" constant="15" id="efM-ZY-taA"/>
+                            <constraint firstItem="iNt-nR-4FY" firstAttribute="top" secondItem="Rax-E8-ofz" secondAttribute="top" constant="15" id="f74-Cl-cP5"/>
+                            <constraint firstItem="Rax-E8-ofz" firstAttribute="bottom" secondItem="iNt-nR-4FY" secondAttribute="bottom" constant="15" id="xOO-Q0-l64"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="q6C-fj-rch"/>
+                        <viewLayoutGuide key="safeArea" id="Rax-E8-ofz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="TZS-m0-CjC">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="iVR-JI-Dxp"/>
-                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kxr-jB-h7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqR-sB-7Xr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="1330" y="-612"/>
         </scene>
         <!--Past Calculations-->
         <scene sceneID="aYl-7G-AAf">
@@ -103,7 +103,7 @@
                     <navigationItem key="navigationItem" title="Past Calculations" id="I5g-BQ-Blb">
                         <barButtonItem key="leftBarButtonItem" title="About" id="SiX-qb-VRd">
                             <connections>
-                                <segue destination="Pmj-MA-8pF" kind="show" id="GpQ-pT-4qY"/>
+                                <segue destination="aWP-46-cGf" kind="show" id="n8V-4B-ir9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tN-EX-YQs">
@@ -432,36 +432,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNB-PH-80R" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="15.5" y="79" width="344.5" height="528"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-rH-Jnt">
-                                <rect key="frame" x="15.5" y="622" width="344.5" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-rH-Jnt">
+                                <rect key="frame" x="15" y="79" width="331.5" height="30"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CoI-a3-ALl">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CoI-a3-ALl">
+                                        <rect key="frame" x="0.0" y="0.0" width="249.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx3-lw-4cr">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.5" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="3wd-jb-Hys"/>
+                                                    <constraint firstAttribute="width" constant="140" id="3wd-jb-Hys"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AnT-RE-5iH">
-                                                <rect key="frame" x="91.5" y="0.0" width="30" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AnT-RE-5iH" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                <rect key="frame" x="97.5" y="0.0" width="60" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="1ER-Il-Roa"/>
+                                                    <constraint firstAttribute="width" constant="60" id="1ER-Il-Roa"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jha-Fh-ay8">
-                                                <rect key="frame" x="126.5" y="0.0" width="10" height="30"/>
+                                                <rect key="frame" x="168.5" y="0.0" width="10" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="Prf-4N-XuB"/>
                                                 </constraints>
@@ -469,36 +465,43 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="53X-zJ-1JX">
-                                                <rect key="frame" x="141.5" y="0.0" width="30" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="53X-zJ-1JX" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                <rect key="frame" x="189.5" y="0.0" width="60" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="zVH-oc-OXC"/>
+                                                    <constraint firstAttribute="width" constant="60" id="zVH-oc-OXC"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wk-tH-4Uy">
-                                        <rect key="frame" x="244.5" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="251.5" y="0.0" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="HYM-nX-UbY"/>
+                                            <constraint firstAttribute="width" constant="80" id="HYM-nX-UbY"/>
                                         </constraints>
                                         <state key="normal" title="Update"/>
+                                        <connections>
+                                            <action selector="updateButtonTapped:" destination="Mh9-Vo-2NA" eventType="touchUpInside" id="IC2-A0-ac3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNB-PH-80R" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="15" y="124" width="331.5" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b1B-rH-Jnt" firstAttribute="top" secondItem="sNB-PH-80R" secondAttribute="bottom" constant="15" id="42P-Cm-q0Z"/>
-                            <constraint firstItem="sNB-PH-80R" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="GWR-67-zUV"/>
-                            <constraint firstItem="sNB-PH-80R" firstAttribute="top" secondItem="VvL-7m-4er" secondAttribute="top" constant="15" id="RH0-dy-HW4"/>
-                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="b1B-rH-Jnt" secondAttribute="trailing" constant="15" id="Xdp-I7-DUP"/>
-                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="sNB-PH-80R" secondAttribute="trailing" constant="15" id="ilH-fc-b32"/>
-                            <constraint firstItem="VvL-7m-4er" firstAttribute="bottom" secondItem="b1B-rH-Jnt" secondAttribute="bottom" constant="15" id="ptW-Dl-7FL"/>
-                            <constraint firstItem="b1B-rH-Jnt" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="tD7-0G-gLR"/>
+                            <constraint firstItem="sNB-PH-80R" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="DdR-S0-di8"/>
+                            <constraint firstItem="sNB-PH-80R" firstAttribute="top" secondItem="b1B-rH-Jnt" secondAttribute="bottom" constant="15" id="IV0-so-2sy"/>
+                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="b1B-rH-Jnt" secondAttribute="trailing" constant="15" id="Lpe-fd-3Zx"/>
+                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="sNB-PH-80R" secondAttribute="trailing" constant="15" id="h05-pK-RJp"/>
+                            <constraint firstItem="b1B-rH-Jnt" firstAttribute="top" secondItem="VvL-7m-4er" secondAttribute="top" constant="15" id="rsP-ue-mlJ"/>
+                            <constraint firstItem="VvL-7m-4er" firstAttribute="bottom" secondItem="sNB-PH-80R" secondAttribute="bottom" constant="15" id="sX7-S3-5iR"/>
+                            <constraint firstItem="b1B-rH-Jnt" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="zHn-FH-cxH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VvL-7m-4er"/>
                     </view>
@@ -511,6 +514,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="lineChartView" destination="sNB-PH-80R" id="kr2-d9-iiz"/>
+                        <outlet property="updateMaxTextField" destination="53X-zJ-1JX" id="qS7-q5-oKR"/>
+                        <outlet property="updateMinTextField" destination="AnT-RE-5iH" id="tde-Km-ua9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUT-l0-ETt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,11 +20,37 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     var callPrice: Double = 0
     var delegate: CalculatorViewControllerDelegate?
     var strategy: Double = 0
+    var updateMin: Double = 0
+    var updateMax: Double = 0
     
+
     @IBOutlet weak var lineChartView: LineChartView!
+   
+    @IBOutlet weak var updateMaxTextField: SymbolTextField!
+    @IBOutlet weak var updateMinTextField: SymbolTextField!
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        updateMinTextField.calculateButtonAction = {
+            if self.updateMinTextField.isFirstResponder {
+                self.updateMinTextField.resignFirstResponder()
+            }
+            if let updateMinText = self.updateMinTextField.text, let updateMinDouble = Double(updateMinText){
+                self.updateMin = (100 * updateMinDouble).rounded()/100
+            }
+            print(self.updateMin)
+        }
+        
+
+        updateMaxTextField.calculateButtonAction = {
+            if self.updateMaxTextField.isFirstResponder {
+                self.updateMaxTextField.resignFirstResponder()
+            }
+            if let updateMaxText = self.updateMaxTextField.text, let updateMaxDouble = Double(updateMaxText){
+                self.updateMax = (100 * updateMaxDouble).rounded()/100
+            }
+            print(self.updateMax)
+        }
         
         if let delegate = delegate {
             //[underlyingPrice,priceOfCall,strikePrice,numOfOptions]
@@ -37,7 +63,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             numOfOptions = newData.0[3]
             strategy = newData.0[4]
         }
-        print(strategy)
+        //print(strategy)
        updateChartWithData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +77,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             print("unexpected segue")
         }
     }
+
     func reverseStride(underlyingMax: Double, underlyingMin: Double) -> [Double]{
         var tempArr = [Double]()
         for i in stride(from: underlyingMax, through: underlyingMin, by: -1){
@@ -75,6 +102,117 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         return reversedArr
     }
     
+    @IBAction func updateButtonTapped(_ sender: UIButton) {
+        if let updateMinText = self.updateMinTextField.text, let updateMinDouble = Double(updateMinText){
+            self.updateMin = (100 * updateMinDouble).rounded()/100
+        }
+        if let updateMaxText = self.updateMaxTextField.text, let updateMaxDouble = Double(updateMaxText){
+            self.updateMax = (100 * updateMaxDouble).rounded()/100
+        }
+        
+        updateChartWithNewMinMax()
+    }
+    
+    func updateChartWithNewMinMax(){
+        var chartDataEntries = [ChartDataEntry]()
+        var underlyingValuesArr = [Double]()
+        var tempArr: [Double] = [0]
+        var profits: [Double] = []
+        var graphProfits: [Double] = []
+        var graphUnderlyingVals: [Double] = []
+        let underlyingMin = updateMin
+        let underlyingMax = updateMax
+
+        switch strategy{
+        case 0:
+            print("Long Call graphed")
+            //Long Call Implementation
+            underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
+            for underlying in underlyingValuesArr{
+                if underlying > strikePrice {
+                    let diff = underlying - strikePrice
+                    tempArr.append(diff)
+                    profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
+                }else{
+                    profits.append(-1 * numOfOptions * callPrice)
+                }
+            }
+            graphProfits = profits
+            graphUnderlyingVals = underlyingValuesArr
+        case 1:
+            print("Naked Call graphed")
+            //Naked Call Implementation
+            underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
+            for underlying in underlyingValuesArr{
+                if underlying > strikePrice {
+                    let diff = strikePrice - underlying
+                    tempArr.append(diff)
+                    profits.append(numOfOptions * callPrice + numOfOptions * tempArr.min()!)
+                }else{
+                    profits.append(numOfOptions * callPrice)
+                }
+            }
+            graphProfits = profits
+            graphUnderlyingVals = underlyingValuesArr
+        case 2:
+            print("Long put graphed")
+            //Long put implementation
+            underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
+            for underlying in underlyingValuesArr{
+                if underlying < strikePrice {
+                    let diff = strikePrice - underlying
+                    tempArr.append(diff)
+                    //print(tempArr)
+                    profits.append(-1 * numOfOptions * callPrice + numOfOptions * tempArr.max()!)
+                }else{
+                    profits.append(-1 * numOfOptions * callPrice)
+                }
+            }
+            graphProfits = flipArray(flipMe: profits)
+            graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
+        case 3:
+            print("Naked Put graphed")
+            //Naked put implementation
+            underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
+            for underlying in underlyingValuesArr{
+                if underlying < strikePrice {
+                    let diff = strikePrice - underlying
+                    tempArr.append(diff)
+                    //print(tempArr)
+                    profits.append( numOfOptions * callPrice - numOfOptions * tempArr.max()!)
+                }else{
+                    profits.append( numOfOptions * callPrice)
+                }
+            }
+            graphProfits = flipArray(flipMe: profits)
+            graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
+        default:
+            print("Unidentified Case")
+        }
+        for i in 0..<graphProfits.count {
+            //print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
+            let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
+            //print(dataEntry)
+            chartDataEntries.append(dataEntry)
+        }
+        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
+        let linechartData = LineChartData(dataSet: set1)
+        lineChartView.data = linechartData
+        set1.circleRadius = 0
+        set1.lineWidth = 2.5
+        set1.fillAlpha = 0.8
+        set1.setColor(UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1))
+        set1.fillColor = UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1)
+        set1.drawFilledEnabled = true
+        set1.drawValuesEnabled = false
+        
+        lineChartView.leftAxis.enabled = true
+        lineChartView.leftAxis.drawGridLinesEnabled = true
+        lineChartView.rightAxis.enabled = false
+        lineChartView.xAxis.enabled = true
+        lineChartView.animate(yAxisDuration: 0.8)
+    }
+    
     func updateChartWithData(){
         var chartDataEntries = [ChartDataEntry]()
         var underlyingValuesArr = [Double]()
@@ -84,8 +222,15 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         var graphUnderlyingVals: [Double] = []
 //        let underlyingMin = underlyingPrice - 5
 //        let underlyingMax = underlyingPrice + 5
+//        print(underlyingPrice)
+//        let underlyingMin = (underlyingPrice - underlyingPrice * 0.20)
+//        let underlyingMax = (underlyingPrice + underlyingPrice * 0.20)
+//        print(underlyingMin)
+//        print(underlyingMax)
         let underlyingMin = ((underlyingPrice - underlyingPrice * 0.20) * 100).rounded()/100
         let underlyingMax = ((underlyingPrice + underlyingPrice * 0.20) * 100).rounded()/100
+        updateMaxTextField.text = String(underlyingMax)
+        updateMinTextField.text = String(underlyingMin)
         
         switch strategy{
         case 0:
@@ -154,7 +299,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             print("Unidentified Case")
         }
         for i in 0..<graphProfits.count {
-            print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
+            //print("underlying: \(graphUnderlyingVals[i]) and profit \(graphProfits[i])")
             let dataEntry = ChartDataEntry(x: graphUnderlyingVals[i], y: graphProfits[i])
             //print(dataEntry)
             chartDataEntries.append(dataEntry)
@@ -177,6 +322,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         lineChartView.animate(yAxisDuration: 0.8)
     }
 }
+
 
 
 
