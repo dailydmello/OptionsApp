@@ -22,6 +22,7 @@ class ListCalcTableViewController: UITableViewController{
         calculations = CoreDataHelper.retrieveCalculation()
     }
     
+    
     //table view should display 10 table view cells. This is hardcoded right now but eventually it'll reflect the number of calculations the user has.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calculations.count
@@ -36,12 +37,44 @@ class ListCalcTableViewController: UITableViewController{
         switch calculation.strategy{
         case 0:
             cell.strategyTitleLabel.text = "Long Call"
+            
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let costDouble = Double(cost)
+            let costFormatted = formatNumber(num: costDouble!)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
+            
+            
+            
         case 1:
             cell.strategyTitleLabel.text = "Naked Call"
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let costDouble = Double(cost)
+            let costFormatted = formatNumber(num: costDouble!)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
         case 2:
             cell.strategyTitleLabel.text = "Long Put"
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let costDouble = Double(cost)
+            let costFormatted = formatNumber(num: costDouble!)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
         case 3:
             cell.strategyTitleLabel.text = "Naked Put"
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let costDouble = Double(cost)
+            let costFormatted = formatNumber(num: costDouble!)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
         default:
             print("unidentified strategy identifier")
         }
@@ -69,7 +102,17 @@ class ListCalcTableViewController: UITableViewController{
        //eeach time the user taps the save or cancel bar button item in DisplayCalculationViewController, we update our calculations array in ListCalcTableViewController
         calculations = CoreDataHelper.retrieveCalculation()
     }
-    
+    func formatNumber(num:Double) -> String{
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .currency
+//        formatter.maximumFractionDigits = 0
+//        let numText = formatter.string(num)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        return formatter.string(from: NSNumber(value: num))!
+//        NumberFormatter.localizedString(from: NSNumber(value: whatever), number: NumberFormatter.Style.decimal
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
         

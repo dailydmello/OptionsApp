@@ -49,6 +49,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     var expiryDate: String = ""
     var buyOrSellChoice: Double = 0
     var callOrPutChoice: Double = 0
+    var entryCost: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             }
             if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
             }
+            self.calculateOptionTotalCost()
         }
 
         if let calculation = calculation {
@@ -94,6 +96,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             strikePriceTextField.text = calculation.strikePrice
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = calculation.expiryDate
+            costLabel.text = calculation.entryCost
+            
         } else {
             callOrPutSegmentedControl.selectedSegmentIndex = 0
             buyOrSellSegmentedControl.selectedSegmentIndex = 0
@@ -106,6 +110,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             strikePriceTextField.text = ""
             numofContractsTextField.text = ""
             expiryDateTextField.text = ""
+            costLabel.text = ""
         }
     }
     func passData()-> ([Double],String){
@@ -122,7 +127,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         
     }
     @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
-        calculateCallTotalCost()
+        calculateOptionTotalCost()
     }
     @IBAction func graphButtonTapped(_ sender: Any) {
     }
@@ -237,6 +242,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation?.strikePrice = strikePriceTextField.text ?? ""
             calculation?.numOfContracts = numofContractsTextField.text ?? ""
             calculation?.expiryDate = expiryDateTextField.text ?? ""
+            calculation?.entryCost = costLabel.text ?? ""
             calculation?.modificationTime = Date()
             
             //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListCalculationsTableViewController
@@ -255,6 +261,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation.strikePrice = strikePriceTextField.text ?? ""
             calculation.numOfContracts = numofContractsTextField.text ?? ""
             calculation.expiryDate = expiryDateTextField.text ?? ""
+            calculation.entryCost = costLabel.text ?? ""
             calculation.modificationTime = Date()
             
             CoreDataHelper.saveCalculation()
@@ -283,16 +290,18 @@ extension CalculatorViewController{
         if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
         }
     }
-    
-    func calculateCallTotalCost(){
+  ///////////
+    func calculateOptionTotalCost(){
         guard let callPrice = self.callPriceTextField.text
             else {return}
         guard let numOfContracts = self.numofContractsTextField.text
             else{return}
         let totalnumOfCallOptions = Double(numOfContracts)! * 100
-        let totalCallCost = Double(callPrice)! * totalnumOfCallOptions
-        self.costLabel.text = String(totalCallCost)
+        entryCost = Double(callPrice)! * totalnumOfCallOptions
+        self.costLabel.text = String(entryCost)
     }
+    
+/////////////
     func getSymbolCurrentPrice(completion: @escaping (_: Double) -> ()){
         
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price

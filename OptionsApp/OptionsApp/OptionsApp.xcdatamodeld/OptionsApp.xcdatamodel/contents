@@ -5,6 +5,7 @@
         <attribute name="callOrPutChoice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="callOrPutLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="callPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entryCost" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="expiryDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modificationTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="numOfContracts" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,6 +17,6 @@
         <attribute name="underlyingTicker" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="Calculation" positionX="-63" positionY="-18" width="128" height="255"/>
     </elements>
 </model>

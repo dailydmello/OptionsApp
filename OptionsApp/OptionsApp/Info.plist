@@ -24,6 +24,18 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>font1</key>
+	<string>Proxima Nova Light It</string>
+	<key>font2</key>
+	<string>Proxima Nova Light</string>
+	<key>font3</key>
+	<string>Proxima Nova Bold</string>
+	<key>font4</key>
+	<string>Proxima Nova Reg</string>
+	<key>font5</key>
+	<string>Proxima Nova Bold</string>
+	<key>font6</key>
+	<string>Proxima Nova SemiBold</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
