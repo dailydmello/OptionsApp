@@ -19,6 +19,8 @@ class AboutSectionTableViewController: UIViewController{
             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
             NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
                                                    for: .normal)
+        UITextView.appearance().linkTextAttributes = [ NSAttributedStringKey.foregroundColor.rawValue: UIColor.tcSeafoamGreen ]
+        
         
     }
 }
