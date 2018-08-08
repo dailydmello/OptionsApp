@@ -1316,7 +1316,7 @@ Cg
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                                 <state key="normal" title="Update">
-                                                    <color key="titleColor" name="tcSeafoamGreen"/>
+                                                    <color key="titleColor" red="0.34901960784313724" green="0.85500001907348633" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="updateButtonTapped:" destination="Mh9-Vo-2NA" eventType="touchUpInside" id="DdZ-VJ-LxB"/>
