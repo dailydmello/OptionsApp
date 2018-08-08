@@ -22,6 +22,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     var strategy: Double = 0
     var updateMin: Double = 0
     var updateMax: Double = 0
+    var limit: Double = 0
     
     @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
     
@@ -153,6 +154,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append(-1 * numOfOptions * callPrice)
                 }
             }
+            limit = strikePrice + callPrice
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 1:
@@ -168,6 +170,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append(numOfOptions * callPrice)
                 }
             }
+            limit = strikePrice + callPrice
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 2:
@@ -184,6 +187,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append(-1 * numOfOptions * callPrice)
                 }
             }
+            limit = strikePrice - callPrice
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         case 3:
@@ -200,6 +204,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append( numOfOptions * callPrice)
                 }
             }
+            limit = strikePrice - callPrice
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         default:
@@ -262,6 +267,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append(-1 * numOfOptions * callPrice)
                 }
             }
+            limit = strikePrice + callPrice
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 1:
@@ -277,6 +283,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append(numOfOptions * callPrice)
                 }
             }
+            limit = strikePrice + callPrice
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 2:
@@ -293,6 +300,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append(-1 * numOfOptions * callPrice)
                 }
             }
+             limit = strikePrice - callPrice
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         case 3:
@@ -309,6 +317,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
                     profits.append( numOfOptions * callPrice)
                 }
             }
+             limit = strikePrice - callPrice
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         default:
@@ -326,7 +335,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         set1.setColor(UIColor.tcSeafoamGreen)
         set1.fillColor = UIColor.tcSeafoamGreen
         set1.circleRadius = 0
-        set1.lineWidth = 2.5
+        set1.lineWidth = 2.0
         set1.fillAlpha = 0.8
         set1.drawFilledEnabled = false
         set1.drawValuesEnabled = false
@@ -344,7 +353,32 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         lineChartView.xAxis.enabled = true
         lineChartView.xAxis.labelFont = UIFont(name: "ProximaNova-Regular", size: 11.0)!
         lineChartView.xAxis.labelTextColor = UIColor.tcWhite
-        lineChartView.animate(yAxisDuration: 0.8)
+        
+        //let limit = strikePrice + callPrice
+        let ll1 = ChartLimitLine(limit: limit, label: "Break Even Price")
+        ll1.lineWidth = 1.0
+//        ll1.lineDashLengths = [5, 5]
+        ll1.labelPosition = .rightTop
+        ll1.drawLabelEnabled = true
+        ll1.valueFont = .systemFont(ofSize: 14)
+        ll1.lineColor = NSUIColor(red: 237.0/255.0, green: 91.0/255.0, blue: 91.0/255.0, alpha: 1.0)
+        ll1.valueTextColor = NSUIColor(red: 237.0/255.0, green: 91.0/255.0, blue: 91.0/255.0, alpha: 1.0)
+        
+        let ll2 = ChartLimitLine(limit: strikePrice, label: "Strike")
+        ll2.lineWidth = 1.0
+        //        ll1.lineDashLengths = [5, 5]
+        ll2.drawLabelEnabled = true
+        ll2.labelPosition = .rightBottom
+        ll2.valueFont = .systemFont(ofSize: 14)
+        ll2.lineColor = UIColor.tcWhite
+        ll2.valueTextColor = UIColor.tcWhite
+        lineChartView.xAxis.drawLimitLinesBehindDataEnabled = true
+        lineChartView.xAxis.addLimitLine(ll1)
+        lineChartView.xAxis.addLimitLine(ll2)
+
+        
+        lineChartView.animate(xAxisDuration: 1.0)
+        //lineChartView.animate(yAxisDuration: 1.0)
     }
 }
 
