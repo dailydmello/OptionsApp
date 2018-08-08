@@ -49,7 +49,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             if let updateMinText = self.updateMinTextField.text, let updateMinDouble = Double(updateMinText){
                 self.updateMin = (100 * updateMinDouble).rounded()/100
             }
-            print(self.updateMin)
+            //(self.updateMin)
         }
         
 
@@ -60,7 +60,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             if let updateMaxText = self.updateMaxTextField.text, let updateMaxDouble = Double(updateMaxText){
                 self.updateMax = (100 * updateMaxDouble).rounded()/100
             }
-            print(self.updateMax)
+            //print(self.updateMax)
         }
         
         if let delegate = delegate {
@@ -148,7 +148,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         
         switch strategy{
         case 0:
-            print("Long Call graphed")
+            //print("Long Call graphed")
             //Long Call Implementation
             underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
             for underlying in underlyingValuesArr{
@@ -165,7 +165,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 1:
-            print("Naked Call graphed")
+            //print("Naked Call graphed")
             //Naked Call Implementation
             underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
             for underlying in underlyingValuesArr{
@@ -182,7 +182,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 2:
-            print("Long put graphed")
+            //print("Long put graphed")
             //Long put implementation
             underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
             for underlying in underlyingValuesArr{
@@ -200,7 +200,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         case 3:
-            print("Naked Put graphed")
+            //print("Naked Put graphed")
             //Naked put implementation
             underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
             for underlying in underlyingValuesArr{
@@ -287,7 +287,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         lineChartView.leftAxis.addLimitLine(ll3)
         
         
-        lineChartView.animate(xAxisDuration: 1.0)
+        lineChartView.animate(yAxisDuration: 1.0)
         
     }
     
@@ -305,7 +305,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         
         switch strategy{
         case 0:
-            print("Long Call graphed")
+            //print("Long Call graphed")
             //Long Call Implementation
             underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
             for underlying in underlyingValuesArr{
@@ -322,7 +322,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 1:
-            print("Naked Call graphed")
+            //print("Naked Call graphed")
             //Naked Call Implementation
             underlyingValuesArr = regularStride(underlyingMin: underlyingMin, underlyingMax: underlyingMax)
             for underlying in underlyingValuesArr{
@@ -339,7 +339,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = profits
             graphUnderlyingVals = underlyingValuesArr
         case 2:
-            print("Long put graphed")
+            //print("Long put graphed")
             //Long put implementation
             underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
             for underlying in underlyingValuesArr{
@@ -357,7 +357,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             graphProfits = flipArray(flipMe: profits)
             graphUnderlyingVals = flipArray(flipMe:underlyingValuesArr)
         case 3:
-            print("Naked Put graphed")
+            //print("Naked Put graphed")
             //Naked put implementation
             underlyingValuesArr = reverseStride(underlyingMax: underlyingMax, underlyingMin: underlyingMin)
             for underlying in underlyingValuesArr{
@@ -444,7 +444,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         lineChartView.leftAxis.addLimitLine(ll3)
 
         
-        lineChartView.animate(xAxisDuration: 1.0)
+        lineChartView.animate(yAxisDuration: 1.0)
     }
 }
 

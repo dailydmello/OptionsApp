@@ -35,20 +35,6 @@ class SymbolTextField: UITextField {
             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,
             NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
                                           for: .normal)
-//        calculateButton.setTitleTextAttributes([
-//            NSAttributedStringKey.font: UIFont(name: <#T##String#>, size: <#T##CGFloat#>),
-//            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
-//                                               for: .normal)
-   
-//            let fontFamilyNames = UIFont.familyNames
-//            for familyName in fontFamilyNames {
-//                print("------------------------------")
-//                print("Font Family Name = [\(familyName)]")
-//                let names = UIFont.fontNames(forFamilyName: familyName)
-//                print("Font Names = [\(names)]")
-//        
-//        }
-
         
         // resizes toolbar
         toolbar.sizeToFit()

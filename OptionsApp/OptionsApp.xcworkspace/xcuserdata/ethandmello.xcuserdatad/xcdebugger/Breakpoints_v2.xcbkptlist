@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptionsApp/Controllers/ListCalcTableViewController.swift"
-            timestampString = "555450692.010738"
+            timestampString = "555465005.593659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptionsApp/Controllers/ProfitGraphViewController.swift"
-            timestampString = "555450692.010828"
+            timestampString = "555465005.593763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "415"

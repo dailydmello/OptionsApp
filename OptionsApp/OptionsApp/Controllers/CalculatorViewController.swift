@@ -121,8 +121,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             //underlyingPriceLabel.text = ""
             underlyingPriceTextField.text = ""
             strategy = 0
-            StrategyTitleLabel.text = "Long Call"
-            callAndPutLabel.text = "Price of 1 Call"
+            StrategyTitleLabel.text = "Strategy Title"
+            callAndPutLabel.text = "Price of 1 Call:"
             callPriceTextField.text = ""
             strikePriceTextField.text = ""
             numofContractsTextField.text = ""
@@ -271,7 +271,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         
         switch identifier {
         case "displayGraph":
-            print("graph button tapped")
+            //print("graph button tapped")
             // set variables to self
             //if destination is profitgraph, cast profit as profitgraphviewcontroller
             calculateOptionTotalCost()

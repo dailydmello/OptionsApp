@@ -18,8 +18,11 @@ class ListCalcTableViewController: UITableViewController{
             tableView.reloadData()
         }
     }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 50)!]
         aboutBarButtonItem.setTitleTextAttributes([
             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
@@ -58,39 +61,29 @@ class ListCalcTableViewController: UITableViewController{
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            let costDouble = Double(cost)
-            let costFormatted = formatNumber(num: costDouble!)
-            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
-            
-            
-            
+            cell.entryCostInfoLabel.text = "Entry Cost: $\(cost)"
+        
         case 1:
             cell.strategyTitleLabel.text = "Naked Call"
             let underlyingTicker = calculation.underlyingTicker ?? ""
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            let costDouble = Double(cost)
-            let costFormatted = formatNumber(num: costDouble!)
-            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
+            cell.entryCostInfoLabel.text = "Entry Premium: $\(cost)"
         case 2:
             cell.strategyTitleLabel.text = "Long Put"
             let underlyingTicker = calculation.underlyingTicker ?? ""
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            let costDouble = Double(cost)
-            let costFormatted = formatNumber(num: costDouble!)
-            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
+            cell.entryCostInfoLabel.text = "Entry Cost: $\(cost)"
         case 3:
             cell.strategyTitleLabel.text = "Naked Put"
             let underlyingTicker = calculation.underlyingTicker ?? ""
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            let costDouble = Double(cost)
-            let costFormatted = formatNumber(num: costDouble!)
-            cell.entryCostInfoLabel.text = "Entry Cost: \(costFormatted)"
+            cell.entryCostInfoLabel.text = "Entry Premium: $\(cost)"
         default:
             print("unidentified strategy identifier")
         }
@@ -134,7 +127,7 @@ class ListCalcTableViewController: UITableViewController{
         
         switch identifier {
         case "displayCalculation":
-            print("claculation cell tapped")
+            //print("claculation cell tapped")
             //get a reference path to calculation
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             //get the calculation at the path
