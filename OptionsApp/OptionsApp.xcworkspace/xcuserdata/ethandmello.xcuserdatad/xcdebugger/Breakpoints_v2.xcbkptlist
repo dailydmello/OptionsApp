@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptionsApp/Controllers/ListCalcTableViewController.swift"
-            timestampString = "555445620.478891"
+            timestampString = "555448137.94224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptionsApp/Controllers/ProfitGraphViewController.swift"
-            timestampString = "555445620.4789799"
+            timestampString = "555448137.942323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
             landmarkName = "updateChartWithData()"
             landmarkType = "7">
          </BreakpointContent>
