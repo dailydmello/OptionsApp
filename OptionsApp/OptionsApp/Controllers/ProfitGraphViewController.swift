@@ -23,14 +23,18 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     var updateMin: Double = 0
     var updateMax: Double = 0
     
-
+    @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
+    
     @IBOutlet weak var lineChartView: LineChartView!
    
     @IBOutlet weak var updateMaxTextField: SymbolTextField!
     @IBOutlet weak var updateMinTextField: SymbolTextField!
     
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var rangeView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         updateMinTextField.calculateButtonAction = {
             if self.updateMinTextField.isFirstResponder {
                 self.updateMinTextField.resignFirstResponder()
@@ -84,6 +88,18 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             tempArr.append(i)
         }
         return tempArr
+    }
+    func setupViews(){
+        backBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                   for: .normal)
+        rangeView.layer.cornerRadius = 8
+        rangeView.layer.masksToBounds = true
+        
+        updateButton.layer.borderWidth = 1
+        updateButton.layer.cornerRadius = 8
+        updateButton.layer.borderColor =  UIColor.tcSeafoamGreen.cgColor
     }
     
     func regularStride(underlyingMin: Double, underlyingMax: Double) -> [Double]{
@@ -201,8 +217,8 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         set1.circleRadius = 0
         set1.lineWidth = 2.5
         set1.fillAlpha = 0.8
-        set1.setColor(UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1))
-        set1.fillColor = UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1)
+        set1.setColor(UIColor.tcSeafoamGreen)
+        set1.fillColor = UIColor.tcSeafoamGreen
         set1.drawFilledEnabled = true
         set1.drawValuesEnabled = false
         
@@ -304,21 +320,30 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             //print(dataEntry)
             chartDataEntries.append(dataEntry)
         }
-        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits")
+        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits($)")
         let linechartData = LineChartData(dataSet: set1)
-        lineChartView.data = linechartData
+//        set1.setColor(UIColor(red: 89/255, green: 218/255, blue: 164/255, alpha: 1))
+        set1.setColor(UIColor.tcSeafoamGreen)
+        set1.fillColor = UIColor.tcSeafoamGreen
         set1.circleRadius = 0
         set1.lineWidth = 2.5
         set1.fillAlpha = 0.8
-        set1.setColor(UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1))
-        set1.fillColor = UIColor(red: 99/255, green: 232/255, blue: 137/255, alpha: 1)
-        set1.drawFilledEnabled = true
+        set1.drawFilledEnabled = false
         set1.drawValuesEnabled = false
+        lineChartView.data = linechartData
         
+        //lineChartView.leftAxis.
+        lineChartView.legend.font = UIFont(name: "ProximaNova-Semibold", size: 14.0)!
+        lineChartView.legend.textColor = UIColor.tcWhite
+        lineChartView.chartDescription?.enabled = false
         lineChartView.leftAxis.enabled = true
         lineChartView.leftAxis.drawGridLinesEnabled = true
+        lineChartView.leftAxis.labelFont = UIFont(name: "ProximaNova-Regular", size: 11.0)!
+        lineChartView.leftAxis.labelTextColor = UIColor.tcWhite
         lineChartView.rightAxis.enabled = false
         lineChartView.xAxis.enabled = true
+        lineChartView.xAxis.labelFont = UIFont(name: "ProximaNova-Regular", size: 11.0)!
+        lineChartView.xAxis.labelTextColor = UIColor.tcWhite
         lineChartView.animate(yAxisDuration: 0.8)
     }
 }

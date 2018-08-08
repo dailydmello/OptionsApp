@@ -11,6 +11,8 @@ import UIKit
 
 class ListCalcTableViewController: UITableViewController{
     
+    @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var aboutBarButtonItem: UIBarButtonItem!
     var calculations = [Calculation]() { //property observer
         didSet {
             tableView.reloadData()
@@ -18,7 +20,21 @@ class ListCalcTableViewController: UITableViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 50)!]
+        aboutBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                          for: .normal)
+        addBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                   for: .normal)
         
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite]
+        
+        self.tableView.backgroundColor = UIColor.tcAlmostBlack
         calculations = CoreDataHelper.retrieveCalculation()
     }
     
