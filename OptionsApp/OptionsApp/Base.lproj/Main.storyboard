@@ -1132,10 +1132,10 @@ Cg
                                                 <rect key="frame" x="0.0" y="294" width="315" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO2-Qt-4R4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="31"/>
                                                         <color key="backgroundColor" name="tcMediumBlack"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
-                                                        <state key="normal" title=" Calculate Cost  ">
+                                                        <state key="normal" title="Cost/Premium">
                                                             <color key="titleColor" name="tcSeafoamGreen"/>
                                                         </state>
                                                         <connections>
@@ -1143,9 +1143,9 @@ Cg
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFB-LG-tXw">
-                                                        <rect key="frame" x="130" y="0.0" width="67" height="31"/>
+                                                        <rect key="frame" x="168.5" y="0.0" width="28.5" height="31"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="67" id="S9z-4C-nBp"/>
+                                                            <constraint firstAttribute="width" constant="28.5" id="EtE-cq-l8H"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="tcMediumBlack"/>
