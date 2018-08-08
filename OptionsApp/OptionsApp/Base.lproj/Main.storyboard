@@ -1067,7 +1067,7 @@ Cg
                                                         <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="207.39" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tem-Hq-iRw" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="207.38" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tem-Hq-iRw" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
                                                         <rect key="frame" x="197" y="0.0" width="118" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="118" id="S1o-17-zRS"/>
@@ -1165,7 +1165,7 @@ Cg
                                                         <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="14.30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72m-qw-4Vt" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="15.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72m-qw-4Vt" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
                                                         <rect key="frame" x="197" y="0.0" width="118" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="118" id="EJ1-vw-VwX"/>
@@ -1185,7 +1185,7 @@ Cg
                                                         <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="193.09" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yer-ot-ggV" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="192.50" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yer-ot-ggV" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
                                                         <rect key="frame" x="197" y="0.0" width="118" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="118" id="bMl-Wa-9GA"/>
@@ -1277,7 +1277,7 @@ Cg
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="118" id="8I2-5N-qF4"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
