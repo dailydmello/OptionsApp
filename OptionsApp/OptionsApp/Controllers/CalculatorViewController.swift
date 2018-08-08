@@ -95,7 +95,6 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             }
             if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
             }
-            self.calculateOptionTotalCost()
         }
 
         if let calculation = calculation {
@@ -277,10 +276,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             //if destination is profitgraph, cast profit as profitgraphviewcontroller
             calculateOptionTotalCost()
             setSelfValues()
-            //should also calculate cost again
-            
-            
-            
+
             if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
                 profitGraphViewController.delegate = nil
                 profitGraphViewController.delegate = self}
@@ -366,13 +362,19 @@ extension CalculatorViewController{
     }
   ///////////
     func calculateOptionTotalCost(){
-        guard let callPrice = self.callPriceTextField.text
-            else {return}
-        guard let numOfContracts = self.numofContractsTextField.text
-            else{return}
-        let totalnumOfCallOptions = Double(numOfContracts)! * 100
-        entryCost = Double(callPrice)! * totalnumOfCallOptions
-        self.costLabel.text = String(entryCost)
+        if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
+            self.callPrice = callPriceDouble
+        }
+        
+        if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
+        }
+        
+        let entryCostText = String(callPrice * numOfOptions)
+        
+        self.costLabel.text = entryCostText.dropLast(2)
+        
+        //let str = "0123456789"
+        //let result = String(str.characters.dropLast(2))
     }
     
 /////////////
@@ -425,6 +427,15 @@ extension CalculatorViewController{
         dateAndTimeFormatter.dateFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
         let dateAndTimeFormatted = dateAndTimeFormatter.date(from: string)
         return dateAndTimeFormatted
+    }
+}
+
+extension String {
+    func dropLast(_ n: Int = 1) -> String {
+        return String(characters.dropLast(n))
+    }
+    var dropLast: String {
+        return dropLast()
     }
 }
 

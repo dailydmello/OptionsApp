@@ -151,10 +151,10 @@
 		DDB581BE21079B440057D466 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD6CCF222118C6290099A99C /* AboutSectionTableViewController.swift */,
 				DDB581C621079F6B0057D466 /* ListCalcTableViewController.swift */,
 				DDB581C221079CD10057D466 /* CalculatorViewController.swift */,
 				DDB581C421079CE90057D466 /* ProfitGraphViewController.swift */,
-				DD6CCF222118C6290099A99C /* AboutSectionTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

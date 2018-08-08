@@ -320,7 +320,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
             //print(dataEntry)
             chartDataEntries.append(dataEntry)
         }
-        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits($)")
+        let set1 = LineChartDataSet(values: chartDataEntries, label: "Profits ($)")
         let linechartData = LineChartData(dataSet: set1)
 //        set1.setColor(UIColor(red: 89/255, green: 218/255, blue: 164/255, alpha: 1))
         set1.setColor(UIColor.tcSeafoamGreen)
