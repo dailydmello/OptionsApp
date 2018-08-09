@@ -1254,7 +1254,7 @@ Cg
                                                 <rect key="frame" x="0.0" y="294" width="315" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO2-Qt-4R4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="176.5" height="31"/>
                                                         <color key="backgroundColor" name="tcMediumBlack"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
                                                         <state key="normal" title="Cost/Premium">
@@ -1265,7 +1265,7 @@ Cg
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFB-LG-tXw">
-                                                        <rect key="frame" x="168.5" y="0.0" width="28.5" height="31"/>
+                                                        <rect key="frame" x="176.5" y="0.0" width="28.5" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="28.5" id="EtE-cq-l8H"/>
                                                         </constraints>
@@ -1274,10 +1274,10 @@ Cg
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xa-FQ-o6k">
-                                                        <rect key="frame" x="197" y="0.0" width="118" height="31"/>
+                                                        <rect key="frame" x="205" y="0.0" width="110" height="31"/>
                                                         <color key="backgroundColor" name="tcWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="118" id="8I2-5N-qF4"/>
+                                                            <constraint firstAttribute="width" constant="110" id="zhH-rJ-6Yh"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
                                                         <nil key="textColor"/>
@@ -1394,22 +1394,22 @@ Cg
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eye-yx-uPo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="25"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="zkc-H9-fAE"/>
+                                                            <constraint firstAttribute="width" constant="55" id="kCL-Ph-9bd"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
                                                         <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="999.99" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lG-aX-CbZ" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="60" y="0.0" width="77.5" height="25"/>
+                                                        <rect key="frame" x="55" y="0.0" width="80" height="25"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Yl-oNx">
-                                                        <rect key="frame" x="137.5" y="0.0" width="5.5" height="25"/>
+                                                        <rect key="frame" x="135" y="0.0" width="5.5" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="6" id="YmZ-2k-DfX"/>
                                                         </constraints>
@@ -1418,7 +1418,7 @@ Cg
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="999.99" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-IQ-qTY" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="143" y="0.0" width="77" height="25"/>
+                                                        <rect key="frame" x="140.5" y="0.0" width="79.5" height="25"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
