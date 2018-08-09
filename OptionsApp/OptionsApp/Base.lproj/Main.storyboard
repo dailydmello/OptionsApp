@@ -10,26 +10,965 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Nova Light It.ttf">
+            <string>ProximaNova-LightIt</string>
+        </array>
+        <array key="Proxima Nova Light.ttf">
+            <string>ProximaNova-Light</string>
+        </array>
+        <array key="Proxima Nova Reg.ttf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="Proxima Nova SemiBold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--About-->
         <scene sceneID="aXQ-LH-0R0">
             <objects>
-                <viewController id="aWP-46-cGf" sceneMemberID="viewController">
+                <viewController id="aWP-46-cGf" customClass="AboutSectionTableViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tju-Kg-ulz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iNt-nR-4FY">
-                                <rect key="frame" x="15" y="79" width="345" height="573"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">About the app
-Hello and welcome to Option Tutor, your all in one guide to get you started with option trading. Option Tutor will teach you about the wonders of option trading by providing a workspace to evaluate different strategies and allow you to instantaneously simulate expected profits. Before you use the app, I strongly recommend getting some basic knowledge about option trading by reading the following links.  Basic Info: http://www.theoptionsguide.com/stock-option.aspx Long Call: http://www.theoptionsguide.com/long-call.aspx Naked Call: http://www.theoptionsguide.com/out-of-the-money-naked-calls.aspx Long Put: http://www.theoptionsguide.com/long-put.aspx Naked Put: http://www.theoptionsguide.com/uncovered-put-writing.aspx  Features -Add new calculations and save it for later -Graph profits based on entered underlying stock and option values  How to use the app - Before you use the app, I strongly recommend getting some basic knowledge about option trading at  - Past calculations screen, a user can create a new calculation or click on an exisiting calculation to transition to the calculator  About the developer Hi my name is Ethan and I am from Toronto, Canada. I recently graduated from McMaster University and decided to spend the summer travelling and making my first app(this one). Enjoy!</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNt-nR-4FY">
+                                <rect key="frame" x="15" y="15" width="345" height="573"/>
+                                <color key="backgroundColor" name="tcMediumBlack"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Motivation">
+                                        <attributes>
+                                            <color key="NSColor" red="0.30196078430000001" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name="ProximaNova-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Hello and welcome to ">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Option">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Tutor">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=", your all in one guide to get you started with option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" trading. If you have ever been curious about option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="/derivative trading, but ">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="don't">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> know where to start, you have come to the right place! 
+
+I believe investing is a great way to </string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="make make money">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">! By combining regular trading with options, you can reap the rewards of well thought out strategies that make you money when the market is up </string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="or">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> down. I wanted to make this type of trading accessible to all my friends and family, but always struggled to explain these concepts</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" through conversations">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=". This motivated me to build ">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Option">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Tutor">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=", an app that provides a workspace to evaluate different ">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="option ">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="strategies">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=",">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" and allows you to instantaneously simulate expected profits.">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" No need to whip out your laptop and start excel or write down calculations on a notepad!">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Once you get good at basic strategies such as long calls and long puts, you can implement them is real trading and move on to more advanced strategies. Before you use the app, I strongly recommend getting some basic knowledge about option</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" trading by reading the following links.">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Basic Info:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.theoptionsguide.com/stock-option.aspx ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Long Call:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.theoptionsguide.com/long-call.aspx">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Naked Call:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.theoptionsguide.com/out-of-the-money-naked-calls.aspx">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Long Put:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.theoptionsguide.com/long-put.aspx">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Naked Put:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.theoptionsguide.com/uncovered-put-writing.aspx">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Features">
+                                        <attributes>
+                                            <color key="NSColor" red="0.30196078430000001" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name="ProximaNova-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">-Add, delete, and save calculations
+-Graph profits and cost based on entered underlying stock and option values</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="How to use the app">
+                                        <attributes>
+                                            <color key="NSColor" red="0.30196078430000001" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name="ProximaNova-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Past Calculations View">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">-Click the Add button to start a new calculation
+-Click an existing calculation to edit
+-Swipe left on the calculation cell to delete</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Calculator View">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="-Input values for underlying stock and option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+-Choose buy/sell and call/put to determine your strategy, you should see the Strategy Title change as you select different combinations 
+-Tap </string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Cost/Premium">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" to ">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="calculate">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" your entry cost">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" or premium of option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+-Tap graph to see your expected profits</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Graph View">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">-Pinch/Zoom capabilities
+-Adjustable underlying price range</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="About the developer">
+                                        <attributes>
+                                            <color key="NSColor" red="0.30196078430000001" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name="ProximaNova-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Hi my name is Ethan and I am from Toronto, Canada. I recently graduated from McMaster University where I studied Mechatronics Engineering (fancy word for robotics) and business. I have always been curious about iOS app design so I decided to spend 6 weeks in San Francisco learning swift and making my first app(ta-da)! If you have any feedback at all on how I can make this a better product, shoot me an email at </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="dailydmello@gmail.com">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <url key="NSLink" string="mailto:dailydmello@gmail.com"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">. Outside of coding I like listening to hip hop (Scorpion on repeat), eating cheesecake while binge watching The Office, and running half marathons. Thanks for taking the time to check out my app, peace!</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="tcAlmostBlack"/>
                         <constraints>
                             <constraint firstItem="iNt-nR-4FY" firstAttribute="leading" secondItem="Rax-E8-ofz" secondAttribute="leading" constant="15" id="8X1-zZ-RON"/>
                             <constraint firstItem="Rax-E8-ofz" firstAttribute="trailing" secondItem="iNt-nR-4FY" secondAttribute="trailing" constant="15" id="efM-ZY-taA"/>
@@ -38,8 +977,20 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rax-E8-ofz"/>
                     </view>
+                    <navigationItem key="navigationItem" title="About" id="cDQ-5q-TjQ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="49t-vd-1Fz">
+                            <color key="tintColor" name="tcWhite"/>
+                            <connections>
+                                <segue destination="wWZ-1Z-fSU" kind="unwind" unwindAction="unwindWithSegue:" id="Cey-i5-QNl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBarButtonItem" destination="49t-vd-1Fz" id="EWf-bg-Cxd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqR-sB-7Xr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wWZ-1Z-fSU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1330" y="-612"/>
         </scene>
@@ -47,39 +998,57 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
         <scene sceneID="aYl-7G-AAf">
             <objects>
                 <tableViewController id="4BE-nU-uyy" customClass="ListCalcTableViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OoG-8f-rai">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OoG-8f-rai">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCalcTableViewCell" id="xU0-37-TDZ" customClass="ListCalcTableViewCell" customModule="OptionsApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xU0-37-TDZ" id="NsP-2a-GWL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="po4-4B-eIL">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="59.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="119.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strategy Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-MS-qPk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strategy Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-MS-qPk">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="1" green="0.792156862745098" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="QsC-kj-wHB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
+                                                    <color key="textColor" name="tcWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Modified Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzP-tG-63d">
-                                                    <rect key="frame" x="0.0" y="30" width="345" height="29.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underlying: AAPL @ $201.33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBs-gq-w8L">
+                                                    <rect key="frame" x="0.0" y="30" width="345" height="30"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="16"/>
+                                                    <color key="textColor" name="tcSeafoamGreen"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Cost: $12,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6m-bn-VOc">
+                                                    <rect key="frame" x="0.0" y="60" width="345" height="29.5"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="16"/>
+                                                    <color key="textColor" name="tcSeafoamGreen"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Modified Timestamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzP-tG-63d">
+                                                    <rect key="frame" x="0.0" y="89.5" width="345" height="30"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-LightIt" family="Proxima Nova" pointSize="14"/>
+                                                    <color key="textColor" name="tcWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fzP-tG-63d" firstAttribute="height" secondItem="b3B-MS-qPk" secondAttribute="height" id="yD8-Ar-b53"/>
+                                                <constraint firstItem="Z6m-bn-VOc" firstAttribute="height" secondItem="b3B-MS-qPk" secondAttribute="height" id="Iav-15-zQ5"/>
+                                                <constraint firstItem="NBs-gq-w8L" firstAttribute="height" secondItem="b3B-MS-qPk" secondAttribute="height" id="JPO-5U-lVb"/>
+                                                <constraint firstItem="fzP-tG-63d" firstAttribute="height" secondItem="b3B-MS-qPk" secondAttribute="height" id="MMU-My-JCx"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" name="tcAlmostBlack"/>
                                     <constraints>
                                         <constraint firstItem="po4-4B-eIL" firstAttribute="top" secondItem="NsP-2a-GWL" secondAttribute="top" id="XXa-cu-DrF"/>
                                         <constraint firstItem="po4-4B-eIL" firstAttribute="leading" secondItem="NsP-2a-GWL" secondAttribute="leading" constant="15" id="YWm-c3-W5b"/>
@@ -87,10 +1056,11 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
                                         <constraint firstAttribute="trailing" secondItem="po4-4B-eIL" secondAttribute="trailing" constant="15" id="mJE-F1-PQW"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="tcCharcoal"/>
                                 <connections>
+                                    <outlet property="entryCostInfoLabel" destination="Z6m-bn-VOc" id="d8P-79-pLY"/>
                                     <outlet property="strategyLastModificationStamp" destination="fzP-tG-63d" id="HPr-VF-6kP"/>
                                     <outlet property="strategyTitleLabel" destination="b3B-MS-qPk" id="Xcz-rk-8WK"/>
+                                    <outlet property="underlyingInfoLabel" destination="NBs-gq-w8L" id="KnW-V9-baW"/>
                                     <segue destination="DOM-Vy-0dR" kind="show" identifier="displayCalculation" id="AQS-a4-qGa"/>
                                 </connections>
                             </tableViewCell>
@@ -101,17 +1071,23 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Past Calculations" id="I5g-BQ-Blb">
-                        <barButtonItem key="leftBarButtonItem" title="About" id="SiX-qb-VRd">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="SiX-qb-VRd">
+                            <color key="tintColor" name="tcWhite"/>
                             <connections>
                                 <segue destination="aWP-46-cGf" kind="show" id="n8V-4B-ir9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tN-EX-YQs">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="4tN-EX-YQs">
+                            <color key="tintColor" name="tcWhite"/>
                             <connections>
                                 <segue destination="DOM-Vy-0dR" kind="show" identifier="addCalculation" id="8Qk-bx-uat"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aboutBarButtonItem" destination="SiX-qb-VRd" id="Ei1-Fe-W4z"/>
+                        <outlet property="addBarButtonItem" destination="4tN-EX-YQs" id="7Yf-zi-03A"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMx-e2-l06" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,301 +1098,348 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
             <objects>
                 <viewController id="DOM-Vy-0dR" customClass="CalculatorViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAe-lw-ScM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNn-N9-a9l">
-                                <rect key="frame" x="15" y="88" width="345" height="120"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IE5-II-UIW">
+                                <rect key="frame" x="15" y="15" width="345" height="138"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z0t-PF-U0Q">
-                                        <rect key="frame" x="22" y="10.5" width="301" height="99.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="W6K-Bx-Vvv">
+                                        <rect key="frame" x="15" y="15" width="315" height="108"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underlying Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCr-mN-dS1">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underlying Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-Sr-hDR">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="20"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
+                                                <color key="textColor" name="tcWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPM-Sq-vhD">
-                                                <rect key="frame" x="0.0" y="39" width="301" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uue-4v-bGI">
+                                                <rect key="frame" x="0.0" y="34" width="315" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdU-Wj-0Gp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBS-PL-lRd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w80-gJ-Kdk">
-                                                        <rect key="frame" x="183" y="0.0" width="118" height="30"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AAPL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thd-TY-ERq">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="118" id="OD8-8M-fzv"/>
+                                                            <constraint firstAttribute="width" constant="118" id="A5L-z2-NnF"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NX-iF-KjM">
-                                                <rect key="frame" x="0.0" y="79" width="301" height="20.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otx-jE-dYZ">
+                                                <rect key="frame" x="0.0" y="78" width="315" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ili-w8-QBf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-8e-KVP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$/stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71t-G3-JAf">
-                                                        <rect key="frame" x="183" y="0.0" width="118" height="20.5"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="207.38" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tem-Hq-iRw" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="118" id="ym6-oD-myy"/>
+                                                            <constraint firstAttribute="width" constant="118" id="S1o-17-zRS"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="QJg-Sr-hDR" firstAttribute="width" secondItem="W6K-Bx-Vvv" secondAttribute="width" id="8Wg-w5-v8B"/>
+                                            <constraint firstItem="uue-4v-bGI" firstAttribute="width" secondItem="W6K-Bx-Vvv" secondAttribute="width" id="DS4-aQ-zzH"/>
+                                            <constraint firstItem="otx-jE-dYZ" firstAttribute="width" secondItem="W6K-Bx-Vvv" secondAttribute="width" id="Kdj-4f-Yi7"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="tcBlueBlack"/>
+                                <constraints>
+                                    <constraint firstItem="W6K-Bx-Vvv" firstAttribute="leading" secondItem="IE5-II-UIW" secondAttribute="leading" constant="15" id="ZC3-PN-SjC"/>
+                                    <constraint firstItem="W6K-Bx-Vvv" firstAttribute="top" secondItem="IE5-II-UIW" secondAttribute="top" constant="15" id="h6H-ld-kie"/>
+                                    <constraint firstAttribute="trailing" secondItem="W6K-Bx-Vvv" secondAttribute="trailing" constant="15" id="jgz-Wh-9rM"/>
+                                    <constraint firstAttribute="bottom" secondItem="W6K-Bx-Vvv" secondAttribute="bottom" constant="15" id="uid-U5-keH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0b-x4-t6K">
+                                <rect key="frame" x="15" y="168" width="345" height="355"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-AF-SWb">
+                                        <rect key="frame" x="15" y="15" width="315" height="325"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-Ev-U0x">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="20"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
+                                                <color key="textColor" name="tcWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NaZ-z0-opo">
+                                                <rect key="frame" x="0.0" y="34" width="315" height="28"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy or Sell:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkh-pP-zeR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="28"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="x22-wb-vyg">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="118" id="Vda-5i-pnY"/>
+                                                        </constraints>
+                                                        <segments>
+                                                            <segment title="Buy"/>
+                                                            <segment title="Sell"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="buyOrSellSelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="6Xz-mC-hSz"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                                <color key="tintColor" name="tcSeafoamGreen"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-Gf-PnT">
+                                                <rect key="frame" x="0.0" y="76" width="315" height="28"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call or Put:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnr-2h-Lbi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="28"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="R27-mZ-4vA">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="118" id="vIc-Ts-fb8"/>
+                                                        </constraints>
+                                                        <segments>
+                                                            <segment title="Call"/>
+                                                            <segment title="Put"/>
+                                                        </segments>
+                                                        <color key="tintColor" name="tcSeafoamGreen"/>
+                                                        <connections>
+                                                            <action selector="callOrPutSelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="kVt-8f-yTI"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-h6-3wj">
+                                                <rect key="frame" x="0.0" y="118" width="315" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of 1 Call:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARU-nx-EAd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="15.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72m-qw-4Vt" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="118" id="EJ1-vw-VwX"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhg-MN-tBj">
+                                                <rect key="frame" x="0.0" y="162" width="315" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strike Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0I-XQ-c0t">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="192.50" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yer-ot-ggV" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="118" id="bMl-Wa-9GA"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-tf-7VY">
+                                                <rect key="frame" x="0.0" y="206" width="315" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contracts:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lo-c1-QtH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxO-dw-oWd">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3S-bh-V8L" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="74" id="Omo-r5-fsf"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" x100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeY-jM-NU3">
+                                                                <rect key="frame" x="74" y="0.0" width="44" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="G7E-iF-JNv"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                                <color key="textColor" name="tcWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJG-6B-Hzk">
+                                                <rect key="frame" x="0.0" y="250" width="315" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2F-Ts-V65">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2018-08-23" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlC-27-vOo">
+                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="118" id="3g3-m1-CAc"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbd-qh-D7K">
+                                                <rect key="frame" x="0.0" y="294" width="315" height="31"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO2-Qt-4R4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="176.5" height="31"/>
+                                                        <color key="backgroundColor" name="tcMediumBlack"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <state key="normal" title="Cost/Premium">
+                                                            <color key="titleColor" name="tcSeafoamGreen"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="calculateCostButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="KyA-mb-hf2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFB-LG-tXw">
+                                                        <rect key="frame" x="176.5" y="0.0" width="28.5" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28.5" id="EtE-cq-l8H"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.4039215686" green="0.39607843139999999" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" name="tcMediumBlack"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xa-FQ-o6k">
+                                                        <rect key="frame" x="205" y="0.0" width="110" height="31"/>
+                                                        <color key="backgroundColor" name="tcWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="110" id="zhH-rJ-6Yh"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="xCr-mN-dS1" firstAttribute="width" secondItem="z0t-PF-U0Q" secondAttribute="width" id="7oS-rp-7Ql"/>
-                                            <constraint firstItem="4NX-iF-KjM" firstAttribute="width" secondItem="z0t-PF-U0Q" secondAttribute="width" id="A24-QD-squ"/>
-                                            <constraint firstItem="XPM-Sq-vhD" firstAttribute="width" secondItem="z0t-PF-U0Q" secondAttribute="width" id="zqk-QC-imv"/>
+                                            <constraint firstItem="Rhg-MN-tBj" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="0Qo-s0-5Fo"/>
+                                            <constraint firstItem="Rhg-MN-tBj" firstAttribute="width" secondItem="cN9-h6-3wj" secondAttribute="width" id="5pO-Wj-TQb"/>
+                                            <constraint firstItem="DOD-tf-7VY" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="CzU-YP-Kbl"/>
+                                            <constraint firstItem="yJG-6B-Hzk" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="HG5-QN-doR"/>
+                                            <constraint firstItem="NaZ-z0-opo" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="IzU-xf-eNW"/>
+                                            <constraint firstItem="Fbd-qh-D7K" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="N3f-li-mM6"/>
+                                            <constraint firstItem="d0r-Ev-U0x" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="hQU-Qc-Euj"/>
+                                            <constraint firstItem="3B4-Gf-PnT" firstAttribute="width" secondItem="8ex-AF-SWb" secondAttribute="width" id="tag-lV-yci"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="tcMediumBlack"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="z0t-PF-U0Q" secondAttribute="trailing" constant="22" id="QI7-cW-3MP"/>
-                                    <constraint firstItem="z0t-PF-U0Q" firstAttribute="leading" secondItem="mNn-N9-a9l" secondAttribute="leading" constant="22" id="QmT-ME-qTN"/>
-                                    <constraint firstAttribute="height" constant="120" id="k9k-PR-cIf"/>
-                                    <constraint firstItem="z0t-PF-U0Q" firstAttribute="centerY" secondItem="mNn-N9-a9l" secondAttribute="centerY" id="uza-EX-GG6"/>
+                                    <constraint firstItem="8ex-AF-SWb" firstAttribute="leading" secondItem="q0b-x4-t6K" secondAttribute="leading" constant="15" id="Fpn-Z6-RhR"/>
+                                    <constraint firstAttribute="trailing" secondItem="8ex-AF-SWb" secondAttribute="trailing" constant="15" id="Ngz-ja-J4e"/>
+                                    <constraint firstAttribute="bottom" secondItem="8ex-AF-SWb" secondAttribute="bottom" constant="15" id="nLg-tm-8Fh"/>
+                                    <constraint firstItem="8ex-AF-SWb" firstAttribute="top" secondItem="q0b-x4-t6K" secondAttribute="top" constant="15" id="uaH-tf-Tmz"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGN-65-IaT">
-                                <rect key="frame" x="15" y="286" width="345" height="303"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O34-eO-Gjj">
-                                        <rect key="frame" x="22" y="15" width="301" height="219.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sW-v0-FjW">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-iZ-6Sl">
-                                                <rect key="frame" x="0.0" y="39" width="301" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of 1 Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U11-R4-gqp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCB-He-d0A" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="201" y="0.0" width="100" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="JFm-xE-mYt"/>
-                                                        </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="tintColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9h-6C-zh6">
-                                                <rect key="frame" x="0.0" y="79" width="301" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strike Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-d8-xal">
-                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-iA-vyR" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="201" y="0.0" width="100" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="wZc-dW-XnC"/>
-                                                        </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67C-9B-cgF">
-                                                <rect key="frame" x="0.0" y="119" width="301" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contracts:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa1-nZ-ZW6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k9M-78-qNy" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="201" y="0.0" width="100" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="R45-DI-YU9"/>
-                                                        </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmH-SR-ebt">
-                                                <rect key="frame" x="0.0" y="159" width="301" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKa-Hz-b62">
-                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J28-Vt-Bzl">
-                                                        <rect key="frame" x="201" y="0.0" width="100" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="4vt-bh-3QR"/>
-                                                        </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D03-va-dQc">
-                                                <rect key="frame" x="0.0" y="199" width="301" height="20.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-h3-YWp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8T-V5-yDr">
-                                                        <rect key="frame" x="201" y="0.0" width="100" height="20.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="FPx-gH-aZx"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ewC-QX-FjJ"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="D03-va-dQc" firstAttribute="width" secondItem="O34-eO-Gjj" secondAttribute="width" id="DWj-s4-IAd"/>
-                                            <constraint firstItem="L9h-6C-zh6" firstAttribute="width" secondItem="O34-eO-Gjj" secondAttribute="width" id="EyN-jS-dP9"/>
-                                            <constraint firstItem="gj5-iZ-6Sl" firstAttribute="width" secondItem="O34-eO-Gjj" secondAttribute="width" id="JLh-cI-oLE"/>
-                                            <constraint firstItem="7sW-v0-FjW" firstAttribute="width" secondItem="O34-eO-Gjj" secondAttribute="width" id="Lnv-IK-ei9"/>
-                                            <constraint firstItem="HmH-SR-ebt" firstAttribute="width" secondItem="O34-eO-Gjj" secondAttribute="width" id="PQd-gV-3Dn"/>
-                                            <constraint firstItem="67C-9B-cgF" firstAttribute="width" secondItem="O34-eO-Gjj" secondAttribute="width" id="stC-aA-wfe"/>
-                                        </constraints>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zr4-bC-BNF">
-                                        <rect key="frame" x="122" y="265" width="100" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Calculate Cost"/>
-                                        <connections>
-                                            <action selector="calculateCostButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="2dQ-vf-hjM"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="leading" secondItem="XGN-65-IaT" secondAttribute="leading" constant="122" id="gLj-Ty-X9E"/>
-                                    <constraint firstItem="O34-eO-Gjj" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="top" constant="15" id="gfW-5m-2AB"/>
-                                    <constraint firstAttribute="trailing" secondItem="zr4-bC-BNF" secondAttribute="trailing" constant="123" id="iDs-zU-xdr"/>
-                                    <constraint firstAttribute="trailing" secondItem="O34-eO-Gjj" secondAttribute="trailing" constant="22" id="odK-KZ-Mnp"/>
-                                    <constraint firstItem="O34-eO-Gjj" firstAttribute="leading" secondItem="XGN-65-IaT" secondAttribute="leading" constant="22" id="qax-xe-Adk"/>
-                                    <constraint firstItem="zr4-bC-BNF" firstAttribute="top" secondItem="O34-eO-Gjj" secondAttribute="bottom" constant="30.5" id="ulx-o1-Kz4"/>
-                                    <constraint firstAttribute="bottom" secondItem="zr4-bC-BNF" secondAttribute="bottom" constant="8" id="zGn-f6-2vG"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jy-f9-7jX">
-                                <rect key="frame" x="15" y="613" width="345" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" name="tcCharcoal"/>
-                                <state key="normal" title="Graph"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Li-pc-L1O">
+                                <rect key="frame" x="15" y="538" width="345" height="50"/>
+                                <color key="backgroundColor" name="tcMediumBlack"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="21"/>
+                                <state key="normal" title="Graph">
+                                    <color key="titleColor" name="tcSeafoamGreen"/>
+                                </state>
                                 <connections>
-                                    <action selector="graphButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="lBa-mZ-Vmu"/>
-                                    <segue destination="Mh9-Vo-2NA" kind="show" identifier="displayGraph" id="HIK-Rg-0T1"/>
+                                    <segue destination="Mh9-Vo-2NA" kind="show" identifier="displayGraph" id="fNt-aZ-YNf"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pl1-GJ-Lzu">
-                                <rect key="frame" x="15" y="219" width="345" height="56"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="seM-57-qUZ">
-                                        <rect key="frame" x="135" y="0.0" width="75" height="29"/>
-                                        <segments>
-                                            <segment title="Call"/>
-                                            <segment title="Put"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="strategySelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="prv-Rd-4qR"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uLq-3u-fEU">
-                                        <rect key="frame" x="135" y="28" width="75" height="29"/>
-                                        <segments>
-                                            <segment title="Buy"/>
-                                            <segment title="Sell"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="buyOrSellSelected:" destination="DOM-Vy-0dR" eventType="valueChanged" id="Fd9-TS-ONP"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="tcOffWhite"/>
+                        <color key="backgroundColor" name="tcAlmostBlack"/>
                         <constraints>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="XGN-65-IaT" secondAttribute="trailing" constant="15" id="2cM-KB-kGO"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="7jy-f9-7jX" secondAttribute="trailing" constant="15" id="4XW-IV-sf9"/>
-                            <constraint firstItem="Pl1-GJ-Lzu" firstAttribute="top" secondItem="mNn-N9-a9l" secondAttribute="bottom" constant="11" id="6ux-rZ-MU5"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="mNn-N9-a9l" secondAttribute="trailing" constant="15" id="7xu-So-PBZ"/>
-                            <constraint firstItem="mNn-N9-a9l" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="BFE-kf-Aps"/>
-                            <constraint firstItem="Pl1-GJ-Lzu" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="Sj5-PJ-dKn"/>
-                            <constraint firstItem="mNn-N9-a9l" firstAttribute="top" secondItem="fSE-1M-lIo" secondAttribute="top" constant="24" id="XvA-WD-zgS"/>
-                            <constraint firstItem="XGN-65-IaT" firstAttribute="top" secondItem="Pl1-GJ-Lzu" secondAttribute="bottom" constant="11" id="aZd-vr-WDs"/>
-                            <constraint firstItem="XGN-65-IaT" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="cPe-fl-YCV"/>
-                            <constraint firstItem="7jy-f9-7jX" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="e6P-Ol-6li"/>
-                            <constraint firstItem="7jy-f9-7jX" firstAttribute="top" secondItem="XGN-65-IaT" secondAttribute="bottom" constant="24" id="f6F-P7-jH2"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="bottom" secondItem="7jy-f9-7jX" secondAttribute="bottom" constant="24" id="tJQ-R0-qLW"/>
-                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="Pl1-GJ-Lzu" secondAttribute="trailing" constant="15" id="vCc-7K-TCi"/>
+                            <constraint firstItem="7Li-pc-L1O" firstAttribute="leading" secondItem="MAe-lw-ScM" secondAttribute="leading" constant="15" id="53j-9m-3Gw"/>
+                            <constraint firstItem="q0b-x4-t6K" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="C90-oU-kdS"/>
+                            <constraint firstItem="fSE-1M-lIo" firstAttribute="bottom" secondItem="7Li-pc-L1O" secondAttribute="bottom" constant="15" id="YrE-fD-AfU"/>
+                            <constraint firstItem="IE5-II-UIW" firstAttribute="top" secondItem="fSE-1M-lIo" secondAttribute="top" constant="15" id="bgN-Li-Trd"/>
+                            <constraint firstItem="q0b-x4-t6K" firstAttribute="top" secondItem="IE5-II-UIW" secondAttribute="bottom" constant="15" id="e4f-Kp-tik"/>
+                            <constraint firstItem="IE5-II-UIW" firstAttribute="leading" secondItem="fSE-1M-lIo" secondAttribute="leading" constant="15" id="gnI-Sm-uBG"/>
+                            <constraint firstAttribute="trailing" secondItem="q0b-x4-t6K" secondAttribute="trailing" constant="15" id="sCG-gc-6yP"/>
+                            <constraint firstItem="7Li-pc-L1O" firstAttribute="top" secondItem="q0b-x4-t6K" secondAttribute="bottom" constant="15" id="sOB-D5-Fc9"/>
+                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="IE5-II-UIW" secondAttribute="trailing" constant="15" id="yJ1-s2-Eu2"/>
+                            <constraint firstItem="fSE-1M-lIo" firstAttribute="trailing" secondItem="7Li-pc-L1O" secondAttribute="trailing" constant="15" id="yfs-K6-VT2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSE-1M-lIo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calculator" id="GdP-ie-mIh">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="fMY-d4-G2V">
+                            <color key="tintColor" name="tcWhite"/>
                             <connections>
                                 <segue destination="YeQ-wm-Hs1" kind="unwind" identifier="cancel" unwindAction="unwindWithSegue:" id="hqI-up-pzC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="9Kk-75-rBu">
+                            <color key="tintColor" name="tcWhite"/>
                             <connections>
                                 <segue destination="YeQ-wm-Hs1" kind="unwind" identifier="save" unwindAction="unwindWithSegue:" id="MRE-7D-qar"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="StrategyTitleLabel" destination="7sW-v0-FjW" id="gB1-LO-pWO"/>
-                        <outlet property="buyOrSellSegmentedControl" destination="uLq-3u-fEU" id="Vbb-TO-tfn"/>
-                        <outlet property="calculateCostButton" destination="zr4-bC-BNF" id="ZZT-re-bqH"/>
-                        <outlet property="callAndPutLabel" destination="U11-R4-gqp" id="QGA-28-rBX"/>
-                        <outlet property="callOrPutSegmentedControl" destination="seM-57-qUZ" id="pDj-7a-ass"/>
-                        <outlet property="callPriceTextField" destination="BCB-He-d0A" id="Ykf-Oj-cjm"/>
-                        <outlet property="costLabel" destination="v8T-V5-yDr" id="jkM-ng-cpC"/>
-                        <outlet property="expiryDateTextField" destination="J28-Vt-Bzl" id="34P-m4-QD6"/>
-                        <outlet property="graphButton" destination="7jy-f9-7jX" id="IKV-JJ-KBb"/>
-                        <outlet property="numofContractsTextField" destination="k9M-78-qNy" id="2hf-jJ-94G"/>
-                        <outlet property="strikePriceTextField" destination="E8d-iA-vyR" id="CA2-Kk-hvx"/>
-                        <outlet property="underlyingPriceLabel" destination="71t-G3-JAf" id="htq-h6-Yh7"/>
-                        <outlet property="underlyingTickerTextField" destination="w80-gJ-Kdk" id="7yl-4I-h57"/>
+                        <outlet property="StrategyTitleLabel" destination="d0r-Ev-U0x" id="3Bc-PT-BsR"/>
+                        <outlet property="buyOrSellSegmentedControl" destination="x22-wb-vyg" id="ggt-Dy-ylH"/>
+                        <outlet property="calculateCostButton" destination="hO2-Qt-4R4" id="gPB-1o-y3n"/>
+                        <outlet property="callAndPutLabel" destination="ARU-nx-EAd" id="Jgp-kG-Z7G"/>
+                        <outlet property="callOrPutSegmentedControl" destination="R27-mZ-4vA" id="k6w-0B-1lg"/>
+                        <outlet property="callPriceTextField" destination="72m-qw-4Vt" id="uOK-yU-g40"/>
+                        <outlet property="cancelBarButtonItem" destination="fMY-d4-G2V" id="59P-qH-fic"/>
+                        <outlet property="costLabel" destination="0xa-FQ-o6k" id="trh-o0-56N"/>
+                        <outlet property="expiryDateTextField" destination="FlC-27-vOo" id="qXq-F1-wsM"/>
+                        <outlet property="graphButton" destination="7Li-pc-L1O" id="DKJ-dK-nfM"/>
+                        <outlet property="numofContractsTextField" destination="r3S-bh-V8L" id="BQD-8B-5G7"/>
+                        <outlet property="optionView" destination="q0b-x4-t6K" id="D0B-E8-IF7"/>
+                        <outlet property="saveBarButtonItem" destination="9Kk-75-rBu" id="sH2-1a-O4h"/>
+                        <outlet property="strikePriceTextField" destination="Yer-ot-ggV" id="hc3-ew-qQq"/>
+                        <outlet property="underlyingPriceTextField" destination="tem-Hq-iRw" id="fgh-Ht-PmT"/>
+                        <outlet property="underlyingTickerTextField" destination="thd-TY-ERq" id="Kkh-Wt-rYD"/>
+                        <outlet property="underlyingView" destination="IE5-II-UIW" id="83U-VY-Pxd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr9-XC-Jm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,108 +1452,137 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
             <objects>
                 <viewController id="Mh9-Vo-2NA" customClass="ProfitGraphViewController" customModule="OptionsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jox-HR-sN4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-rH-Jnt">
-                                <rect key="frame" x="15" y="79" width="331.5" height="30"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CoI-a3-ALl">
-                                        <rect key="frame" x="0.0" y="0.0" width="249.5" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx3-lw-4cr">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="140" id="3wd-jb-Hys"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AnT-RE-5iH" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                <rect key="frame" x="97.5" y="0.0" width="60" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="1ER-Il-Roa"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jha-Fh-ay8">
-                                                <rect key="frame" x="168.5" y="0.0" width="10" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="10" id="Prf-4N-XuB"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="53X-zJ-1JX" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                <rect key="frame" x="189.5" y="0.0" width="60" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="zVH-oc-OXC"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wk-tH-4Uy">
-                                        <rect key="frame" x="251.5" y="0.0" width="80" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="HYM-nX-UbY"/>
-                                        </constraints>
-                                        <state key="normal" title="Update"/>
-                                        <connections>
-                                            <action selector="updateButtonTapped:" destination="Mh9-Vo-2NA" eventType="touchUpInside" id="IC2-A0-ac3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNB-PH-80R" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="15" y="124" width="331.5" height="528"/>
+                                <rect key="frame" x="15" y="111" width="345" height="477"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAq-Yi-Nqx">
+                                <rect key="frame" x="15" y="15" width="345" height="65"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="T2r-wa-p44">
+                                        <rect key="frame" x="15" y="20" width="315" height="25"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzb-Un-zu4">
+                                                <rect key="frame" x="0.0" y="0.0" width="220" height="25"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eye-yx-uPo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="55" id="kCL-Ph-9bd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="999.99" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lG-aX-CbZ" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="80" height="25"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Yl-oNx">
+                                                        <rect key="frame" x="135" y="0.0" width="5.5" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="6" id="YmZ-2k-DfX"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                                        <color key="textColor" name="tcWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="999.99" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-IQ-qTY" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                        <rect key="frame" x="140.5" y="0.0" width="79.5" height="25"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Fm4-IQ-qTY" firstAttribute="width" secondItem="3lG-aX-CbZ" secondAttribute="width" id="BKs-gq-YD7"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGq-zP-K17">
+                                                <rect key="frame" x="230" y="0.0" width="85" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="85" id="VKg-3z-1yI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="18"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" red="0.34901960784313724" green="0.85500001907348633" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="updateButtonTapped:" destination="Mh9-Vo-2NA" eventType="touchUpInside" id="DdZ-VJ-LxB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="tcMediumBlack"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="PFD-1r-ili"/>
+                                    <constraint firstItem="T2r-wa-p44" firstAttribute="centerY" secondItem="JAq-Yi-Nqx" secondAttribute="centerY" id="lQd-KW-mlE"/>
+                                    <constraint firstAttribute="trailing" secondItem="T2r-wa-p44" secondAttribute="trailing" constant="15" id="laj-WL-JmJ"/>
+                                    <constraint firstItem="T2r-wa-p44" firstAttribute="top" secondItem="JAq-Yi-Nqx" secondAttribute="top" constant="20" symbolic="YES" id="zUw-0U-dbb"/>
+                                    <constraint firstItem="T2r-wa-p44" firstAttribute="leading" secondItem="JAq-Yi-Nqx" secondAttribute="leading" constant="15" id="zZg-C4-VSX"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underlying ($)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W3-OE-dnF">
+                                <rect key="frame" x="169" y="88" width="89" height="14"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
+                                <color key="textColor" name="tcWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="tcAlmostBlack"/>
                         <constraints>
-                            <constraint firstItem="sNB-PH-80R" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="DdR-S0-di8"/>
-                            <constraint firstItem="sNB-PH-80R" firstAttribute="top" secondItem="b1B-rH-Jnt" secondAttribute="bottom" constant="15" id="IV0-so-2sy"/>
-                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="b1B-rH-Jnt" secondAttribute="trailing" constant="15" id="Lpe-fd-3Zx"/>
-                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="sNB-PH-80R" secondAttribute="trailing" constant="15" id="h05-pK-RJp"/>
-                            <constraint firstItem="b1B-rH-Jnt" firstAttribute="top" secondItem="VvL-7m-4er" secondAttribute="top" constant="15" id="rsP-ue-mlJ"/>
-                            <constraint firstItem="VvL-7m-4er" firstAttribute="bottom" secondItem="sNB-PH-80R" secondAttribute="bottom" constant="15" id="sX7-S3-5iR"/>
-                            <constraint firstItem="b1B-rH-Jnt" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="zHn-FH-cxH"/>
+                            <constraint firstItem="0W3-OE-dnF" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="169" id="8hp-hR-ThN"/>
+                            <constraint firstItem="VvL-7m-4er" firstAttribute="bottom" secondItem="sNB-PH-80R" secondAttribute="bottom" constant="15" id="9Jt-7S-Pa0"/>
+                            <constraint firstItem="JAq-Yi-Nqx" firstAttribute="top" secondItem="VvL-7m-4er" secondAttribute="top" constant="15" id="Gbs-10-T8b"/>
+                            <constraint firstItem="JAq-Yi-Nqx" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="gIK-yq-08a"/>
+                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="JAq-Yi-Nqx" secondAttribute="trailing" constant="15" id="iEl-Dr-rM8"/>
+                            <constraint firstItem="0W3-OE-dnF" firstAttribute="top" secondItem="JAq-Yi-Nqx" secondAttribute="bottom" constant="8" id="nC0-is-eS2"/>
+                            <constraint firstItem="sNB-PH-80R" firstAttribute="leading" secondItem="VvL-7m-4er" secondAttribute="leading" constant="15" id="tIe-ww-gf7"/>
+                            <constraint firstItem="VvL-7m-4er" firstAttribute="trailing" secondItem="sNB-PH-80R" secondAttribute="trailing" constant="15" id="vdk-Ea-l0w"/>
+                            <constraint firstItem="sNB-PH-80R" firstAttribute="top" secondItem="0W3-OE-dnF" secondAttribute="bottom" constant="9" id="zIh-kh-cOc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VvL-7m-4er"/>
                     </view>
                     <navigationItem key="navigationItem" title="Graph" id="Mbf-tj-AE8">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Cyk-eH-s1P">
+                            <color key="tintColor" name="tcWhite"/>
                             <connections>
                                 <segue destination="ZIj-b3-7ZT" kind="unwind" identifier="back" unwindAction="unwindWithSegue:" id="GDJ-Ls-CqC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backBarButtonItem" destination="Cyk-eH-s1P" id="qt9-5i-sbe"/>
                         <outlet property="lineChartView" destination="sNB-PH-80R" id="kr2-d9-iiz"/>
-                        <outlet property="updateMaxTextField" destination="53X-zJ-1JX" id="qS7-q5-oKR"/>
-                        <outlet property="updateMinTextField" destination="AnT-RE-5iH" id="tde-Km-ua9"/>
+                        <outlet property="rangeView" destination="JAq-Yi-Nqx" id="cDk-MW-M5p"/>
+                        <outlet property="updateButton" destination="jGq-zP-K17" id="xSP-Qd-g5B"/>
+                        <outlet property="updateMaxTextField" destination="Fm4-IQ-qTY" id="zHf-i3-9qt"/>
+                        <outlet property="updateMinTextField" destination="3lG-aX-CbZ" id="Lux-1f-eAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUT-l0-ETt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZIj-b3-7ZT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3040.8000000000002" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2912.8000000000002" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HSy-dr-fG3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dgf-nF-65w" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GB9-Mr-O1h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="GB9-Mr-O1h">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="tcMediumBlack"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="tcWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -543,14 +1595,26 @@ Hello and welcome to Option Tutor, your all in one guide to get you started with
         </scene>
     </scenes>
     <resources>
-        <namedColor name="tcCharcoal">
-            <color red="0.28999999170000001" green="0.28999999170000001" blue="0.28999999170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="tcAlmostBlack">
+            <color red="0.13699999451637268" green="0.16500000655651093" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="tcOffWhite">
-            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="tcBlueBlack">
+            <color red="0.20399999618530273" green="0.23499999940395355" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcMediumBlack">
+            <color red="0.14900000393390656" green="0.17599999904632568" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcSeafoamGreen">
+            <color red="0.34900000691413879" green="0.85500001907348633" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Qk-bx-uat"/>
+        <segue reference="AQS-a4-qGa"/>
     </inferredMetricsTieBreakers>
 </document>

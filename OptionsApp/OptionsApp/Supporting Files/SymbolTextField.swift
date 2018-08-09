@@ -28,6 +28,13 @@ class SymbolTextField: UITextField {
         let trailingFlex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let calculateButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(calculateButtonTapped(_:)))
         toolbar.items = [leadingFlex, calculateButton, trailingFlex]
+        toolbar.tintColor = UIColor.tcWhite
+        toolbar.barTintColor = UIColor.tcBlueBlack
+        toolbar.isTranslucent = true
+        calculateButton.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                          for: .normal)
         
         // resizes toolbar
         toolbar.sizeToFit()
