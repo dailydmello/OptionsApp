@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD50EB4C211BC236009972D4 /* OptionTutorLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD50EB4B211BC236009972D4 /* OptionTutorLaunchScreen.storyboard */; };
 		DD61B866210F9E1B00DCEE31 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */; };
 		DD61B868210FD5F100DCEE31 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */; };
 		DD6CCF232118C6290099A99C /* AboutSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCF222118C6290099A99C /* AboutSectionTableViewController.swift */; };
@@ -20,7 +21,6 @@
 		DDB581AE210793780057D466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB581AC210793780057D466 /* Main.storyboard */; };
 		DDB581B1210793780057D466 /* OptionsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDB581AF210793780057D466 /* OptionsApp.xcdatamodeld */; };
 		DDB581B3210793790057D466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB581B2210793790057D466 /* Assets.xcassets */; };
-		DDB581B6210793790057D466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB581B4210793790057D466 /* LaunchScreen.storyboard */; };
 		DDB581C321079CD10057D466 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C221079CD10057D466 /* CalculatorViewController.swift */; };
 		DDB581C521079CE90057D466 /* ProfitGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C421079CE90057D466 /* ProfitGraphViewController.swift */; };
 		DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C621079F6B0057D466 /* ListCalcTableViewController.swift */; };
@@ -35,6 +35,7 @@
 		00FBE103257CFF744BD1407C /* Pods-OptionsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptionsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OptionsApp/Pods-OptionsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		070A875029D8C416DBBC9795 /* Pods-OptionsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptionsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-OptionsApp/Pods-OptionsApp.release.xcconfig"; sourceTree = "<group>"; };
 		307F94F97CB8C02A393E0695 /* Pods_OptionsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OptionsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD50EB4B211BC236009972D4 /* OptionTutorLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionTutorLaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
 		DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = OptionsApp/Extensions/CoreDataHelper.swift; sourceTree = SOURCE_ROOT; };
 		DD6CCF222118C6290099A99C /* AboutSectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSectionTableViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		DDB581AD210793780057D466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDB581B0210793780057D466 /* OptionsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OptionsApp.xcdatamodel; sourceTree = "<group>"; };
 		DDB581B2210793790057D466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DDB581B5210793790057D466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDB581B7210793790057D466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDB581C221079CD10057D466 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		DDB581C421079CE90057D466 /* ProfitGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitGraphViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				DDB581C121079B870057D466 /* Services */,
 				DDB581AC210793780057D466 /* Main.storyboard */,
 				DDB581B2210793790057D466 /* Assets.xcassets */,
-				DDB581B4210793790057D466 /* LaunchScreen.storyboard */,
+				DD50EB4B211BC236009972D4 /* OptionTutorLaunchScreen.storyboard */,
 				DDB581B7210793790057D466 /* Info.plist */,
 				DDB581A8210793780057D466 /* AppDelegate.swift */,
 				DDB581AF210793780057D466 /* OptionsApp.xcdatamodeld */,
@@ -265,11 +265,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB581B6210793790057D466 /* LaunchScreen.storyboard in Resources */,
 				DD6CCF3321190C1F0099A99C /* Proxima Nova Bold.otf in Resources */,
 				DDB581B3210793790057D466 /* Assets.xcassets in Resources */,
 				DD6CCF30211908670099A99C /* Proxima Nova Bold It.ttf in Resources */,
 				DD6CCF31211908670099A99C /* Proxima Nova Reg.ttf in Resources */,
+				DD50EB4C211BC236009972D4 /* OptionTutorLaunchScreen.storyboard in Resources */,
 				DD6CCF2E211908670099A99C /* Proxima Nova Light It.ttf in Resources */,
 				DD6CCF2F211908670099A99C /* Proxima Nova Light.ttf in Resources */,
 				DDB581AE210793780057D466 /* Main.storyboard in Resources */,
@@ -351,14 +351,6 @@
 				DDB581AD210793780057D466 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DDB581B4210793790057D466 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDB581B5210793790057D466 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -495,7 +487,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -516,7 +508,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

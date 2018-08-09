@@ -121,7 +121,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             //underlyingPriceLabel.text = ""
             underlyingPriceTextField.text = ""
             strategy = 0
-            StrategyTitleLabel.text = "Strategy Title"
+            StrategyTitleLabel.text = "Long Call"
             callAndPutLabel.text = "Price of 1 Call:"
             callPriceTextField.text = ""
             strikePriceTextField.text = ""

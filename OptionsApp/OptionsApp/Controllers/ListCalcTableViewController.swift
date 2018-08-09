@@ -13,6 +13,11 @@ class ListCalcTableViewController: UITableViewController{
     
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var aboutBarButtonItem: UIBarButtonItem!
+    var formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
     var calculations = [Calculation]() { //property observer
         didSet {
             tableView.reloadData()
@@ -61,7 +66,8 @@ class ListCalcTableViewController: UITableViewController{
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            cell.entryCostInfoLabel.text = "Entry Cost: $\(cost)"
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
         
         case 1:
             cell.strategyTitleLabel.text = "Naked Call"
@@ -69,21 +75,24 @@ class ListCalcTableViewController: UITableViewController{
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            cell.entryCostInfoLabel.text = "Entry Premium: $\(cost)"
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
         case 2:
             cell.strategyTitleLabel.text = "Long Put"
             let underlyingTicker = calculation.underlyingTicker ?? ""
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            cell.entryCostInfoLabel.text = "Entry Cost: $\(cost)"
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
         case 3:
             cell.strategyTitleLabel.text = "Naked Put"
             let underlyingTicker = calculation.underlyingTicker ?? ""
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
-            cell.entryCostInfoLabel.text = "Entry Premium: $\(cost)"
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
         default:
             print("unidentified strategy identifier")
         }
@@ -111,17 +120,16 @@ class ListCalcTableViewController: UITableViewController{
        //eeach time the user taps the save or cancel bar button item in DisplayCalculationViewController, we update our calculations array in ListCalcTableViewController
         calculations = CoreDataHelper.retrieveCalculation()
     }
-    func formatNumber(num:Double) -> String{
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .currency
-//        formatter.maximumFractionDigits = 0
-//        let numText = formatter.string(num)
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 0
-        return formatter.string(from: NSNumber(value: num))!
-//        NumberFormatter.localizedString(from: NSNumber(value: whatever), number: NumberFormatter.Style.decimal
+    
+    func formatNumber(numString:String) -> String{
+        if let num = Double(numString){
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.maximumFractionDigits = 0
+            return formatter.string(from: NSNumber(value: num))!
+    }else{return "error"}
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
         

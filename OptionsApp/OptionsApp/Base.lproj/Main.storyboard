@@ -41,46 +41,7 @@
                                         <attributes>
                                             <color key="NSColor" red="0.30196078430000001" green="0.83529411760000005" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="22" name="ProximaNova-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -90,46 +51,7 @@ Cg
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="11" name="ProximaNova-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Hello and welcome to ">
@@ -142,7 +64,7 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Option Tutor">
+                                    <fragment content="Option">
                                         <attributes>
                                             <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -152,8 +74,64 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">, your all in one guide to get you started with option trading. If you have ever been curious about option/derivative trading, but </string>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Tutor">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=", your all in one guide to get you started with option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" trading. If you have ever been curious about option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="/derivative trading, but ">
                                         <attributes>
                                             <color key="NSColor" name="tcWhite"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -173,9 +151,49 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> know where to start, you have come to the right place! 
+                                        <string key="content"> know where to start, you have come to the right place! 
 
-I believe investing is a great way to save up for that dream house, vacation, kids tuition, you name it! By combining regular trading with options, you can reap the rewards of well thought out strategies that make you money when the market is up and down. I wanted to make this type of trading accessible to all my friends and family, but always struggled to explain these concepts</mutableString>
+I believe investing is a great way to </string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="make make money">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">! By combining regular trading with options, you can reap the rewards of well thought out strategies that make you money when the market is up </string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="or">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> down. I wanted to make this type of trading accessible to all my friends and family, but always struggled to explain these concepts</string>
                                         <attributes>
                                             <color key="NSColor" name="tcWhite"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -204,7 +222,26 @@ I believe investing is a great way to save up for that dream house, vacation, ki
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Option Tutor">
+                                    <fragment content="Option">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Tutor">
                                         <attributes>
                                             <color key="NSColor" red="0.34901960780000002" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -272,7 +309,26 @@ I believe investing is a great way to save up for that dream house, vacation, ki
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> Once you get good at basic strategies such as long calls and long puts, you can implement them is real trading and move on to more advanced strategies. Before you use the app, I strongly recommend getting some basic knowledge about option trading by reading the following links.</mutableString>
+                                        <string key="content"> Once you get good at basic strategies such as long calls and long puts, you can implement them is real trading and move on to more advanced strategies. Before you use the app, I strongly recommend getting some basic knowledge about option</string>
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" trading by reading the following links.">
                                         <attributes>
                                             <color key="NSColor" name="tcWhite"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -665,8 +721,27 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
+                                    <fragment content="-Input values for underlying stock and option">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <font key="NSOriginalFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="s">
+                                        <attributes>
+                                            <color key="NSColor" name="tcWhite"/>
+                                            <font key="NSFont" size="19" name="ProximaNova-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
                                     <fragment>
-                                        <string key="content">-Input values for underlying stock and option
+                                        <string key="content">
 -Choose buy/sell and call/put to determine your strategy, you should see the Strategy Title change as you select different combinations 
 -Tap </string>
                                         <attributes>
@@ -716,7 +791,7 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" or premium">
+                                    <fragment content=" or premium of option">
                                         <attributes>
                                             <color key="NSColor" name="tcWhite"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -842,7 +917,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Hi my name is Ethan and I am from Toronto, Canada. I recently graduated from McMaster University where I studied Mechatronics Engineering (fancy word for robotics) and business. I have always been curious about iOS app design so I decided to spend 6 weeks in San Francisco learning swift and making my first app(ta-da)! If you have any feedback at all on how I can make this a better product, shoot me an email at </mutableString>
+                                        <string key="content">Hi my name is Ethan and I am from Toronto, Canada. I recently graduated from McMaster University where I studied Mechatronics Engineering (fancy word for robotics) and business. I have always been curious about iOS app design so I decided to spend 6 weeks in San Francisco learning swift and making my first app(ta-da)! If you have any feedback at all on how I can make this a better product, shoot me an email at </string>
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="19" name="ProximaNova-Light"/>
@@ -996,7 +1071,7 @@ Cg
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Past Calculations" id="I5g-BQ-Blb">
-                        <barButtonItem key="leftBarButtonItem" title="About" id="SiX-qb-VRd">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="SiX-qb-VRd">
                             <color key="tintColor" name="tcWhite"/>
                             <connections>
                                 <segue destination="aWP-46-cGf" kind="show" id="n8V-4B-ir9"/>
@@ -1523,26 +1598,14 @@ Cg
         <namedColor name="tcAlmostBlack">
             <color red="0.13699999451637268" green="0.16500000655651093" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="tcAlmostBlack">
-            <color red="0.13699999451637268" green="0.16500000655651093" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="tcBlueBlack">
             <color red="0.20399999618530273" green="0.23499999940395355" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tcMediumBlack">
             <color red="0.14900000393390656" green="0.17599999904632568" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="tcMediumBlack">
-            <color red="0.14900000393390656" green="0.17599999904632568" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="tcSeafoamGreen">
             <color red="0.34900000691413879" green="0.85500001907348633" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="tcWhite">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="tcWhite">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tcWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

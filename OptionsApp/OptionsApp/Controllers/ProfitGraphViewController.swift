@@ -66,7 +66,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         if let delegate = delegate {
             //[underlyingPrice,priceOfCall,strikePrice,numOfOptions]
             let newData = delegate.passData()
-            //print(newData)
+            //lprint(newData)
             underlyingTicker = newData.1
             underlyingPrice = (100 * Double(newData.0[0])).rounded()/100
             callPrice = newData.0[1]
@@ -266,7 +266,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         ll3.lineColor = UIColor.tcWhite
         ll3.valueTextColor = UIColor.tcWhite
         
-        let ll2 = ChartLimitLine(limit: strikePrice, label: "Strike")
+        let ll2 = ChartLimitLine(limit: strikePrice, label: "Strike Price")
         ll2.lineWidth = 1.0
         //        ll1.lineDashLengths = [5, 5]
         ll2.drawLabelEnabled = true
@@ -423,7 +423,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         ll3.lineColor = UIColor.tcWhite
         ll3.valueTextColor = UIColor.tcWhite
         
-        let ll2 = ChartLimitLine(limit: strikePrice, label: "Strike")
+        let ll2 = ChartLimitLine(limit: strikePrice, label: "Strike Price")
         ll2.lineWidth = 1.0
         //        ll1.lineDashLengths = [5, 5]
         ll2.drawLabelEnabled = true
