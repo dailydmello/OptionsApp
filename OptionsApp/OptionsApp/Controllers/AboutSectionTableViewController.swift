@@ -12,7 +12,7 @@ import UIKit
 class AboutSectionTableViewController: UIViewController{
     
     @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         backBarButtonItem.setTitleTextAttributes([
