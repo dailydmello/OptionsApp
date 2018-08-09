@@ -18,16 +18,18 @@ protocol CalculatorViewControllerDelegate {
 
 class CalculatorViewController: UIViewController, CalculatorViewControllerDelegate,UITextFieldDelegate{
     
+    @IBOutlet weak var underlyingView: UIView!
     @IBOutlet weak var underlyingTickerTextField: UITextField!
-    
     @IBOutlet weak var underlyingPriceLabel: UILabel!
-    @IBOutlet weak var getPriceButton: UIButton!
+    @IBOutlet weak var underlyingPriceTextField: SymbolTextField!
     
+    @IBOutlet weak var optionView: UIView!
     @IBOutlet weak var StrategyTitleLabel: UILabel!
     @IBOutlet weak var callPriceTextField: SymbolTextField!
     @IBOutlet weak var strikePriceTextField: SymbolTextField!
     @IBOutlet weak var numofContractsTextField: SymbolTextField!
     @IBOutlet weak var expiryDateTextField: UITextField!
+ 
     @IBOutlet weak var costLabel: UILabel!
     
     @IBOutlet weak var callAndPutLabel: UILabel!
@@ -35,9 +37,12 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     @IBOutlet weak var graphButton: UIButton!
     @IBOutlet weak var callOrPutSegmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
     //buy or sell
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var buyOrSellSegmentedControl: UISegmentedControl!
+    
     var calculation: Calculation?
     var tempArr = [Double]()
     var underlyingTicker: String = ""
@@ -49,11 +54,23 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     var expiryDate: String = ""
     var buyOrSellChoice: Double = 0
     var callOrPutChoice: Double = 0
+    var entryCost: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViews()
         underlyingTickerTextField.delegate = self
         expiryDateTextField.delegate = self
+        
+        underlyingPriceTextField.calculateButtonAction = {
+            if self.underlyingPriceTextField.isFirstResponder {
+                self.underlyingPriceTextField.resignFirstResponder()
+            }
+            if let underlyingPriceText = self.underlyingPriceTextField.text, let underlyingPriceDouble = Double(underlyingPriceText){
+                self.underlyingPrice = underlyingPriceDouble
+            }
+        }
         
         callPriceTextField.calculateButtonAction = {
             if self.callPriceTextField.isFirstResponder {
@@ -82,7 +99,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
 
         if let calculation = calculation {
             underlyingTickerTextField.text = calculation.underlyingTicker
-            underlyingPriceLabel.text = calculation.underlyingPrice
+            //underlyingPriceText.text = calculation.underlyingPrice
+            underlyingPriceTextField.text = calculation.underlyingPrice
             callOrPutSegmentedControl.selectedSegmentIndex = Int(calculation.callOrPutChoice)
             buyOrSellSegmentedControl.selectedSegmentIndex = Int(calculation.buyOrSellChoice)
             buyOrSellChoice = calculation.buyOrSellChoice
@@ -94,18 +112,22 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             strikePriceTextField.text = calculation.strikePrice
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = calculation.expiryDate
+            costLabel.text = calculation.entryCost
+            
         } else {
             callOrPutSegmentedControl.selectedSegmentIndex = 0
             buyOrSellSegmentedControl.selectedSegmentIndex = 0
             underlyingTickerTextField.text = ""
+            //underlyingPriceLabel.text = ""
+            underlyingPriceTextField.text = ""
             strategy = 0
             StrategyTitleLabel.text = "Long Call"
-            callAndPutLabel.text = "Price of 1 Call"
+            callAndPutLabel.text = "Price of 1 Call:"
             callPriceTextField.text = ""
-            underlyingPriceLabel.text = ""
             strikePriceTextField.text = ""
             numofContractsTextField.text = ""
             expiryDateTextField.text = ""
+            costLabel.text = ""
         }
     }
     func passData()-> ([Double],String){
@@ -117,12 +139,52 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         tempArr.append(self.strategy)
         return (tempArr,self.underlyingTicker)
     }
+    
+    func setupViews(){
+        cancelBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                  for: .normal)
+        saveBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                  for: .normal)
+        underlyingView.layer.cornerRadius = 8
+        underlyingView.layer.masksToBounds = true
+        //underlyingView.layer.borderWidth = 1
+//        underlyingView.layer.borderColor = UIColor.tcWhite.cgColor
+        
+        optionView.layer.cornerRadius = 8
+        optionView.layer.masksToBounds = true
+        //optionView.layer.borderWidth = 1
+        //optionView.layer.borderColor = UIColor.tcWhite.cgColor
+        
+        graphButton.layer.cornerRadius = 8
+        graphButton.layer.masksToBounds = true
+        
+        calculateCostButton.layer.cornerRadius = 8
+        calculateCostButton.layer.masksToBounds = true
+        calculateCostButton.layer.borderWidth = 1
+        calculateCostButton.layer.borderColor = UIColor.tcSeafoamGreen.cgColor
+        //calculateCostButton.layer.backgroundColor = UIColor.tcBlueBlack.cgColor
+        
+        graphButton.layer.cornerRadius = 8
+        graphButton.layer.masksToBounds = true
+        graphButton.layer.borderWidth = 1
+        graphButton.layer.borderColor = UIColor.tcSeafoamGreen.cgColor
+        //calculateCostButton.layer.backgroundColor = UIColor.tcBlueBlack.cgColor
+        
+        costLabel.layer.cornerRadius = 8
+        costLabel.layer.masksToBounds = true
+        
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
     @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
-        calculateCallTotalCost()
+        calculateOptionTotalCost()
     }
     @IBAction func graphButtonTapped(_ sender: Any) {
     }
@@ -144,7 +206,10 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         selectStrategy()
     }
     
-    @IBAction func strategySelected(_ sender: UISegmentedControl) {
+    
+    
+    
+    @IBAction func callOrPutSelected(_ sender: UISegmentedControl) {
         switch callOrPutSegmentedControl.selectedSegmentIndex {
         case 0:
             //Call
@@ -157,10 +222,14 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         }
         selectStrategy()
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if underlyingTickerTextField.resignFirstResponder(){
-            self.getSymbolCurrentPrice(){ stockPrice in
-                self.underlyingPrice = stockPrice
+            if self.underlyingTickerTextField.isFirstResponder {
+                self.underlyingTickerTextField.resignFirstResponder()
+            }
+            if let underlyingTickerText = self.underlyingTickerTextField.text{
+                self.underlyingTicker = underlyingTickerText
             }
         }
         if expiryDateTextField.resignFirstResponder(){
@@ -178,22 +247,22 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             //long call
             strategy = 0
             StrategyTitleLabel.text = "Long Call"
-            callAndPutLabel.text = "Price of 1 Call"
+            callAndPutLabel.text = "Price of 1 Call:"
         } else if callOrPutChoice == 0 && buyOrSellChoice == 1{
             //naked call
             strategy = 1
             StrategyTitleLabel.text = "Naked Call"
-            callAndPutLabel.text = "Price of 1 Call"
+            callAndPutLabel.text = "Price of 1 Call:"
         } else if callOrPutChoice == 1 && buyOrSellChoice == 0{
             //long put
             strategy = 2
             StrategyTitleLabel.text = "Long Put"
-            callAndPutLabel.text = "Price of 1 Put"
+            callAndPutLabel.text = "Price of 1 Put:"
         } else if callOrPutChoice == 1 && buyOrSellChoice == 1{
             //naked put
             strategy = 3
             StrategyTitleLabel.text = "Naked Put"
-            callAndPutLabel.text = "Price of 1 Put"
+            callAndPutLabel.text = "Price of 1 Put:"
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -202,11 +271,12 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         
         switch identifier {
         case "displayGraph":
-            print("graph button tapped")
+            //print("graph button tapped")
             // set variables to self
             //if destination is profitgraph, cast profit as profitgraphviewcontroller
+            calculateOptionTotalCost()
             setSelfValues()
-            
+
             if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
                 profitGraphViewController.delegate = nil
                 profitGraphViewController.delegate = self}
@@ -230,13 +300,15 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation?.buyOrSellChoice = buyOrSellChoice
             calculation?.strategy = strategy
             calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
-            calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
+            //calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
+            calculation?.underlyingPrice = underlyingPriceTextField.text ?? ""
             calculation?.strategyTitleLabel = StrategyTitleLabel.text ?? ""
             calculation?.callOrPutLabel = callAndPutLabel.text ?? ""
             calculation?.callPrice = callPriceTextField.text ?? ""
             calculation?.strikePrice = strikePriceTextField.text ?? ""
             calculation?.numOfContracts = numofContractsTextField.text ?? ""
             calculation?.expiryDate = expiryDateTextField.text ?? ""
+            calculation?.entryCost = costLabel.text ?? ""
             calculation?.modificationTime = Date()
             
             //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListCalculationsTableViewController
@@ -248,13 +320,15 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation.buyOrSellChoice = buyOrSellChoice
             calculation.strategy = strategy
             calculation.underlyingTicker = underlyingTickerTextField.text ?? ""
-            calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
+//            calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
+            calculation.underlyingPrice = underlyingPriceTextField.text ?? ""
             calculation.strategyTitleLabel = StrategyTitleLabel.text ?? ""
             calculation.callOrPutLabel = callAndPutLabel.text ?? ""
             calculation.callPrice = callPriceTextField.text ?? ""
             calculation.strikePrice = strikePriceTextField.text ?? ""
             calculation.numOfContracts = numofContractsTextField.text ?? ""
             calculation.expiryDate = expiryDateTextField.text ?? ""
+            calculation.entryCost = costLabel.text ?? ""
             calculation.modificationTime = Date()
             
             CoreDataHelper.saveCalculation()
@@ -271,7 +345,10 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
 
 extension CalculatorViewController{
     func setSelfValues(){
-        if let underlyingPriceText = underlyingPriceLabel.text, let underlyingPriceDouble = Double(underlyingPriceText){
+//        if let underlyingPriceText = underlyingPriceLabel.text, let underlyingPriceDouble = Double(underlyingPriceText){
+//            self.underlyingPrice = underlyingPriceDouble
+//        }
+        if let underlyingPriceText = underlyingPriceTextField.text, let underlyingPriceDouble = Double(underlyingPriceText){
             self.underlyingPrice = underlyingPriceDouble
         }
         if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
@@ -283,16 +360,24 @@ extension CalculatorViewController{
         if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
         }
     }
-    
-    func calculateCallTotalCost(){
-        guard let callPrice = self.callPriceTextField.text
-            else {return}
-        guard let numOfContracts = self.numofContractsTextField.text
-            else{return}
-        let totalnumOfCallOptions = Double(numOfContracts)! * 100
-        let totalCallCost = Double(callPrice)! * totalnumOfCallOptions
-        self.costLabel.text = String(totalCallCost)
+  ///////////
+    func calculateOptionTotalCost(){
+        if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
+            self.callPrice = callPriceDouble
+        }
+        
+        if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
+        }
+        
+        let entryCostText = String(callPrice * numOfOptions)
+        
+        self.costLabel.text = entryCostText.dropLast(2)
+        
+        //let str = "0123456789"
+        //let result = String(str.characters.dropLast(2))
     }
+    
+/////////////
     func getSymbolCurrentPrice(completion: @escaping (_: Double) -> ()){
         
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
@@ -342,6 +427,15 @@ extension CalculatorViewController{
         dateAndTimeFormatter.dateFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
         let dateAndTimeFormatted = dateAndTimeFormatter.date(from: string)
         return dateAndTimeFormatted
+    }
+}
+
+extension String {
+    func dropLast(_ n: Int = 1) -> String {
+        return String(characters.dropLast(n))
+    }
+    var dropLast: String {
+        return dropLast()
     }
 }
 

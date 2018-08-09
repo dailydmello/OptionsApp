@@ -13,4 +13,8 @@ class ListCalcTableViewCell: UITableViewCell{
     
     @IBOutlet weak var strategyTitleLabel: UILabel!
     @IBOutlet weak var strategyLastModificationStamp: UILabel!
+    
+    @IBOutlet weak var entryCostInfoLabel: UILabel!
+    @IBOutlet weak var underlyingInfoLabel: UILabel!
+    
 }

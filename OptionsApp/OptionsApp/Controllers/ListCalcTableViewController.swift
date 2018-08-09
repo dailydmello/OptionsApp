@@ -11,16 +11,41 @@ import UIKit
 
 class ListCalcTableViewController: UITableViewController{
     
+    @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var aboutBarButtonItem: UIBarButtonItem!
+    var formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
     var calculations = [Calculation]() { //property observer
         didSet {
             tableView.reloadData()
         }
     }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 50)!]
+        aboutBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                          for: .normal)
+        addBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                   for: .normal)
         
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite]
+        
+        self.tableView.backgroundColor = UIColor.tcAlmostBlack
         calculations = CoreDataHelper.retrieveCalculation()
     }
+    
     
     //table view should display 10 table view cells. This is hardcoded right now but eventually it'll reflect the number of calculations the user has.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,12 +61,38 @@ class ListCalcTableViewController: UITableViewController{
         switch calculation.strategy{
         case 0:
             cell.strategyTitleLabel.text = "Long Call"
+            
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
+        
         case 1:
             cell.strategyTitleLabel.text = "Naked Call"
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
         case 2:
             cell.strategyTitleLabel.text = "Long Put"
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
         case 3:
             cell.strategyTitleLabel.text = "Naked Put"
+            let underlyingTicker = calculation.underlyingTicker ?? ""
+            let underlyingPrice = calculation.underlyingPrice ?? ""
+            cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
+            let cost = calculation.entryCost ?? ""
+            let formCost = formatNumber(numString: cost)
+            cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
         default:
             print("unidentified strategy identifier")
         }
@@ -70,12 +121,21 @@ class ListCalcTableViewController: UITableViewController{
         calculations = CoreDataHelper.retrieveCalculation()
     }
     
+    func formatNumber(numString:String) -> String{
+        if let num = Double(numString){
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.maximumFractionDigits = 0
+            return formatter.string(from: NSNumber(value: num))!
+    }else{return "error"}
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
         
         switch identifier {
         case "displayCalculation":
-            print("claculation cell tapped")
+            //print("claculation cell tapped")
             //get a reference path to calculation
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             //get the calculation at the path
