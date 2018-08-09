@@ -66,7 +66,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
         if let delegate = delegate {
             //[underlyingPrice,priceOfCall,strikePrice,numOfOptions]
             let newData = delegate.passData()
-            print(newData)
+            //print(newData)
             underlyingTicker = newData.1
             underlyingPrice = (100 * Double(newData.0[0])).rounded()/100
             callPrice = newData.0[1]
@@ -80,13 +80,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     override func viewWillAppear(_ animated: Bool) {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else{return}
-        switch identifier {
-        case "back":
-            print("back button tapped")
-        default:
-            print("unexpected segue")
-        }
+
     }
 
     func reverseStride(underlyingMax: Double, underlyingMin: Double) -> [Double]{
