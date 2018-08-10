@@ -122,7 +122,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             underlyingPriceTextField.text = ""
             strategy = 0
             StrategyTitleLabel.text = "Long Call"
-            callAndPutLabel.text = "Price of 1 Call:"
+            callAndPutLabel.text = "Price of Call:"
             callPriceTextField.text = ""
             strikePriceTextField.text = ""
             numofContractsTextField.text = ""
@@ -247,22 +247,22 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             //long call
             strategy = 0
             StrategyTitleLabel.text = "Long Call"
-            callAndPutLabel.text = "Price of 1 Call:"
+            callAndPutLabel.text = "Price of Call:"
         } else if callOrPutChoice == 0 && buyOrSellChoice == 1{
             //naked call
             strategy = 1
             StrategyTitleLabel.text = "Naked Call"
-            callAndPutLabel.text = "Price of 1 Call:"
+            callAndPutLabel.text = "Price of Call:"
         } else if callOrPutChoice == 1 && buyOrSellChoice == 0{
             //long put
             strategy = 2
             StrategyTitleLabel.text = "Long Put"
-            callAndPutLabel.text = "Price of 1 Put:"
+            callAndPutLabel.text = "Price of Put:"
         } else if callOrPutChoice == 1 && buyOrSellChoice == 1{
             //naked put
             strategy = 3
             StrategyTitleLabel.text = "Naked Put"
-            callAndPutLabel.text = "Price of 1 Put:"
+            callAndPutLabel.text = "Price of Put:"
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

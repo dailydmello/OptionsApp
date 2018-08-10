@@ -1102,10 +1102,10 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IE5-II-UIW">
-                                <rect key="frame" x="15" y="15" width="345" height="138"/>
+                                <rect key="frame" x="15" y="15" width="345" height="134"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="W6K-Bx-Vvv">
-                                        <rect key="frame" x="15" y="15" width="315" height="108"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="W6K-Bx-Vvv">
+                                        <rect key="frame" x="15" y="15" width="315" height="104"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underlying Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-Sr-hDR">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="20"/>
@@ -1114,7 +1114,7 @@ Cg
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uue-4v-bGI">
-                                                <rect key="frame" x="0.0" y="34" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="32" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBS-PL-lRd">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
@@ -1134,7 +1134,7 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otx-jE-dYZ">
-                                                <rect key="frame" x="0.0" y="78" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="74" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-8e-KVP">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
@@ -1170,10 +1170,10 @@ Cg
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0b-x4-t6K">
-                                <rect key="frame" x="15" y="168" width="345" height="355"/>
+                                <rect key="frame" x="15" y="164" width="345" height="341"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-AF-SWb">
-                                        <rect key="frame" x="15" y="15" width="315" height="325"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-AF-SWb">
+                                        <rect key="frame" x="15" y="15" width="315" height="311"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-Ev-U0x">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="20"/>
@@ -1182,7 +1182,7 @@ Cg
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NaZ-z0-opo">
-                                                <rect key="frame" x="0.0" y="34" width="315" height="28"/>
+                                                <rect key="frame" x="0.0" y="32" width="315" height="28"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy or Sell:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkh-pP-zeR">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="28"/>
@@ -1207,7 +1207,7 @@ Cg
                                                 <color key="tintColor" name="tcSeafoamGreen"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-Gf-PnT">
-                                                <rect key="frame" x="0.0" y="76" width="315" height="28"/>
+                                                <rect key="frame" x="0.0" y="72" width="315" height="28"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call or Put:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnr-2h-Lbi">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="28"/>
@@ -1232,9 +1232,9 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-h6-3wj">
-                                                <rect key="frame" x="0.0" y="118" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="112" width="315" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of 1 Call:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARU-nx-EAd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of Call:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARU-nx-EAd">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
                                                         <color key="textColor" name="tcWhite"/>
@@ -1252,7 +1252,7 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhg-MN-tBj">
-                                                <rect key="frame" x="0.0" y="162" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="154" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strike Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0I-XQ-c0t">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
@@ -1272,7 +1272,7 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOD-tf-7VY">
-                                                <rect key="frame" x="0.0" y="206" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="196" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contracts:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lo-c1-QtH">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
@@ -1306,7 +1306,7 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJG-6B-Hzk">
-                                                <rect key="frame" x="0.0" y="250" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="238" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2F-Ts-V65">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
@@ -1326,7 +1326,7 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbd-qh-D7K">
-                                                <rect key="frame" x="0.0" y="294" width="315" height="31"/>
+                                                <rect key="frame" x="0.0" y="280" width="315" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO2-Qt-4R4">
                                                         <rect key="frame" x="0.0" y="0.0" width="176.5" height="31"/>
@@ -1382,7 +1382,7 @@ Cg
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Li-pc-L1O">
-                                <rect key="frame" x="15" y="538" width="345" height="50"/>
+                                <rect key="frame" x="15" y="520" width="345" height="68"/>
                                 <color key="backgroundColor" name="tcMediumBlack"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="21"/>
                                 <state key="normal" title="Graph">
@@ -1478,13 +1478,13 @@ Cg
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="999.99" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lG-aX-CbZ" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="55" y="0.0" width="80" height="25"/>
+                                                        <rect key="frame" x="55" y="0.0" width="79.5" height="25"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Yl-oNx">
-                                                        <rect key="frame" x="135" y="0.0" width="5.5" height="25"/>
+                                                        <rect key="frame" x="134.5" y="0.0" width="6" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="6" id="YmZ-2k-DfX"/>
                                                         </constraints>
