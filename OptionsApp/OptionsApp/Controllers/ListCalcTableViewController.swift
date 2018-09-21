@@ -75,7 +75,7 @@ class ListCalcTableViewController: UITableViewController{
         cell.strategyLastModificationStamp.text = calculation.modificationTime?.convertToString() ?? "unknown"
         return cell
     }
-    
+    //test this is crazy
     //to delete calculations
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         //retrieve the calculation to be deleted corresponding to the selected index path. Then we use our Core Data helper to delete the selected calculation. Last we update our calculations array to reflect the changes
