@@ -13,62 +13,35 @@ class ListCalcTableViewController: UITableViewController{
     
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var aboutBarButtonItem: UIBarButtonItem!
-    var formatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter
-    }()
-    var calculations = [Calculation]() { //property observer
+    var calculations = [Calculation]() {
         didSet {
             tableView.reloadData()
         }
     }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 50)!]
-        aboutBarButtonItem.setTitleTextAttributes([
-            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
-            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
-                                          for: .normal)
-        addBarButtonItem.setTitleTextAttributes([
-            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
-            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
-                                                   for: .normal)
-        
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,
-            NSAttributedStringKey.foregroundColor: UIColor.tcWhite]
-        
-        self.tableView.backgroundColor = UIColor.tcAlmostBlack
+        setupViews()
         calculations = CoreDataHelper.retrieveCalculation()
     }
-    
-    
-    //table view should display 10 table view cells. This is hardcoded right now but eventually it'll reflect the number of calculations the user has.
+    //Asks the data source to return the number of sections in the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calculations.count
     }
-    
-    //return a table view cell (UIView subclass) instance. In addition, we configure the default UITableViewCell to display the cell's index path (row and section)
+    //Asks the data source for a stylized cell to insert in a particular location of the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCalcTableViewCell", for: indexPath) as! ListCalcTableViewCell
-        
-       //retrieve the correct calculation based on he index path row and set the calculation cell's labels with the corresponding data
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCalcTableViewCell", for: indexPath) as! ListCalcTableViewCell //typecast to  custom stylized cell
+        //retrieve the correct calculation based on the index path row and set the calculation cell's labels with the corresponding data
         let calculation = calculations[indexPath.row]
         switch calculation.strategy{
         case 0:
             cell.strategyTitleLabel.text = "Long Call"
-            
             let underlyingTicker = calculation.underlyingTicker ?? ""
             let underlyingPrice = calculation.underlyingPrice ?? ""
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
             let formCost = formatNumber(numString: cost)
             cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
-        
+            
         case 1:
             cell.strategyTitleLabel.text = "Naked Call"
             let underlyingTicker = calculation.underlyingTicker ?? ""
@@ -76,7 +49,8 @@ class ListCalcTableViewController: UITableViewController{
             cell.underlyingInfoLabel.text = "Underlying: \(underlyingTicker) @ $\(underlyingPrice)"
             let cost = calculation.entryCost ?? ""
             let formCost = formatNumber(numString: cost)
-            cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
+           cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
+            
         case 2:
             cell.strategyTitleLabel.text = "Long Put"
             let underlyingTicker = calculation.underlyingTicker ?? ""
@@ -85,6 +59,7 @@ class ListCalcTableViewController: UITableViewController{
             let cost = calculation.entryCost ?? ""
             let formCost = formatNumber(numString: cost)
             cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
+            
         case 3:
             cell.strategyTitleLabel.text = "Naked Put"
             let underlyingTicker = calculation.underlyingTicker ?? ""
@@ -93,49 +68,49 @@ class ListCalcTableViewController: UITableViewController{
             let cost = calculation.entryCost ?? ""
             let formCost = formatNumber(numString: cost)
             cell.entryCostInfoLabel.text = "Entry Premium: \(formCost)"
+            
         default:
             print("unidentified strategy identifier")
         }
-        //cell.strategyTitleLabel.text = String(calculation.strategy)
         cell.strategyLastModificationStamp.text = calculation.modificationTime?.convertToString() ?? "unknown"
-        
         return cell
-    
     }
+    
     //to delete calculations
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         //retrieve the calculation to be deleted corresponding to the selected index path. Then we use our Core Data helper to delete the selected calculation. Last we update our calculations array to reflect the changes
-        
         if editingStyle == .delete {
             let calculationToDelete = calculations[indexPath.row]
             CoreDataHelper.delete(calculation: calculationToDelete)
-            
             calculations = CoreDataHelper.retrieveCalculation()
         }
     }
     
-
-    
     @IBAction func unwindWithSegue (_ segue: UIStoryboardSegue){
-       //eeach time the user taps the save or cancel bar button item in DisplayCalculationViewController, we update our calculations array in ListCalcTableViewController
+        //each time the user taps the save or cancel bar button item in DisplayCalculationViewController, update calculations array in ListCalcTableViewController
         calculations = CoreDataHelper.retrieveCalculation()
     }
     
-    func formatNumber(numString:String) -> String{
-        if let num = Double(numString){
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            formatter.maximumFractionDigits = 0
-            return formatter.string(from: NSNumber(value: num))!
-    }else{return "error"}
+    func setupViews(){
+        //setting font styles on buttons
+        aboutBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                  for: .normal)
+        addBarButtonItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
+                                                for: .normal)
+        //setting font styles on title
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,NSAttributedStringKey.foregroundColor: UIColor.tcWhite]
+        //setting backgrounf as black
+        self.tableView.backgroundColor = UIColor.tcAlmostBlack
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
-        
         switch identifier {
         case "displayCalculation":
-            //print("claculation cell tapped")
             //get a reference path to calculation
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             //get the calculation at the path
@@ -144,7 +119,7 @@ class ListCalcTableViewController: UITableViewController{
             let destination = segue.destination as! CalculatorViewController
             //set the calculation to selected calculation
             destination.calculation = calculation
-        
+            
         case "addCalculation":
             print("create calculation bar button tapped")
             

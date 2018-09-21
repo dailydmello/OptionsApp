@@ -40,6 +40,7 @@ class ProfitGraphViewController: UIViewController, ChartViewDelegate{
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var rangeView: UIView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupViews()
         updateMinTextField.calculateButtonAction = {

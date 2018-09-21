@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD4237B521556DFC00FEEA94 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4237B421556DFC00FEEA94 /* NumberFormatter.swift */; };
 		DD50EB4C211BC236009972D4 /* OptionTutorLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD50EB4B211BC236009972D4 /* OptionTutorLaunchScreen.storyboard */; };
 		DD61B866210F9E1B00DCEE31 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */; };
 		DD61B868210FD5F100DCEE31 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */; };
@@ -35,6 +36,7 @@
 		00FBE103257CFF744BD1407C /* Pods-OptionsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptionsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OptionsApp/Pods-OptionsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		070A875029D8C416DBBC9795 /* Pods-OptionsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptionsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-OptionsApp/Pods-OptionsApp.release.xcconfig"; sourceTree = "<group>"; };
 		307F94F97CB8C02A393E0695 /* Pods_OptionsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OptionsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4237B421556DFC00FEEA94 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		DD50EB4B211BC236009972D4 /* OptionTutorLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionTutorLaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
 		DD61B867210FD5F100DCEE31 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = OptionsApp/Extensions/CoreDataHelper.swift; sourceTree = SOURCE_ROOT; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */,
+				DD4237B421556DFC00FEEA94 /* NumberFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */,
 				DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */,
 				DD61B868210FD5F100DCEE31 /* CoreDataHelper.swift in Sources */,
+				DD4237B521556DFC00FEEA94 /* NumberFormatter.swift in Sources */,
 				DDB581D22108FAC00057D466 /* TimeSeriesIntraday.swift in Sources */,
 				DD61B866210F9E1B00DCEE31 /* Date+convertToString.swift in Sources */,
 			);

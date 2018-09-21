@@ -22,29 +22,23 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     @IBOutlet weak var underlyingTickerTextField: UITextField!
     @IBOutlet weak var underlyingPriceLabel: UILabel!
     @IBOutlet weak var underlyingPriceTextField: SymbolTextField!
-    
     @IBOutlet weak var optionView: UIView!
     @IBOutlet weak var StrategyTitleLabel: UILabel!
     @IBOutlet weak var callPriceTextField: SymbolTextField!
     @IBOutlet weak var strikePriceTextField: SymbolTextField!
     @IBOutlet weak var numofContractsTextField: SymbolTextField!
     @IBOutlet weak var expiryDateTextField: UITextField!
- 
     @IBOutlet weak var costLabel: UILabel!
-    
     @IBOutlet weak var callAndPutLabel: UILabel!
     @IBOutlet weak var calculateCostButton: UIButton!
     @IBOutlet weak var graphButton: UIButton!
     @IBOutlet weak var callOrPutSegmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
-    //buy or sell
     @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
-    
     @IBOutlet weak var buyOrSellSegmentedControl: UISegmentedControl!
     
     var calculation: Calculation?
-    var tempArr = [Double]()
+    var tempArr = [Double]() //temporary array for calculation
     var underlyingTicker: String = ""
     var underlyingPrice: Double = 0
     var callPrice: Double = 0
