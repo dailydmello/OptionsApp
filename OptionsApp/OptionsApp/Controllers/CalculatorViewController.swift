@@ -56,41 +56,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         setupViews()
         underlyingTickerTextField.delegate = self
         expiryDateTextField.delegate = self
+        inputEntered()
         
-        underlyingPriceTextField.calculateButtonAction = {
-            if self.underlyingPriceTextField.isFirstResponder {
-                self.underlyingPriceTextField.resignFirstResponder()
-            }
-            if let underlyingPriceText = self.underlyingPriceTextField.text, let underlyingPriceDouble = Double(underlyingPriceText){
-                self.underlyingPrice = underlyingPriceDouble
-            }
-        }
-        
-        callPriceTextField.calculateButtonAction = {
-            if self.callPriceTextField.isFirstResponder {
-                self.callPriceTextField.resignFirstResponder()
-            }
-            if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
-                self.callPrice = callPriceDouble
-            }
-        }
-        strikePriceTextField.calculateButtonAction = {
-            if self.strikePriceTextField.isFirstResponder {
-                self.strikePriceTextField.resignFirstResponder()
-            }
-            if let strikePriceText = self.strikePriceTextField.text, let strikePriceDouble = Double(strikePriceText){
-                self.strikePrice = strikePriceDouble
-            }
-            
-        }
-        numofContractsTextField.calculateButtonAction = {
-            if self.numofContractsTextField.isFirstResponder {
-                self.numofContractsTextField.resignFirstResponder()
-            }
-            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
-            }
-        }
-
         if let calculation = calculation {
             underlyingTickerTextField.text = calculation.underlyingTicker
             //underlyingPriceText.text = calculation.underlyingPrice
@@ -170,20 +137,49 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         
         costLabel.layer.cornerRadius = 8
         costLabel.layer.masksToBounds = true
-        
+    }
+    
+    func inputEntered(){
+        underlyingPriceTextField.calculateButtonAction = {
+            if self.underlyingPriceTextField.isFirstResponder {
+                self.underlyingPriceTextField.resignFirstResponder()
+            }
+            if let underlyingPriceText = self.underlyingPriceTextField.text, let underlyingPriceDouble = Double(underlyingPriceText){
+                self.underlyingPrice = underlyingPriceDouble
+            }
+        }
+        callPriceTextField.calculateButtonAction = {
+            if self.callPriceTextField.isFirstResponder {
+                self.callPriceTextField.resignFirstResponder()
+            }
+            if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
+                self.callPrice = callPriceDouble
+            }
+        }
+        strikePriceTextField.calculateButtonAction = {
+            if self.strikePriceTextField.isFirstResponder {
+                self.strikePriceTextField.resignFirstResponder()
+            }
+            if let strikePriceText = self.strikePriceTextField.text, let strikePriceDouble = Double(strikePriceText){
+                self.strikePrice = strikePriceDouble
+            }
+            
+        }
+        numofContractsTextField.calculateButtonAction = {
+            if self.numofContractsTextField.isFirstResponder {
+                self.numofContractsTextField.resignFirstResponder()
+            }
+            if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
+            }
+        }
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
+
     @IBAction func calculateCostButtonTapped(_ sender: UIButton) {
         calculateOptionTotalCost()
     }
-    @IBAction func graphButtonTapped(_ sender: Any) {
-    }
+    
     @IBAction func unwindWithSegue (_ segue: UIStoryboardSegue){
-
     }
     
     @IBAction func buyOrSellSelected(_ sender: UISegmentedControl) {
@@ -197,11 +193,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         default:
             print("unknown option identifier")
         }
-        selectStrategy()
+        setStrategy()
     }
-    
-    
-    
     
     @IBAction func callOrPutSelected(_ sender: UISegmentedControl) {
         switch callOrPutSegmentedControl.selectedSegmentIndex {
@@ -214,29 +207,10 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         default:
             preconditionFailure("Unexpected index.")
         }
-        selectStrategy()
+        setStrategy()
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if underlyingTickerTextField.resignFirstResponder(){
-            if self.underlyingTickerTextField.isFirstResponder {
-                self.underlyingTickerTextField.resignFirstResponder()
-            }
-            if let underlyingTickerText = self.underlyingTickerTextField.text{
-                self.underlyingTicker = underlyingTickerText
-            }
-        }
-        if expiryDateTextField.resignFirstResponder(){
-            if self.expiryDateTextField.isFirstResponder {
-                self.expiryDateTextField.resignFirstResponder()
-            }
-            if let expiryDateText = self.numofContractsTextField.text{
-                self.expiryDate = expiryDateText
-            }
-        }
-        return true
-    }
-    func selectStrategy(){
+    func setStrategy(){
         if callOrPutChoice == 0 && buyOrSellChoice == 0{
             //long call
             strategy = 0
@@ -260,36 +234,20 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if-let new clause to our guard statement to check that the destination view controller of our segue is of type ListCalcTableViewController. This allows us to safely type case our segue's destination view controller and access it for each case of our switch-statement.
         guard let identifier = segue.identifier else{return}
         
         switch identifier {
         case "displayGraph":
-            //print("graph button tapped")
-            // set variables to self
-            //if destination is profitgraph, cast profit as profitgraphviewcontroller
             calculateOptionTotalCost()
             setSelfValues()
-
+            
+            //delegate implementation to pass data
             if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
                 profitGraphViewController.delegate = nil
                 profitGraphViewController.delegate = self}
             
         case "save" where calculation != nil: //when it is not a new
             
-            //Set the new calculation's title and content to the corresponding text field and text view text values. If either value is nil, we provide an empty string as the default value using the nil coalescing operation (??)
-//            if strategySegmentedControl.selectedSegmentIndex == Int((calculation?.strategy)!){
-//                calculation?.strategy = Double(strategySegmentedControl.selectedSegmentIndex)
-//            }else{calculation?.strategy = strategy}
-           
-//            if callOrPutSegmentedControl.selectedSegmentIndex == Int((calculation?.callOrPutChoice)!){
-//                calculation?.callOrPutChoice = Double(callOrPutSegmentedControl.selectedSegmentIndex)
-//            }else{calculation?.callOrPutChoice = callOrPutChoice}
-//
-//            if buyOrSellSegmentedControl.selectedSegmentIndex == Int((calculation?.buyOrSellChoice)!){
-//                calculation?.buyOrSellChoice = Double(buyOrSellSegmentedControl.selectedSegmentIndex)
-//
-//            }else{calculation?.buyOrSellChoice = buyOrSellChoice}
             calculation?.callOrPutChoice = callOrPutChoice
             calculation?.buyOrSellChoice = buyOrSellChoice
             calculation?.strategy = strategy
@@ -305,7 +263,6 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             calculation?.entryCost = costLabel.text ?? ""
             calculation?.modificationTime = Date()
             
-            //in order to access the destination view controller's properties, we need to type cast the destination view controller to type ListCalculationsTableViewController
             CoreDataHelper.saveCalculation()
             
         case "save" where calculation == nil: //new calculation:
@@ -336,7 +293,6 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     }
 }
 
-
 extension CalculatorViewController{
     func setSelfValues(){
 //        if let underlyingPriceText = underlyingPriceLabel.text, let underlyingPriceDouble = Double(underlyingPriceText){
@@ -354,7 +310,7 @@ extension CalculatorViewController{
         if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
         }
     }
-  ///////////
+
     func calculateOptionTotalCost(){
         if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
             self.callPrice = callPriceDouble
@@ -364,14 +320,9 @@ extension CalculatorViewController{
         }
         
         let entryCostText = String(callPrice * numOfOptions)
-        
         self.costLabel.text = entryCostText.dropLast(2)
-        
-        //let str = "0123456789"
-        //let result = String(str.characters.dropLast(2))
     }
     
-/////////////
     func getSymbolCurrentPrice(completion: @escaping (_: Double) -> ()){
         
         //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
@@ -424,13 +375,5 @@ extension CalculatorViewController{
     }
 }
 
-extension String {
-    func dropLast(_ n: Int = 1) -> String {
-        return String(characters.dropLast(n))
-    }
-    var dropLast: String {
-        return dropLast()
-    }
-}
 
 
