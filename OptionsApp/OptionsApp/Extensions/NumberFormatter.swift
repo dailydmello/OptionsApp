@@ -14,5 +14,6 @@ func formatNumber(numString:String) -> String{
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 0
         return formatter.string(from: NSNumber(value: num))!
+        
     }else{return "error"}
 }

@@ -15,10 +15,13 @@ class AboutSectionTableViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //back button styling
         backBarButtonItem.setTitleTextAttributes([
             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
             NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
                                                    for: .normal)
+        //url link styling
         UITextView.appearance().linkTextAttributes = [ NSAttributedStringKey.foregroundColor.rawValue: UIColor.tcSeafoamGreen ]
         
         

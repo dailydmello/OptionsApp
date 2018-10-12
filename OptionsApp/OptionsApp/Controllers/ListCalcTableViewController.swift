@@ -13,7 +13,9 @@ class ListCalcTableViewController: UITableViewController{
     
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var aboutBarButtonItem: UIBarButtonItem!
+    
     var calculations = [Calculation]() {
+        //property observer
         didSet {
             tableView.reloadData()
         }
@@ -30,8 +32,10 @@ class ListCalcTableViewController: UITableViewController{
     //Asks the data source for a stylized cell to insert in a particular location of the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCalcTableViewCell", for: indexPath) as! ListCalcTableViewCell //typecast to  custom stylized cell
+        
         //retrieve the correct calculation based on the index path row and set the calculation cell's labels with the corresponding data
         let calculation = calculations[indexPath.row]
+        
         switch calculation.strategy{
         case 0:
             cell.strategyTitleLabel.text = "Long Call"
@@ -75,10 +79,10 @@ class ListCalcTableViewController: UITableViewController{
         cell.strategyLastModificationStamp.text = calculation.modificationTime?.convertToString() ?? "unknown"
         return cell
     }
-    //test this is crazy
+
     //to delete calculations
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //retrieve the calculation to be deleted corresponding to the selected index path. Then we use our Core Data helper to delete the selected calculation. Last we update our calculations array to reflect the changes
+        //retrieve the calculation to be deleted corresponding to the selected index path. Then use Core Data helper to delete the selected calculation. Last, update calculations array to reflect the changes
         if editingStyle == .delete {
             let calculationToDelete = calculations[indexPath.row]
             CoreDataHelper.delete(calculation: calculationToDelete)
@@ -86,8 +90,9 @@ class ListCalcTableViewController: UITableViewController{
         }
     }
     
+    //to return to table view screen and pop off calculator view
     @IBAction func unwindWithSegue (_ segue: UIStoryboardSegue){
-        //each time the user taps the save or cancel bar button item in DisplayCalculationViewController, update calculations array in ListCalcTableViewController
+        //each time the user taps the save or cancel bar button item in CalculationViewController, update calculations array in ListCalcTableViewController
         calculations = CoreDataHelper.retrieveCalculation()
     }
     
@@ -103,7 +108,7 @@ class ListCalcTableViewController: UITableViewController{
                                                 for: .normal)
         //setting font styles on title
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 23.0)!,NSAttributedStringKey.foregroundColor: UIColor.tcWhite]
-        //setting backgrounf as black
+        //setting background of calc notes as black
         self.tableView.backgroundColor = UIColor.tcAlmostBlack
     }
     
@@ -119,6 +124,7 @@ class ListCalcTableViewController: UITableViewController{
             let destination = segue.destination as! CalculatorViewController
             //set the calculation to selected calculation
             destination.calculation = calculation
+            print("save button tapped")
             
         case "addCalculation":
             print("create calculation bar button tapped")

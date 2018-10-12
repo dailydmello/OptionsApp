@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 struct CoreDataHelper {
-    //we create a computed class variable that gets a reference to our app delegate's managed object context allowing us to create, edit, and delete NSManaged Object
+    //computed class variable reference to app delegate's managed object context to create, edit, and delete NSManaged Object
     static let context: NSManagedObjectContext = {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError()
@@ -23,7 +23,6 @@ struct CoreDataHelper {
         return context
     }()
    
-    //static method that creates a new  NSManagedObject subclass calculation instance
     static func newCalculation() -> Calculation {
         let calculation = NSEntityDescription.insertNewObject(forEntityName: "Calculation", into: context) as! Calculation
         return calculation
