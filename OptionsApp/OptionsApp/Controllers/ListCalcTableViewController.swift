@@ -22,6 +22,7 @@ class ListCalcTableViewController: UITableViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //styling
         setupViews()
         calculations = CoreDataHelper.retrieveCalculation()
     }

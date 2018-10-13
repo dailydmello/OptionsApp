@@ -29,7 +29,7 @@
 		DDB581CC2107DE930057D466 /* UIColor+TC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581CB2107DE930057D466 /* UIColor+TC.swift */; };
 		DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581CF21083DE00057D466 /* SymbolTextField.swift */; };
 		DDB581D22108FAC00057D466 /* TimeSeriesIntraday.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581D12108FAC00057D466 /* TimeSeriesIntraday.swift */; };
-		DDF8493121705FC30027AA4F /* DopLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8493021705FC30027AA4F /* DopLast.swift */; };
+		DDF8493121705FC30027AA4F /* DropLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8493021705FC30027AA4F /* DropLast.swift */; };
 		F75ECA978A56C5AED0851106 /* Pods_OptionsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307F94F97CB8C02A393E0695 /* Pods_OptionsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		DDB581CB2107DE930057D466 /* UIColor+TC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+TC.swift"; sourceTree = "<group>"; };
 		DDB581CF21083DE00057D466 /* SymbolTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTextField.swift; sourceTree = "<group>"; };
 		DDB581D12108FAC00057D466 /* TimeSeriesIntraday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesIntraday.swift; sourceTree = "<group>"; };
-		DDF8493021705FC30027AA4F /* DopLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopLast.swift; sourceTree = "<group>"; };
+		DDF8493021705FC30027AA4F /* DropLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropLast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 			children = (
 				DD61B865210F9E1B00DCEE31 /* Date+convertToString.swift */,
 				DD4237B421556DFC00FEEA94 /* NumberFormatter.swift */,
-				DDF8493021705FC30027AA4F /* DopLast.swift */,
+				DDF8493021705FC30027AA4F /* DropLast.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 				DDB581CA2107B29B0057D466 /* ListCalcTableViewCell.swift in Sources */,
 				DD6CCF232118C6290099A99C /* AboutSectionTableViewController.swift in Sources */,
 				DDB581CC2107DE930057D466 /* UIColor+TC.swift in Sources */,
-				DDF8493121705FC30027AA4F /* DopLast.swift in Sources */,
+				DDF8493121705FC30027AA4F /* DropLast.swift in Sources */,
 				DDB581C321079CD10057D466 /* CalculatorViewController.swift in Sources */,
 				DDB581A9210793780057D466 /* AppDelegate.swift in Sources */,
 				DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */,

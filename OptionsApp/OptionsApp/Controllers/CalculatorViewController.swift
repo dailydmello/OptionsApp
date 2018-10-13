@@ -53,14 +53,17 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //styling
         setupViews()
+        //get rid of keyboard
         underlyingTickerTextField.delegate = self
         expiryDateTextField.delegate = self
+        //text inputed, done clicked
         inputEntered()
         
+        //load existing calculation
         if let calculation = calculation {
             underlyingTickerTextField.text = calculation.underlyingTicker
-            //underlyingPriceText.text = calculation.underlyingPrice
             underlyingPriceTextField.text = calculation.underlyingPrice
             callOrPutSegmentedControl.selectedSegmentIndex = Int(calculation.callOrPutChoice)
             buyOrSellSegmentedControl.selectedSegmentIndex = Int(calculation.buyOrSellChoice)
@@ -74,12 +77,12 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             numofContractsTextField.text = calculation.numOfContracts
             expiryDateTextField.text = calculation.expiryDate
             costLabel.text = calculation.entryCost
-            
+          
+        //new calculation after add button hit
         } else {
             callOrPutSegmentedControl.selectedSegmentIndex = 0
             buyOrSellSegmentedControl.selectedSegmentIndex = 0
             underlyingTickerTextField.text = ""
-            //underlyingPriceLabel.text = ""
             underlyingPriceTextField.text = ""
             strategy = 0
             StrategyTitleLabel.text = "Long Call"
@@ -102,39 +105,41 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     }
     
     func setupViews(){
+        //cancel button styling
         cancelBarButtonItem.setTitleTextAttributes([
             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
             NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
                                                   for: .normal)
+        //save button styling
         saveBarButtonItem.setTitleTextAttributes([
             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Light", size: 18.0)!,
             NSAttributedStringKey.foregroundColor: UIColor.tcWhite],
                                                   for: .normal)
+        //first background square styling
         underlyingView.layer.cornerRadius = 8
         underlyingView.layer.masksToBounds = true
-        //underlyingView.layer.borderWidth = 1
-//        underlyingView.layer.borderColor = UIColor.tcWhite.cgColor
         
+        //second background square styling
         optionView.layer.cornerRadius = 8
         optionView.layer.masksToBounds = true
-        //optionView.layer.borderWidth = 1
-        //optionView.layer.borderColor = UIColor.tcWhite.cgColor
         
+        //graph button styling
         graphButton.layer.cornerRadius = 8
         graphButton.layer.masksToBounds = true
         
+        //calculate cost button styling
         calculateCostButton.layer.cornerRadius = 8
         calculateCostButton.layer.masksToBounds = true
         calculateCostButton.layer.borderWidth = 1
         calculateCostButton.layer.borderColor = UIColor.tcSeafoamGreen.cgColor
-        //calculateCostButton.layer.backgroundColor = UIColor.tcBlueBlack.cgColor
         
+        //graph button styling
         graphButton.layer.cornerRadius = 8
         graphButton.layer.masksToBounds = true
         graphButton.layer.borderWidth = 1
         graphButton.layer.borderColor = UIColor.tcSeafoamGreen.cgColor
-        //calculateCostButton.layer.backgroundColor = UIColor.tcBlueBlack.cgColor
-        
+    
+        //cost-premium label styling
         costLabel.layer.cornerRadius = 8
         costLabel.layer.masksToBounds = true
     }
@@ -209,7 +214,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         }
         setStrategy()
     }
-
+    
     func setStrategy(){
         if callOrPutChoice == 0 && buyOrSellChoice == 0{
             //long call
@@ -233,26 +238,38 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             callAndPutLabel.text = "Price of Put:"
         }
     }
+    
+    //get rid of keypad
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let underlyingTickerText = self.underlyingTickerTextField.text{
+            self.underlyingTicker = underlyingTickerText
+        }
+        if let expiryDateText = self.numofContractsTextField.text{
+            self.expiryDate = expiryDateText
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else{return}
         
         switch identifier {
         case "displayGraph":
             calculateOptionTotalCost()
-            setSelfValues()
+            setSelfValues() //hacky fix to get correct values passed through delegate
             
             //delegate implementation to pass data
             if let profitGraphViewController = segue.destination as? ProfitGraphViewController{
                 profitGraphViewController.delegate = nil
                 profitGraphViewController.delegate = self}
             
-        case "save" where calculation != nil: //when it is not a new
+        case "save" where calculation != nil: //existing calculation modified and saved
             
             calculation?.callOrPutChoice = callOrPutChoice
             calculation?.buyOrSellChoice = buyOrSellChoice
             calculation?.strategy = strategy
             calculation?.underlyingTicker = underlyingTickerTextField.text ?? ""
-            //calculation?.underlyingPrice = underlyingPriceLabel.text ?? ""
             calculation?.underlyingPrice = underlyingPriceTextField.text ?? ""
             calculation?.strategyTitleLabel = StrategyTitleLabel.text ?? ""
             calculation?.callOrPutLabel = callAndPutLabel.text ?? ""
@@ -265,13 +282,12 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             
             CoreDataHelper.saveCalculation()
             
-        case "save" where calculation == nil: //new calculation:
+        case "save" where calculation == nil: //new calculation saved
             let calculation = CoreDataHelper.newCalculation()
             calculation.callOrPutChoice = callOrPutChoice
             calculation.buyOrSellChoice = buyOrSellChoice
             calculation.strategy = strategy
             calculation.underlyingTicker = underlyingTickerTextField.text ?? ""
-//            calculation.underlyingPrice = underlyingPriceLabel.text ?? ""
             calculation.underlyingPrice = underlyingPriceTextField.text ?? ""
             calculation.strategyTitleLabel = StrategyTitleLabel.text ?? ""
             calculation.callOrPutLabel = callAndPutLabel.text ?? ""
@@ -291,13 +307,8 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             print("unexpected segue")
         }
     }
-}
-
-extension CalculatorViewController{
+    
     func setSelfValues(){
-//        if let underlyingPriceText = underlyingPriceLabel.text, let underlyingPriceDouble = Double(underlyingPriceText){
-//            self.underlyingPrice = underlyingPriceDouble
-//        }
         if let underlyingPriceText = underlyingPriceTextField.text, let underlyingPriceDouble = Double(underlyingPriceText){
             self.underlyingPrice = underlyingPriceDouble
         }
@@ -310,7 +321,7 @@ extension CalculatorViewController{
         if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
         }
     }
-
+    
     func calculateOptionTotalCost(){
         if let callPriceText = self.callPriceTextField.text, let callPriceDouble = Double(callPriceText){
             self.callPrice = callPriceDouble
@@ -318,62 +329,11 @@ extension CalculatorViewController{
         
         if let numOfContractsText = self.numofContractsTextField.text, let numOfContractsDouble = Double(numOfContractsText) {self.numOfOptions = numOfContractsDouble * 100
         }
-        
         let entryCostText = String(callPrice * numOfOptions)
         self.costLabel.text = entryCostText.dropLast(2)
     }
-    
-    func getSymbolCurrentPrice(completion: @escaping (_: Double) -> ()){
-        
-        //code enter underlying stock ticker, hit enter, and retrieve latest ticker stock price
-        guard let symbolText = self.underlyingTickerTextField.text
-            else {return}
-        if self.underlyingTickerTextField.isFirstResponder {
-            self.underlyingTickerTextField.resignFirstResponder()
-        }
-        //print(self.symbolTextField.text)
-        let apiToContact = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbolText)&interval=1min&apikey=NXO7H3J2KOGFSKOI"
-        Alamofire.request(apiToContact).validate().responseJSON() { response in
-            var tempArr = [TimeSeriesIntraday]()
-            switch response.result {
-            case .success:
-                //Get data ready to store in custom array of dictionaries
-                let result = response.result.value as! [String:Any]
-                guard let dict = result["Time Series (1min)"] as? [String: Any] else{
-                    print("Could not retrieve timestamps")
-                    //completion([])
-                    return
-                }
-                //Format timestamp to proper date format
-                for dic in dict{
-                    guard let date = self.stringToDateAndTime(string: dic.key),
-                        let tempValue = dic.value as? [String: Any] else {
-                            return
-                    }
-                    //populate new array of TimeSeriestIntraday objects, 100 objects created 1 min apart
-                    tempArr.append(TimeSeriesIntraday(dict: tempValue, timeStamp: date))
-                }
-                //sort the array from oldest to newest data
-                let sortedData = TimeSeriesIntraday.sortSeriesByTime(array: tempArr)
-                guard let latestTickerStockPrice = Double(sortedData[sortedData.count-1].close)
-                    else {return}
-                let stockPriceRounded = (100 * latestTickerStockPrice).rounded()/100
-//                let stockPriceRounded = 20.0
-                self.underlyingPriceLabel.text = String(stockPriceRounded)
-                completion(Double(stockPriceRounded))
-            case .failure(let error):
-                print ("API request did not succeed")
-                print(error)
-            }
-        }
-    }
-    func stringToDateAndTime(string: String) -> (Date?){
-        let dateAndTimeFormatter = DateFormatter()
-        dateAndTimeFormatter.dateFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
-        let dateAndTimeFormatted = dateAndTimeFormatter.date(from: string)
-        return dateAndTimeFormatted
-    }
 }
+
 
 
 
