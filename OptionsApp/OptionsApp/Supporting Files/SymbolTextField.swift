@@ -13,12 +13,11 @@ import UIKit
 
 class SymbolTextField: UITextField {
     
-    // MARK: - Properties
-    
-    //optional closure
+    //Properties
+    //Optional closure
     var calculateButtonAction: (() -> Void)?
     
-    // MARK: - View Lifecycle
+    //View Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

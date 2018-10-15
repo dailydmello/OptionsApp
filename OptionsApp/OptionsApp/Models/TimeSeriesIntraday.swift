@@ -70,7 +70,7 @@ struct TimeSeriesIntraday{
     }
     
     static func sortSeriesByTime(array:[TimeSeriesIntraday])->[TimeSeriesIntraday]{
-        return array.sorted(by: { $0.timeFrame < $1.timeFrame}) //redo to understand
+        return array.sorted(by: { $0.timeFrame < $1.timeFrame}) 
     
     }
     
