@@ -15,6 +15,7 @@ class SymbolTextField: UITextField {
     
     // MARK: - Properties
     
+    //optional closure
     var calculateButtonAction: (() -> Void)?
     
     // MARK: - View Lifecycle
@@ -26,8 +27,9 @@ class SymbolTextField: UITextField {
         
         let leadingFlex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let trailingFlex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let calculateButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(calculateButtonTapped(_:)))
         
+        //programatically set up action calculatebuttontapped when done is tapped
+        let calculateButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(calculateButtonTapped(_:)))
         toolbar.items = [leadingFlex, calculateButton, trailingFlex]
         toolbar.tintColor = UIColor.tcWhite
         toolbar.barTintColor = UIColor.tcBlueBlack
@@ -44,6 +46,7 @@ class SymbolTextField: UITextField {
     }
     
     @objc private func calculateButtonTapped(_ sender: UIBarButtonItem) {
+        //calculate button called each time calculate button is tapped
         calculateButtonAction?()
     }
 }
