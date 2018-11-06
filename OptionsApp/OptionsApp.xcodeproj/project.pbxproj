@@ -21,7 +21,6 @@
 		DDB581A9210793780057D466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581A8210793780057D466 /* AppDelegate.swift */; };
 		DDB581AE210793780057D466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB581AC210793780057D466 /* Main.storyboard */; };
 		DDB581B1210793780057D466 /* OptionsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDB581AF210793780057D466 /* OptionsApp.xcdatamodeld */; };
-		DDB581B3210793790057D466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB581B2210793790057D466 /* Assets.xcassets */; };
 		DDB581C321079CD10057D466 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C221079CD10057D466 /* CalculatorViewController.swift */; };
 		DDB581C521079CE90057D466 /* ProfitGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C421079CE90057D466 /* ProfitGraphViewController.swift */; };
 		DDB581C721079F6B0057D466 /* ListCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581C621079F6B0057D466 /* ListCalcTableViewController.swift */; };
@@ -30,6 +29,8 @@
 		DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581CF21083DE00057D466 /* SymbolTextField.swift */; };
 		DDB581D22108FAC00057D466 /* TimeSeriesIntraday.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB581D12108FAC00057D466 /* TimeSeriesIntraday.swift */; };
 		DDF8493121705FC30027AA4F /* DropLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8493021705FC30027AA4F /* DropLast.swift */; };
+		DDFE4EF3219105A800A4D132 /* CalculationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFE4EF2219105A800A4D132 /* CalculationViewModel.swift */; };
+		DDFE4EF521913FB200A4D132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFE4EF421913FB200A4D132 /* Assets.xcassets */; };
 		F75ECA978A56C5AED0851106 /* Pods_OptionsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307F94F97CB8C02A393E0695 /* Pods_OptionsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +53,6 @@
 		DDB581A8210793780057D466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB581AD210793780057D466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDB581B0210793780057D466 /* OptionsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OptionsApp.xcdatamodel; sourceTree = "<group>"; };
-		DDB581B2210793790057D466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB581B7210793790057D466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDB581C221079CD10057D466 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		DDB581C421079CE90057D466 /* ProfitGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitGraphViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		DDB581CF21083DE00057D466 /* SymbolTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTextField.swift; sourceTree = "<group>"; };
 		DDB581D12108FAC00057D466 /* TimeSeriesIntraday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesIntraday.swift; sourceTree = "<group>"; };
 		DDF8493021705FC30027AA4F /* DropLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropLast.swift; sourceTree = "<group>"; };
+		DDFE4EF2219105A800A4D132 /* CalculationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewModel.swift; sourceTree = "<group>"; };
+		DDFE4EF421913FB200A4D132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OptionsApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		DDB581A7210793780057D466 /* OptionsApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDFE4EF12191059600A4D132 /* ViewModel */,
 				DD6CCF29211908670099A99C /* Proxima */,
 				DD61B864210F9D3700DCEE31 /* Extensions */,
 				DDB581C82107B2670057D466 /* Views */,
@@ -137,9 +140,9 @@
 				DDB581C021079B5E0057D466 /* Supporting Files */,
 				DDB581C121079B870057D466 /* Services */,
 				DDB581AC210793780057D466 /* Main.storyboard */,
-				DDB581B2210793790057D466 /* Assets.xcassets */,
 				DD50EB4B211BC236009972D4 /* OptionTutorLaunchScreen.storyboard */,
 				DDB581B7210793790057D466 /* Info.plist */,
+				DDFE4EF421913FB200A4D132 /* Assets.xcassets */,
 				DDB581A8210793780057D466 /* AppDelegate.swift */,
 				DDB581AF210793780057D466 /* OptionsApp.xcdatamodeld */,
 			);
@@ -195,6 +198,14 @@
 				DDB581C92107B29B0057D466 /* ListCalcTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DDFE4EF12191059600A4D132 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDFE4EF2219105A800A4D132 /* CalculationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FF64E6A895F7BB6C6794024C /* Pods */ = {
@@ -272,13 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6CCF3321190C1F0099A99C /* Proxima Nova Bold.otf in Resources */,
-				DDB581B3210793790057D466 /* Assets.xcassets in Resources */,
 				DD6CCF30211908670099A99C /* Proxima Nova Bold It.ttf in Resources */,
 				DD6CCF31211908670099A99C /* Proxima Nova Reg.ttf in Resources */,
 				DD50EB4C211BC236009972D4 /* OptionTutorLaunchScreen.storyboard in Resources */,
 				DD6CCF2E211908670099A99C /* Proxima Nova Light It.ttf in Resources */,
 				DD6CCF2F211908670099A99C /* Proxima Nova Light.ttf in Resources */,
 				DDB581AE210793780057D466 /* Main.storyboard in Resources */,
+				DDFE4EF521913FB200A4D132 /* Assets.xcassets in Resources */,
 				DD6CCF3521190D010099A99C /* Proxima Nova SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +356,7 @@
 				DDB581D021083DE00057D466 /* SymbolTextField.swift in Sources */,
 				DD61B868210FD5F100DCEE31 /* CoreDataHelper.swift in Sources */,
 				DD4237B521556DFC00FEEA94 /* NumberFormatter.swift in Sources */,
+				DDFE4EF3219105A800A4D132 /* CalculationViewModel.swift in Sources */,
 				DDB581D22108FAC00057D466 /* TimeSeriesIntraday.swift in Sources */,
 				DD61B866210F9E1B00DCEE31 /* Date+convertToString.swift in Sources */,
 			);

@@ -1137,20 +1137,39 @@ Cg
                                                 <rect key="frame" x="0.0" y="74" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-8e-KVP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
                                                         <color key="textColor" name="tcWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="207.38" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tem-Hq-iRw" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
-                                                        <rect key="frame" x="197" y="0.0" width="118" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sq8-Fn-6OZ">
+                                                        <rect key="frame" x="167" y="0.0" width="148" height="30"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL9-Ar-ZTk">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="6aL-Uh-qIK"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="pAx-Zq-FFW"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button" image="arrow-31177_960_720"/>
+                                                                <connections>
+                                                                    <action selector="refreshButtonTapped:" destination="DOM-Vy-0dR" eventType="touchUpInside" id="f0u-T4-zm7"/>
+                                                                </connections>
+                                                            </button>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="207.38" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tem-Hq-iRw" customClass="SymbolTextField" customModule="OptionsApp" customModuleProvider="target">
+                                                                <rect key="frame" x="30" y="0.0" width="118" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="118" id="S1o-17-zRS"/>
+                                                                </constraints>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                            </textField>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="118" id="S1o-17-zRS"/>
+                                                            <constraint firstItem="tem-Hq-iRw" firstAttribute="leading" secondItem="ZL9-Ar-ZTk" secondAttribute="trailing" id="kSh-dd-aR5"/>
                                                         </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
-                                                    </textField>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1595,6 +1614,7 @@ Cg
         </scene>
     </scenes>
     <resources>
+        <image name="arrow-31177_960_720" width="563" height="720"/>
         <namedColor name="tcAlmostBlack">
             <color red="0.13699999451637268" green="0.16500000655651093" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

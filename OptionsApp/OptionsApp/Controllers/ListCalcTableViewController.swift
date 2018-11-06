@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class ListCalcTableViewController: UITableViewController{
     
@@ -16,6 +17,7 @@ class ListCalcTableViewController: UITableViewController{
     
     var calculations = [Calculation]() {
         //property observer
+        //not good implmentation for 1000 calculations, keep reloading, think of how to fetch a 100 at a time to display, then fetch the rest?
         didSet {
             tableView.reloadData()
         }
@@ -26,6 +28,7 @@ class ListCalcTableViewController: UITableViewController{
         setupViews()
         calculations = CoreDataHelper.retrieveCalculation()
     }
+    
     //Asks the data source to return the number of sections in the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calculations.count
@@ -47,6 +50,7 @@ class ListCalcTableViewController: UITableViewController{
             let formCost = formatNumber(numString: cost)
             cell.entryCostInfoLabel.text = "Entry Cost: \(formCost)"
             
+            //alot of repeated code, implement enum??, initialize cell with strategy type??
         case 1:
             cell.strategyTitleLabel.text = "Naked Call"
             let underlyingTicker = calculation.underlyingTicker ?? ""

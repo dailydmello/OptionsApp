@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 
 protocol CalculatorViewControllerDelegate {
     
@@ -53,6 +53,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //fetchData()
         //styling
         setupViews()
         //get rid of keyboard
@@ -94,6 +95,40 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
             costLabel.text = ""
         }
     }
+    
+    func fetchData(symbol: String){
+        let apiToContact = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=1min&apikey=NXO7H3J2KOGFSKOI"
+        Alamofire.request(apiToContact).validate().responseJSON() { response in
+            var tempArr = [TimeSeriesIntraday]()
+            
+            switch response.result {
+            case .success:
+                print ("API request was a success")
+                let result = response.result.value as! [String:Any]
+                guard let dict = result["Time Series (1min)"] as? [String: Any] else{
+                    print("Could not retrieve timestamps")
+                    //completion([])
+                    return
+                }
+                for dic in dict{
+                    guard let date = self.stringToDateAndTime(string: dic.key),
+                        let tempValue = dic.value as? [String: Any] else {
+                            //print("Could not retrieve Date and Time")
+                            return
+                    }
+                    tempArr.append(TimeSeriesIntraday(dict: tempValue, timeStamp: date))
+                }
+                let sortedData = TimeSeriesIntraday.sortSeriesByTime(array: tempArr)
+                guard let lastestTickerStockPrice = Double(sortedData[sortedData.count-1].close)
+                    else {return}
+                let stockPriceRounded = (100 * lastestTickerStockPrice).rounded()/100
+                self.underlyingPriceTextField.text = String(stockPriceRounded)
+            case .failure(let error):
+                print(error)
+            }
+        }
+
+    }
     func passData()-> ([Double],String){
         tempArr.removeAll()
         tempArr.append(self.underlyingPrice)
@@ -104,6 +139,10 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         return (tempArr,self.underlyingTicker)
     }
     
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        self.underlyingTicker = underlyingTickerTextField.text!
+        fetchData(symbol:underlyingTicker)
+    }
     func setupViews(){
         //cancel button styling
         cancelBarButtonItem.setTitleTextAttributes([
@@ -147,7 +186,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
     func inputEntered(){
         underlyingPriceTextField.calculateButtonAction = {
             if self.underlyingPriceTextField.isFirstResponder {
-                self.underlyingPriceTextField.resignFirstResponder()
+        self.underlyingPriceTextField.resignFirstResponder()
             }
             if let underlyingPriceText = self.underlyingPriceTextField.text, let underlyingPriceDouble = Double(underlyingPriceText){
                 self.underlyingPrice = underlyingPriceDouble
@@ -244,6 +283,7 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         textField.resignFirstResponder()
         if let underlyingTickerText = self.underlyingTickerTextField.text{
             self.underlyingTicker = underlyingTickerText
+            fetchData(symbol: self.underlyingTicker)
         }
         if let expiryDateText = self.numofContractsTextField.text{
             self.expiryDate = expiryDateText
@@ -331,6 +371,15 @@ class CalculatorViewController: UIViewController, CalculatorViewControllerDelega
         }
         let entryCostText = String(callPrice * numOfOptions)
         self.costLabel.text = entryCostText.dropLast(2)
+    }
+}
+
+extension CalculatorViewController{
+    func stringToDateAndTime(string: String) -> (Date?){
+        let dateAndTimeFormatter = DateFormatter()
+        dateAndTimeFormatter.dateFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
+        let dateAndTimeFormatted = dateAndTimeFormatter.date(from: string)
+        return dateAndTimeFormatted
     }
 }
 
