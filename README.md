@@ -1,2 +1,2 @@
 # OptionsApp
-Simulation of different option strategies
+Finance/Profit simulations of different option strategies
